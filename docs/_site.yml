@@ -1,7 +1,7 @@
 name: "docs"
-title: "Big Five Data"
+title: "Big Five"
 description: |
-  Big Five Data
+  Big Five
 output_dir: "_site"
 navbar:
   right:

@@ -1,5 +1,5 @@
 ---
-title: "Big Five Data"
+title: "Big Five"
 description: |
   Welcome to the website. I hope you enjoy it!
 site: distill::distill_website
@@ -7,10 +7,365 @@ site: distill::distill_website
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(tidyverse)
+library(dplyr)
+library(plotly)
+library(ggplot2)
+library(distill)
+library(rmarkdown)
+library(RColorBrewer)
+library(formattable)
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
 
 ```
 
-WAHOOO TEST
+
+## Introduction 
+
+This is an analysis of Big Five results, with raw data collected from Open Psychometrics. It contains over 1 million results from various countries, making it *quite* a large file to read through. 
+
+My original goal of this project was to dabble in a bit of data science – data genuinely fascinates me. So, learning how to parse, clean, and modify it, is always going to be a funny endeavor. However, I wanted to drag a bit of psychology in here, just to make it more engaging for me! 
+
+If you’re interested in a specific part, you may skip ahead: 
+
+Introduction
+
+1. [Objectives](#Objectives)
+2. [What is the Big Five (SLOAN)](#SLOAN)
+3. [Discussing Data](#ddata) 
+
+Data
+
+4. [What is the Most Popular Result?](#popres)
+5. Does this result vary between countries? 
+6. How long did people spend on questions?
+
+Further Analysis 
+
+7. Limitations of Big Five 
+8. Connection of Big Five and Daily Life
+
+### Objectives <a name="Objectives"></a>
+After looking at the raw data, there were several questions I wanted to solve: 
+
+1. What are the actual results of the data? 
+2. Which result was the most popular? How does that compare to other data sets? 
+3. Did these results vary significantly between countries? 
+4. Did certain answers require more time? 
+5. Why did this quiz get the results that it did? 
+
+The first three are purely data-based, as they’re just an exploration of the quiz answers. Number four, on the other hand, is trying to understand WHY the results are the way they are. Personally, I find that it’s the most interesting aspect of this: The results are cool, but understanding the people behind the quiz is far more entertaining. 
+
+However, I’m also looking to learn more about the Big Five as a personality model, with a specific interest in common trends and future applications. This means that the second half of this investigation will focus on psychology rather than data science, with a heavier emphasis on writing than code. Furthermore, the tone will remain casual throughout the investigation and I will frequently use personal pronouns and other scientific no-goes - It’s not an academic paper for a reason! 
+
+### What is the Big Five (SLOAN) <a name="SLOAN"></a>
+
+The Big Five is a personality model that categories people with 5 major personality traits 
+
+* Extroversion - Sociable / Reserved
+* Neuroticism - Calm / Limbic
+* Conscientiousness -  Organized / Unstructured 
+* Agreeableness - Agreeable / Egocentric 
+* Inquisition - Inquisitive / Non-inquisitive 
+
+Hence, a possible result could look like RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can easily be seen by looking at the beginning letter of each trait. However, an ‘X’ might also be seen. This symbolizes that they equally represent both sides. Therefore, there is no conclusive answer, resulting in a ‘X’, such as SXUAN. 
+
+The specific order and formatting of these traits uses the SLOAN formatting, and this investigation will continue using this syntax. However, other common formatting include OCEAN and CANOE. The specific wording (e.g. Extroversion, Conscientiousness) of traits may also vary from one investigation to another. This investigation will continue using the wording above. 
+
+These five major traits can also be broken down further: Extroversion can also contain traits like gregariousness and excitement-seeking. However, these subsets are not within the scope of this investigation. 
+
+Furthermore, it should be noted that one person is not entirely one or the other. People exist on a spectrum of these results, despite how black and white they seem to be portrayed. The Big Five result tends to 
+
+Interested in what your results are? The Open Psychometrics Big Five quiz can be [taken here](https://openpsychometrics.org/tests/IPIP-BFFM/). 
+
+Citations
+
+* https://en.wikipedia.org/wiki/Big_Five_personality_traits
+* https://similarminds.com/sloan.html
+
+### Discussing Data <a name="ddata"></a>
+This quiz is self-administered, with users given 50 questions, meaning 10 from each trait. Every question was ranked on a Likert scale (a 5 point scale) with 1 meaning I disagree with the prompt, 3 meaning I am neutral on the prompt, and 5 meaning I agree with the prompt.  
+
+Some sample prompts include: 
+
+* I don't mind being the center of attention. (Testing extrovertism) 
+* I have frequent mood swings. (Testing conscientiousness) 
+* I do not have a good imagination. (Testing inquisition) 
+
+Questions from each category were rotated, starting from Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Inquisition Q1, Extroversion Q2, etc.
+
+Data was also collected on the country of the quiz-taker, the amount of time spent on each question, date taken, and more. In total, 1,015,342 answers were collected over ~2 years, with consent from the user. 
+
+## Datalicious Depths of Delectable Data 
+
+### What is the most popular result? <a name="popres"></a>
+
+Unfortunately, within this data set, Open Psychometrics did not provide us with the result, but with a bunch of numbers. In fact, this is what the data looks like: 
+
+
+```{r, initialdata, include=FALSE}
+data <- read.csv("data-final.csv")
+data[] <- sapply(data, as.numeric)
+options(scipen=10000) 
+```
+
+```{r, begin data}
+paged_table(head(select(data, EXT1, EXT2, EXT3)))
+```
+
+
+I've only selected the first 3 columns of the first 6 responses. Not too bad, right? But, you've gotta imagine about 50 more columns, and about a million more rows. It's a little more intimidating now, but we've gotta start somewhere >:)
+
+First, let's calculate the scores for the Extroversion personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, EXT Question 2: I don't talk a lot vs EXT Question 1: I am the life of the party. 
+
+So, we'll need to make sure to add and subtract scores as necessary - I've arbitrarily made the decision to add 'points' if a question symbolizes extroversion, while subtracting 'points' if a question is correlated with introversion. 
+
+Hence, after adding up all the scores, any positive score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'. If their score is 0, then they'd receive an 'X', as their results can't really be evaluated since they're perfectly in-between!
+
+Sample table of results: 
+
+```{r, extdata}
+exttable <- data %>% select(starts_with('EXT'))
+exttable <- exttable %>% select(-c (ends_with('E'))) %>% 
+  mutate(extscore = EXT1 - EXT2 + EXT3 - EXT4 + EXT5 - EXT6 + EXT7 - EXT8 + EXT9 - EXT10) %>% 
+  mutate(extletter = 
+    case_when(
+      extscore > 0 ~ "S", 
+      extscore < 0 ~ "R", 
+      extscore == 0 ~ "X"
+    )) %>%
+  select(extscore, extletter, everything())
+paged_table(head(exttable))
+
+```
+
+<br>
+Visualizing this data into a graph: 
+
+
+```{r, extgraph}
+exttable <- data %>% select(starts_with('EXT'))
+exttable <- exttable %>% select(-c (ends_with('E'))) %>% 
+  mutate(extscore = (EXT1-3) - (EXT2-3) + (EXT3-3) - (EXT4-3) + (EXT5-3) - (EXT6-3) + (EXT7-3) - (EXT8-3) + (EXT9-3) - (EXT10-3)) %>% 
+  mutate(extletter = 
+    case_when(
+      extscore > 0 ~ "S", 
+      extscore < 0 ~ "R", 
+      extscore == 0 ~ "X"
+    ))
+
+dfext <- data.frame(extlettercount = c(500346, 468068, 45144),
+                    extlettermap = c('R', 'S', 'X'))
+
+
+ pext <- ggplot(data=dfext, aes(x=extlettermap, y=extlettercount)) +
+   geom_bar(stat="identity", fill="steel blue") +
+   labs(
+     title = "More Users are Introverted Than Extroverted",
+     subtitle = "Introverts, give me a cheer! Wait... why is it silent? Where did the introverts go?") + 
+   xlab("Possible Results") +
+   ylab("Amount of Users")+
+   geom_text(aes(label=extlettercount), vjust=-0.3, size=3.5)+
+   theme_minimal()
+ pext
+
+```
+
+
+I'm going to refrain from any analysis on WHY there's more R's compared to S's until the final results. But, it's a pretty 50/50 split! 
+
+The same process will be applied to the other personality traits*, with the graphs of results located below: 
+
+```{r, est}
+ esttable <- data %>% select(starts_with('EST'))
+ esttable <- esttable %>% select(-c (ends_with('E'))) %>%
+   mutate(estscore = (EST2-3) - (EST1-3) - (EST3-3) + (EST4-3)  - (EST5-3)- (EST6-3)- (EST7-3)- (EST8-3)- (EST9-3)- (EST10-3)) %>%
+   mutate(estletter =
+            case_when(
+              estscore > 0 ~ "C",
+              estscore < 0 ~ "L",
+              estscore == 0 ~ "X"
+            ))
+ 
+ dfest <- data.frame(estlettercount = c(517196, 452040, 44322),
+                     estlettermap = c('L', 'C', 'X'))
+
+ pest <- ggplot(data=dfest, aes(x=estlettermap, y=estlettercount)) +
+   geom_bar(stat="identity", fill="steel blue") +
+   labs(
+     title = "Users are More Prone to Being Limbic Than Calm",
+     subtitle = "Moody and a little bit groovy") + 
+   xlab("Possible Results") +
+   ylab("Amount of Users")+
+   geom_text(aes(label=estlettercount), vjust=-0.3, size=3.5)+
+   theme_minimal()
+ pest
+```
+
+```{r, csn}
+
+ csntable <- data %>% select(starts_with('CSN'))
+ csntable <- csntable %>% select(-c (ends_with('E'))) %>% 
+   mutate(csnscore = (CSN1-3) - (CSN2-3) + (CSN3-3) - (CSN4-3) + (CSN5-3) - (CSN6-3) + (CSN7-3) - (CSN8-3) + (CSN9-3) - (CSN10-3)) %>% 
+   mutate(csnletter = 
+            case_when(
+              csnscore > 0 ~ "O", 
+              csnscore < 0 ~ "U", 
+              csnscore == 0 ~ "X"
+            ))
+
+dfcsn <- data.frame(csnlettercount = c(614712, 339447, 59399),
+                     csnlettermap = c('O', 'U', 'X'))
+ 
+ pcsn <- ggplot(data=dfcsn, aes(x=csnlettermap, y=csnlettercount)) +
+   geom_bar(stat="identity", fill="steel blue") +
+   labs(
+     title = "Users Tend to be Organized, Rather Than Unorganized",
+     subtitle = "Control freaks reign supreme") + 
+   xlab("Possible Letters") +
+   ylab("Amount of people")+
+   geom_text(aes(label=csnlettercount), vjust=-0.3, size=3.5) +
+   theme_minimal()
+ pcsn
+```
+
+```{r, agr}
+ agrtable <- data %>% select(starts_with('AGR'))
+ agrtable <- agrtable %>% select(-c (ends_with('E'))) %>% 
+   mutate(agrscore = AGR2 - AGR1 + AGR4 - AGR3 + AGR6 - AGR5 + AGR8 - AGR7 + AGR10 + AGR9) %>% 
+   mutate(agrletter = 
+            case_when(
+              agrscore > 0 ~ "A", 
+              agrscore < 0 ~ "E", 
+              agrscore == 0 ~ "X"
+            ))
+
+dfagr <- data.frame(agrlettercount = c(836947, 138063, 38548),
+                     agrlettermap = c('A', 'E', 'X'))
+ 
+ pagr <- ggplot(data=dfagr, aes(x=agrlettermap, y=agrlettercount)) +
+   geom_bar(stat="identity", fill="steel blue") +
+   labs(
+     title = "Users Rate Themseleves More Agreeable Than Egocentric",
+     subtitle = "AKA: People like to think they're a lot nicer than they actually are") + 
+   xlab("Possible Letters") +
+   ylab("Amount of people")+
+   geom_text(aes(label=agrlettercount), vjust=-0.3, size=3.5) +
+   theme_minimal()
+ pagr
+```
+
+```{r, opn}
+ opntable <- data %>% select(starts_with('OPN'))
+ opntable <- opntable %>% select(-c (ends_with('E'))) %>% 
+   mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) - (OPN8-3) + (OPN9-3) - (OPN10-3)) %>% 
+   mutate(opnletter = 
+            case_when(
+              opnscore > 0 ~ "I", 
+              opnscore < 0 ~ "N", 
+              opnscore == 0 ~ "X"
+            )) 
+
+dfopn <- data.frame(opnlettercount = c(924641, 55789, 33128),
+                     opnlettermap = c('I', 'N', 'X'))
+ 
+ popn <- ggplot(data=dfopn, aes(x=opnlettermap, y=opnlettercount)) +
+   geom_bar(stat="identity", fill="steel blue") +
+   labs(
+     title = "The Majourity Considers Themselves as Inquisitive",
+     subtitle = "BREAKING NEWS: People like learning, schools are just ineffective... allegedly") + 
+   xlab("Possible Letters") +
+   ylab("Amount of people")+
+   geom_text(aes(label=opnlettercount), vjust=-0.3, size=3.5) +
+   theme_minimal()
+ popn
+```
+
+After getting these values, we can now combine them together to get the results. I'm also going to limit this to the top 25 results... or else the data just gets super messy. 
+
+```{r, combineresults}
+finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnletter, agrtable$agrletter, opntable$opnletter, sep=""))
+ finaltable <- data.frame(finalletters) 
+  
+ pfinaltable25 <- finaltable %>% 
+   unnest(finalletters) %>%
+   group_by(finalletters) %>%
+   summarize(total = n()) %>%
+   arrange(desc(total)) %>%
+   slice(1:25)
+ getPalette = colorRampPalette(brewer.pal(9, "Set1"))
+ 
+  blank_theme <- theme_minimal()+
+   theme(
+     axis.title.x = element_blank(),
+     axis.title.y = element_blank(),
+   )
+ 
+ bp25 <- ggplot(pfinaltable25, aes(x="", y=total, fill=reorder(finalletters, -total))) +
+   geom_bar(width = 1, stat = "identity") +scale_fill_manual(values = getPalette(25))
+ 
+ pie25 <- bp25 + coord_polar("y", start=0) 
+ pie25 + blank_theme + theme(axis.text.x=element_blank()) +
+   labs(title="25 Most Common Results", 
+        fill="Results")
+```
+
+<br>
+WOOO! Congratulations to the XXOAI family for being among the most common result out of 243 possibilities! If you'd prefer to see a more numerical visual, I've provided a table containing the 10 most common results below: 
+<br>
+
+```{r}
+
+ pfinaltable <- finaltable %>% 
+    unnest(finalletters) %>%
+   group_by(finalletters) %>%
+    summarize(total = n()) %>%
+   arrange(desc(total)) %>%
+   slice(1:10)
+ 
+ pfinaltable <- pfinaltable %>% 
+   mutate(percentage = total/1015342 * 100)
+
+   
+colnames(pfinaltable) <- c("Results", "Total Amount", "Percentage of People")
+ kable(pfinaltable)
+ 
+```
+
+When analyzing this data, it seems.. strange that so many XXOAI types are represented. In fact, it readily contradicts 'theory'. Using the data* from [SimilarMinds](https://similarminds.com/global5/rcoai.html), we can see how strange these results are. 
+
+
+```{r}
+
+ theorytable <- select(pfinaltable, Results) %>%
+   mutate("Percentage of People" = c(3.4, 2.7, 3.5, "N/A", 2.4, 3.4, 3.5, "N/A", "N/A", "N/A"))
+
+expertable <- select(pfinaltable, "Results", "Percentage of People")
+
+expertable <- formattable(expertable) %>% 
+  kable("html", escape = F, caption = "Experimental")
+
+theorytable <- formattable(theorytable) %>% 
+  kable("html", escape = F, caption = "Theory")
+
+knitr::kable(list(theorytable, expertable))
+
+#how to put these two tables side by side 
+#how to add titles to tables
+#how to make footnotes
+
+```
+
+
+
+<!-- talk about discriptieis in theory 
+- inquisitive people are more likely to take an online thing, sicne it's self accessed 
+- people are just nicer, don't like to be seen as egocentric -> only one perspecgtiv 
+- once agian, people want to see more organized, 
+- even spread of R/S, makes sense 
+
+talk about descrending, interesting XXXXX has more than these, maybe skewed because it's easy to make it? 
+-->

@@ -1,0 +1,87 @@
+---
+title: "Laying the Groundwork"
+description: |
+  DON'T SKIP THIS AND GO STRAIGHT TO THE DATA!
+output: html_document
+date: "2023-08-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+This is an analysis of Big Five results, with raw data collected from Open Psychometrics. It contains over 1 million results from various countries, making it *quite* a large file to read through. 
+
+My original goal of this project was to dabble in a bit of data science – data genuinely fascinates me. So, learning how to parse, clean, and modify it, is always going to be a funny endeavor. However, I wanted to drag a bit of psychology in here, just to make it more engaging for me! 
+
+If you’re interested in a specific part, you may skip ahead: 
+
+Introduction
+
+1. [Objectives](#Objectives)
+2. [What is the Big Five (SLOAN)](#SLOAN)
+3. [Discussing Data](#ddata) 
+
+Data
+
+4. [What is the Most Popular Result?](#popres)
+5. [Do results vary between countries?](#country)
+6. How long did people spend on questions?
+
+Further Analysis 
+
+7. Limitations of Big Five 
+8. Connection of Big Five and Daily Life
+
+### Objectives <a name="Objectives"></a>
+After looking at the raw data, there were several questions I wanted to solve: 
+
+1. What are the actual results of the data? 
+2. Which result was the most popular? How does that compare to other data sets? 
+3. Did these results vary significantly between countries? 
+4. Did certain answers require more time? 
+5. Why did this quiz get the results that it did? 
+
+The first three are purely data-based, as they’re just an exploration of the quiz answers. Number four, on the other hand, is trying to understand WHY the results are the way they are. Personally, I find that it’s the most interesting aspect of this: The results are cool, but understanding the people behind the quiz is far more entertaining. 
+
+However, I’m also looking to learn more about the Big Five as a personality model, with a specific interest in common trends and future applications. This means that the second half of this investigation will focus on psychology rather than data science, with a heavier emphasis on writing than code. Furthermore, the tone will remain casual throughout the investigation and I will frequently use personal pronouns and other scientific no-goes - It’s not an academic paper for a reason! 
+
+### What is the Big Five (SLOAN) <a name="SLOAN"></a>
+
+The Big Five is a personality model that categories people with 5 major personality traits 
+
+* Extroversion - Sociable / Reserved
+* Neuroticism - Calm / Limbic
+* Conscientiousness -  Organized / Unstructured 
+* Agreeableness - Agreeable / Egocentric 
+* Openness - Inquisitive / Non-inquisitive (typically to new experiences)
+
+Hence, a possible result could look like RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can easily be seen by looking at the beginning letter of each trait. However, an ‘X’ might also be seen. This symbolizes that they equally represent both sides. Therefore, there is no conclusive answer, resulting in a ‘X’, such as SXUAN. 
+
+The specific order and formatting of these traits uses the SLOAN formatting, and this investigation will continue using this syntax. However, other common formatting include OCEAN and CANOE. The specific wording (e.g. Extroversion, Conscientiousness) of traits may also vary from one investigation to another. This investigation will continue using the wording above. 
+
+These five major traits can also be broken down further: Extroversion can also contain traits like gregariousness and excitement-seeking. However, these subsets are not within the scope of this investigation. 
+
+Furthermore, it should be noted that one person is not entirely one or the other. People exist on a spectrum of these results, despite how black and white they seem to be portrayed. The Big Five result tends to 
+
+Interested in what your results are? The Open Psychometrics Big Five quiz can be [taken here](https://openpsychometrics.org/tests/IPIP-BFFM/). 
+  
+Citations
+
+* https://en.wikipedia.org/wiki/Big_Five_personality_traits
+* https://similarminds.com/sloan.html
+
+### Discussing Data <a name="ddata"></a>
+This quiz is self-administered, with users given 50 questions, meaning 10 from each trait. Every question was ranked on a Likert scale (a 5 point scale) with 1 meaning I disagree with the prompt, 3 meaning I am neutral on the prompt, and 5 meaning I agree with the prompt.  
+
+Some sample prompts include: 
+
+* I don't mind being the center of attention. (Testing extrovertism) 
+* I have frequent mood swings. (Testing conscientiousness) 
+* I do not have a good imagination. (Testing openness) 
+
+Questions from each category were rotated, starting from Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, Extroversion Q2, etc.
+
+Data was also collected on the country of the quiz-taker, the amount of time spent on each question, date taken, and more. In total, 1,015,342 answers were collected over ~2 years, with consent from the user. 

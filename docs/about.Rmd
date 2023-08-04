@@ -9,8 +9,10 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ### Hello!
+<!-- rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/about.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/about.html') -->
+Here for the analysis? [It's over here!](index.html)
 
-Hi, I'm Sophia! I'm a student at the University of Waterloo and Wilfred Laurier University, pursing a double degree in BMath and BBA. 
+If you've finished reading the analysis, or got bored and hit the home page, Hi, I'm Sophia! I'm a student at the University of Waterloo and Wilfred Laurier University, pursing a double degree in BMath and BBA. 
 
 I find people fascinating. I love hearing their thoughts, and more importantly, WHY they think that way. That's the fun part, no? The 'Why' is why I like psych - it tells me about the underlying reasons behind actions, and forces people to confront their opinions. It's a process I'm trying to get better at too, but MAN, is it interesting to listen to others.
 
@@ -22,4 +24,4 @@ I don't get any electives until my 3rd year, so I'll need to wait a year until I
 
 As for this project, I'm using R (and their various libraries), I'm exploring Open Psychometric's data set on their Big Five quiz. Visit [HOME](index.html) to hear more about that. 
 
-If you have any questions about my project or would like to reach out, please contact me [here!](mailto:iceyes123@gmail.com). You can also learn more about me on my website: [zhusophia.github.io](zhusophia.github.io)
+If you have any questions about my project or would like to reach out, please contact me [here!](mailto:iceyes123@gmail.com) You can also learn more about me on my website: <a href="https://zhusophia.github.io/" target="_blank"> zhusophia.github.io </a>

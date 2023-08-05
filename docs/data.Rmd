@@ -39,7 +39,7 @@ options(scipen=10000)
 ```
 
 ```{r, begin data}
-paged_table(head(select(data, EXT1, EXT2, EXT3)))
+paged_table(head(data))
 ```
 
 
@@ -51,7 +51,7 @@ So, we'll need to make sure to add and subtract scores as necessary - I've arbit
 
 Hence, after adding up all the scores, any positive score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'. If their score is 0, then they'd receive an 'X', as their results can't really be evaluated since they're perfectly in-between!
 
-Sample table of results: 
+Sample table of results, where extscore and extletter are calculated using the raw data: 
 
 ```{r, extdata}
 exttable <- data %>% select(starts_with('EXT'))
@@ -262,6 +262,26 @@ knitr::kable(pfinaltable,
  
 ```
 
+We can also look at the 'average' scores of each personality trait.^[The average values will actually shift every time you refresh this webpage, as I found a function to randomly grab 100 people, then take the average!] 
+
+```{r, avgtrait}
+#checking average score of each section 
+
+avgscore <- cbind(exttable$extscore, esttable$estscore, csntable$csnscore, agrtable$agrscore, opntable$opnscore)
+avgscore <- data.table::as.data.table(avgscore, .keep.rownames = "word")
+  
+avgscore <- slice_sample(avgscore, n=75) %>%
+  colMeans() 
+
+avgscore <- data.table::as.data.table(avgscore, .keep.rownames = "word")
+avgscore <- as.data.frame(t(avgscore))
+
+colnames(avgscore) <- c("EXT", "EST", "CSN", "AGR", "OPN")
+# be careful of slice sample since it randomizes every time
+avgscore
+
+```
+
 Let’s try to analyze these results. 
 
 **Extrovertism** 
@@ -335,8 +355,6 @@ knitr::kable(list(theorytable,
 ```
 
 
-
-
 Looking at these tables, there’s a clear discrepancy between theoretical and experimental data, where none of the theoretical results really match up to what is seen in our data set. However, most of it can be explained by the previous analysis: Wrong results might occur because of bias and societal norms (cementing the last two letters to be A and I), in addition to the natural disposition of responders. This comparison really just showcases how there’s a high likelihood of bias. 
 
 Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are, since SCOAI seems like one of the most 'socially-successful’ results. But, in reality, responders aren’t actually SCOAIs. That’s my best guess!^[If you have more ideas, I’d love to hear them! Reach out :)]
@@ -364,10 +382,101 @@ At first, I was surprised that 'XXXXX' didn't appear, since it's technically the
 
 ### Do results vary between countries? <a name="country"></a>
 
+This data from 224 unique locations/contains 224 different ISO country codes.^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK), Christmas Island (Australia), and the Holy See.] Let's dig through this data - a fun bit of stalking!
+
+```{r, country data}
 
 
+countrydata <- read.csv("country.csv")
+
+countres <- countrydata %>% 
+  select('country') %>%
+  group_by(country) %>%
+  summarize(total = n()) %>%
+  arrange(desc(total)) %>% 
+  slice(1:25)
+
+
+ggplot(data= countres, mapping = aes(x = reorder(country, -total), y = total))+
+  geom_col(fill = "darkseagreen3")+
+  theme_classic()+
+  labs(title = "Countries of Responders", 
+       subtitle = "OH SAY, CAN YOU SEEEEE!", 
+       y = "Amount of Responses", 
+       x = "Country")
+
+```
+
+We can see that the majority of data came from the US, with a whopping total of 546403 respondents. Followed behind them is Great Britain (GB), Canada (CA), and Australia (Au). This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language.
+
+Google's SEO (Search Engine Optimization) is also affected by location, and can rank websites by their proximity to the user^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher]. So, it's possible that Open Psychometrics is American^[I couldn't find any location data on the website itself], and when Americans search up "Big Five Personality Test", this is the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
+
+But, we're not really concerned on WHERE people are taking the quiz, but how it affects answers. Hence, I'm going to find the top 5 most popular results for America, Great Britain, Australia, and the Philippians--top results from different continents--and seeing how they compare to one another. 
+
+```{r}
+coutdata <- cbind(finaltable$finalletters, countrydata$country) 
+
+
+## US Data 
+colnames(coutdata) <- c('Results', 'Country')
+coutdata <- data.table::as.data.table(coutdata, .keep.rownames = "word")
+
+usdata <- coutdata[coutdata$Country %in% "US"]
+
+usdataslice <- usdata %>% 
+  select('Results') %>%
+  group_by(Results) %>%
+  summarize(total = n()) %>%
+  arrange(desc(total)) %>% 
+  slice(1:10)
+
+usdata
+
+## GB
+gbdata <- coutdata[coutdata$Country %in% "GB"]
+colnames(gbdata) <- c('Results', 'Country')
+
+gbdataslice <- gbdata %>% 
+  select('Results') %>%
+  group_by(Results) %>%
+  summarize(total = n()) %>%
+  arrange(desc(total)) %>% 
+  slice(1:10)
+
+
+
+#Aus
+audata <- coutdata[coutdata$Country %in% "AU"]
+colnames(audata) <- c('Results', 'Country')
+
+audataslice <- audata %>% 
+  select('Results') %>%
+  group_by(Results) %>%
+  summarize(total = n()) %>%
+  arrange(desc(total)) %>% 
+  slice(1:10)
+
+##Ph
+phdata <- coutdata[coutdata$Country %in% "PH"]
+colnames(phdata) <- c('Results', 'Country')
+
+phdataslice <- phdata %>% 
+  select('Results') %>%
+  group_by(Results) %>%
+  summarize(total = n()) %>%
+  arrange(desc(total)) %>% 
+  slice(1:10)
+
+```
 <!--
-
-home drop down menu -> home (about) and analysis with intro, data, and further analysis 
-- get through data, start research for further analysis 
+rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
+- display four tables side by side, with titles (and change theory/exepriemtnal)
+- get through data (question results, see if you can put all the questions side by side, then grab the funniest ones..?), start research for further analysis 
+- show legend if you hover...? for the top 25 pie chart 
+- add titles for graphs
+- statistical distrbution of scores (or at least, agreeable, openness)
+- data for each question -> https://www.kaggle.com/code/gchnfgxj/big-five-personalities-factor-analysis 
+- mapping averages of each country onto map (https://www.kaggle.com/code/psqrtpsqrt/big-five-personality-test-eda)
+-- https://www.youtube.com/watch?v=AgWgPSZ7Gp0&ab_channel=StatisticsGuideswithDrPaulChristiansen
+- either refer to responders or users, or something consistent 
 -->

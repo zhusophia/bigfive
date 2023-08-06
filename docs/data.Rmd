@@ -15,6 +15,7 @@ library(distill)
 library(rmarkdown)
 library(RColorBrewer)
 library(formattable)
+library(kableExtra)
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
@@ -25,7 +26,7 @@ Want to jump to a specific question?
 
 - [What is the most popular result? ](#popres)
 - [Do results vary between countries?](#country) 
-- [Are all questions created equal?] 
+- [Are all questions created equal?](#questions)
 
 ### What is the most popular result? <a name="popres"></a>
 
@@ -43,7 +44,7 @@ paged_table(head(data))
 ```
 
 
-I've only selected the first 3 columns of the first 6 responses. Not too bad, right? But, you've gotta imagine about 50 more columns, and about a million more rows. It's a little more intimidating now, but we've gotta start somewhere >:)
+I've only selected the first 6 responses. Not too bad, right? But, you've gotta imagine about 50 more columns, and about a million more rows. It's a little more intimidating now, but we've gotta start somewhere >:)
 
 First, let's calculate the scores for the Extroversion personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, EXT Question 2: I don't talk a lot vs EXT Question 1: I am the life of the party. 
 
@@ -342,16 +343,17 @@ So, let's see how it compares to other, more theoritical, data. Using the data^[
 
 expertable <- select(pfinaltable, "Results", "Percentage of People")
 
-# expertable <- knitr::kable(expertable,
-#              caption = "Experimental")
-# 
-# theorytable <- knitr::kable(theorytable,
-#              caption = "Theoretical")
-#HOW DO I PUT THEM SIDE BY SIDE AND HAVE TITLES, better ways to add a title to table?
 
-knitr::kable(list(theorytable,
-             caption = "Theoretical", expertable,
-             caption = "Experimental"))
+knitr::kables(list(
+  kable(caption = "Theoretical Data",
+    theorytable) %>% kable_styling(),
+    kable(caption = "Experimental Data",
+     expertable
+    ) %>% kable_styling()
+    
+  )
+) %>% kable_styling()
+
 ```
 
 
@@ -372,7 +374,7 @@ pfinaltableasc <- finaltable %>%
 colnames(pfinaltableasc) <- c("Results", "Amount of Responses")
 
 knitr::kable(pfinaltableasc,
-             caption = "Most Uncommon Results")
+             caption = "Most Uncommon Results") %>% kable_styling(position = "center")
 
 ```
 
@@ -426,11 +428,10 @@ usdata <- coutdata[coutdata$Country %in% "US"]
 usdataslice <- usdata %>% 
   select('Results') %>%
   group_by(Results) %>%
-  summarize(total = n()) %>%
-  arrange(desc(total)) %>% 
+  summarize(Percentage = n()/546403*100) %>%
+  arrange(desc(Percentage)) %>% 
   slice(1:10)
 
-usdata
 
 ## GB
 gbdata <- coutdata[coutdata$Country %in% "GB"]
@@ -439,8 +440,8 @@ colnames(gbdata) <- c('Results', 'Country')
 gbdataslice <- gbdata %>% 
   select('Results') %>%
   group_by(Results) %>%
-  summarize(total = n()) %>%
-  arrange(desc(total)) %>% 
+  summarize(Percentage = n()/66596*100) %>%
+  arrange(desc(Percentage)) %>% 
   slice(1:10)
 
 
@@ -452,8 +453,8 @@ colnames(audata) <- c('Results', 'Country')
 audataslice <- audata %>% 
   select('Results') %>%
   group_by(Results) %>%
-  summarize(total = n()) %>%
-  arrange(desc(total)) %>% 
+  summarize(Percentage = n()/50030*100) %>%
+  arrange(desc(Percentage)) %>% 
   slice(1:10)
 
 ##Ph
@@ -463,17 +464,110 @@ colnames(phdata) <- c('Results', 'Country')
 phdataslice <- phdata %>% 
   select('Results') %>%
   group_by(Results) %>%
-  summarize(total = n()) %>%
-  arrange(desc(total)) %>% 
+  summarize(Percentage = n()/19847*100) %>%
+  arrange(desc(Percentage)) %>% 
   slice(1:10)
 
+
+knitr::kables(list(
+  kable(caption = "America", usdataslice) %>% kable_styling(),
+  kable(caption = "Great Britian", gbdataslice) %>% kable_styling(),
+  kable(caption = "Australia", audataslice) %>% kable_styling(),
+  kable(caption = "Philippines", phdataslice) %>% kable_styling()
+  )
+) %>% kable_styling()
+
 ```
+
+
+From this table, it's pretty clear that the countries generally have similar results, but Philippines is the only one that really stands out from the rest. Namely, the country has more RLAOI than SCOAI, meaning respondents tended to be more limbic and introverted than their counterparts. It's difficult to point out why without knowing the average age of the respondents, as that could dictate a lot of their behaviors. 
+
+However, this also shows these countries follow the trend - every single one of the results were inside the top 25. Of course, this is the expected result, but one can always wish for a little special surprise, you know? 
+
+
+### Are All Questions Created Equal? <a name="questions"></a>
+
+We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at....
+
+Thus, I present to you: 
+
+```{r, questiontimes}
+qtime <- data %>%
+  select(c (ends_with('_E')))
+
+qtimeframe <- data.frame(qtime)  %>%
+  slice_sample(n=100) %>%
+  colMeans() 
+
+qtimes <- data.table::as.data.table(qtimeframe, .keep.rownames = "word")
+qcolnames <- colnames(qtime) 
+
+
+qtimes <- mutate(qtimes, question = qcolnames) %>%
+  select(question, everything())%>%
+  arrange(desc(qtimeframe)) 
+
+
+
+highqtime <- qtimes %>%
+  slice(2:6) %>%
+  mutate(qs = c("I shirk my duties.", "I leave my belongings around.", "I am relaxed most of the time.", "I feel little concern for others.", "I don't like to draw attention to myself.")) %>%
+  relocate(question, qs, qtimeframe)
+
+
+lowqtime <- qtimes %>%
+  slice (46:50) %>% 
+  mutate(qs = c("I use difficult words.", "I often feel blue.", "I have excellent ideas.", "I am full of ideas.", "I have a rich vocabulary."))%>%
+  relocate(question, qs, qtimeframe)
+
+#colnames(highqtime) <- c("Category", Question", "Time in Milliseconds")
+#colnames(lowqtime) <- c("Category", Question", "Time in Milliseconds")
+
+knitr::kables(list(
+  kable(caption = "Questions That Took the Longest", highqtime) %>% kable_styling(),
+  kable(caption = "Questions That Took the Shortest", lowqtime) %>% kable_styling()
+  )
+) %>% kable_styling()
+```
+
+Actually, the above is lying to you. The one that people took longest on was EXT_1 (The first question on the quiz, with an average score of 879626.63), likely because of loading or because they started the question then got busy doing something else. So, I've removed it from the table.
+
+For this section
+
+
+```{r}
+rtime <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(-c ('EXT1_E')) %>%
+  select(c(starts_with('EXT'))) %>%
+  slice_sample(n=100)
+
+rtime %>%  
+  pivot_longer(everything(), values_to="Value", names_to="Variable") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Variable, y=Value))
+
+# rtimedf <- data.frame(rtime)
+# 
+# rtimedf
+# 
+# ggplot(rtimedf,aes(x=factor(0), rtime))+geom_boxplot()
+# 
+# rtime
+# 
+# box <- data.frame (question = c("EXT1", "EXT2"), 
+#                    values = rtime$EXT1_E, rtime$EXT2_E)
+# 
+# ggplot(rtime,aes(x=factor(0),"EXT_1_E"))+geom_boxplot()
+
+
+
+```
+
 <!--
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
-- display four tables side by side, with titles (and change theory/exepriemtnal)
 - get through data (question results, see if you can put all the questions side by side, then grab the funniest ones..?), start research for further analysis 
 - show legend if you hover...? for the top 25 pie chart 
-- add titles for graphs
 - statistical distrbution of scores (or at least, agreeable, openness)
 - data for each question -> https://www.kaggle.com/code/gchnfgxj/big-five-personalities-factor-analysis 
 - mapping averages of each country onto map (https://www.kaggle.com/code/psqrtpsqrt/big-five-personality-test-eda)

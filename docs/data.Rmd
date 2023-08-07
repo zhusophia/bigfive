@@ -711,15 +711,18 @@ Another interesting thing to note is the distrubtion of answers for each questio
 
 ## analyze the distrbution of responses for each of the high / low quetinos, maybe add into a grid? 
 
-ext3p <- data %>%
-  select('EXT3') %>%
+ext4p <- data %>%
+  select(c (starts_with('EXT'))) %>%
+  select(-c (ends_with('E'))) %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
-  filter(Answers != "0")
+  filter(Answers != "0") 
 
-ext3p
+ext4p
 
 
-ggplot(data=ext3p, aes(x=Answers)) +
+## https://stackoverflow.com/questions/52822840/ggplot2-create-a-barplot-for-every-column-of-a-dataframe
+
+ggplot(data=ext4p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
      title = "I am relaxed most of the time.",
@@ -728,7 +731,78 @@ ggplot(data=ext3p, aes(x=Answers)) +
    ylab("Amount of Responses")+
    theme_minimal()
 
+agr1p <- data %>%
+  select('AGR1') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
 
+agr1p
+
+
+ggplot(data=agr1p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I am relaxed most of the time.",
+     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
+
+###
+ext8p <- data %>%
+  select('EXT8') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+ext8p
+
+
+ggplot(data=ext8p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I am relaxed most of the time.",
+     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
+
+###
+
+est8p <- data %>%
+  select('EST8') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+est8p
+
+
+ggplot(data=est8p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I am relaxed most of the time.",
+     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
+
+###
+
+csn2p <- data %>%
+  select('CSN2') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+csn2p
+
+
+ggplot(data=csn2p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I am relaxed most of the time.",
+     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
 
 ```
 

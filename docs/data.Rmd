@@ -16,6 +16,8 @@ library(rmarkdown)
 library(RColorBrewer)
 library(formattable)
 library(kableExtra)
+library(patchwork)
+library(gridExtra)
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
@@ -489,7 +491,170 @@ However, this also shows these countries follow the trend - every single one of 
 
 We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at....
 
-Thus, I present to you: 
+Thus, I present to you: General time spent on each question!
+
+```{r, rtimext}
+rtimeext <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(c(starts_with('EXT'))) %>%
+  sapply("/", 1000)
+
+rtimeext=as.data.frame(rtimeext)
+
+rtimeext <- rtimeext %>%
+  filter(EXT1_E < 20) %>%
+  filter(EXT2_E < 20) %>%
+  filter(EXT3_E < 20) %>%
+  filter(EXT4_E < 20) %>%
+  filter(EXT5_E < 20) %>%
+  filter(EXT6_E < 20) %>%
+  filter(EXT7_E < 20) %>%
+  filter(EXT8_E < 20) %>%
+  filter(EXT9_E < 20) %>%
+  filter(EXT10_E < 20) %>%
+  slice_sample(n=500) 
+
+
+rqextp<-rtimeext  %>%  
+  pivot_longer(everything(), values_to="Seconds", names_to="Question") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Question, y=Seconds))
+
+```
+
+```{r}
+###
+rtimeCSN <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(c(starts_with('CSN'))) %>%
+  sapply("/", 1000)
+
+rtimeCSN=as.data.frame(rtimeCSN)
+
+rtimeCSN <- rtimeCSN %>%
+  filter(CSN1_E < 20) %>%
+  filter(CSN2_E < 20) %>%
+  filter(CSN3_E < 20) %>%
+  filter(CSN4_E < 20) %>%
+  filter(CSN5_E < 20) %>%
+  filter(CSN6_E < 20) %>%
+  filter(CSN7_E < 20) %>%
+  filter(CSN8_E < 20) %>%
+  filter(CSN9_E < 20) %>%
+  filter(CSN10_E < 20) %>%
+  slice_sample(n=500) 
+
+
+rqcsnp <- rtimeCSN  %>%  
+  pivot_longer(everything(), values_to="Seconds", names_to="Question") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Question, y=Seconds))
+
+###
+rtimeEST <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(c(starts_with('EST'))) %>%
+  sapply("/", 1000)
+
+rtimeEST=as.data.frame(rtimeEST)
+
+rtimeEST <- rtimeEST %>%
+  filter(EST1_E < 20) %>%
+  filter(EST2_E < 20) %>%
+  filter(EST3_E < 20) %>%
+  filter(EST4_E < 20) %>%
+  filter(EST5_E < 20) %>%
+  filter(EST6_E < 20) %>%
+  filter(EST7_E < 20) %>%
+  filter(EST8_E < 20) %>%
+  filter(EST9_E < 20) %>%
+  filter(EST10_E < 20) %>%
+  slice_sample(n=500) 
+
+
+rqestp <- rtimeEST  %>%  
+  pivot_longer(everything(), values_to="Seconds", names_to="Question") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Question, y=Seconds))
+
+###
+rtimeAGR <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(c(starts_with('AGR'))) %>%
+  sapply("/", 1000)
+
+rtimeAGR=as.data.frame(rtimeAGR)
+
+rtimeAGR <- rtimeAGR %>%
+  filter(AGR1_E < 20) %>%
+  filter(AGR2_E < 20) %>%
+  filter(AGR3_E < 20) %>%
+  filter(AGR4_E < 20) %>%
+  filter(AGR5_E < 20) %>%
+  filter(AGR6_E < 20) %>%
+  filter(AGR7_E < 20) %>%
+  filter(AGR8_E < 20) %>%
+  filter(AGR9_E < 20) %>%
+  filter(AGR10_E < 20) %>%
+  slice_sample(n=500) 
+
+
+rqagrp<- rtimeAGR  %>%  
+  pivot_longer(everything(), values_to="Seconds", names_to="Question") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Question, y=Seconds))
+
+###
+rtimeOPN <- data %>%
+  select(c (ends_with('_E'))) %>% 
+  select(c(starts_with('OPN'))) %>%
+  sapply("/", 1000)
+
+rtimeOPN=as.data.frame(rtimeOPN)
+
+rtimeOPN <- rtimeOPN %>%
+  filter(OPN1_E < 20) %>%
+  filter(OPN2_E < 20) %>%
+  filter(OPN3_E < 20) %>%
+  filter(OPN4_E < 20) %>%
+  filter(OPN5_E < 20) %>%
+  filter(OPN6_E < 20) %>%
+  filter(OPN7_E < 20) %>%
+  filter(OPN8_E < 20) %>%
+  filter(OPN9_E < 20) %>%
+  filter(OPN10_E < 20) %>%
+  slice_sample(n=500) 
+
+
+rqopnp <- rtimeOPN  %>%  
+  pivot_longer(everything(), values_to="Seconds", names_to="Question") %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Question, y=Seconds))
+
+
+rqextp
+rqcsnp
+rqestp
+rqagrp
+rqopnp
+
+```
+
+
+This is a good visual to compare questions to each other, especially questions in the same category. 
+
+For your reference: 
+
+- EXT = Extroversion (S/R)
+- CSN = Neuroticsm (L/C)
+- EST = Organization (O/U) <!-- have i gotten these mixed up?? est shoudl be emotional stability e.g. neuroticsm--> 
+- AGR = Agreeableness (A/E)
+- OPN = Openness (I/U)
+
+For those unaware, this is a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!]. The white box symbolizes the interquartile range, with the lower half of the box showing the bottom 25%, while the top half of the box shows the top 25%. The line in the center is the median of the question. It's really good for visualizing the spread of data (which seems to range quite a bit). However, I've skewed the data by cutting off any values above 20 seconds^[as it's quite uncommon and makes plotting the graph difficult] and only took a random sample of 500 response times for each question^[500 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
+
+However, I want to be more precise with these loading times, so I've specifically pulled the questions that take the longest and shortest times to complete. 
+
 
 ```{r, questiontimes}
 qtime <- data %>%
@@ -510,18 +675,20 @@ qtimes <- mutate(qtimes, question = qcolnames) %>%
 
 
 highqtime <- qtimes %>%
-  slice(2:6) %>%
+  slice(2:6) %>% 
+  mutate(qtimeframe =  qtimeframe/1000) %>%
   mutate(qs = c("I shirk my duties.", "I leave my belongings around.", "I am relaxed most of the time.", "I feel little concern for others.", "I don't like to draw attention to myself.")) %>%
   relocate(question, qs, qtimeframe)
 
 
 lowqtime <- qtimes %>%
   slice (46:50) %>% 
+  mutate(qtimeframe =  qtimeframe/1000) %>%
   mutate(qs = c("I use difficult words.", "I often feel blue.", "I have excellent ideas.", "I am full of ideas.", "I have a rich vocabulary."))%>%
   relocate(question, qs, qtimeframe)
 
-#colnames(highqtime) <- c("Category", Question", "Time in Milliseconds")
-#colnames(lowqtime) <- c("Category", Question", "Time in Milliseconds")
+colnames(highqtime) <- c("Category", "Question", "Time in Seconds")
+colnames(lowqtime) <- c("Category", "Question", "Time in Seconds")
 
 knitr::kables(list(
   kable(caption = "Questions That Took the Longest", highqtime) %>% kable_styling(),
@@ -530,45 +697,46 @@ knitr::kables(list(
 ) %>% kable_styling()
 ```
 
-Actually, the above is lying to you. The one that people took longest on was EXT_1 (The first question on the quiz, with an average score of 879626.63), likely because of loading or because they started the question then got busy doing something else. So, I've removed it from the table.
 
-For this section
+I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. This is likely because people people were getting accustomed to the quiz, had loading time issues, or started the quiz, then immediately forgot about it. 
 
+"I shirk my duties" took the longest, likely because 'shirk' is an uncommon word and people wanted to search up the definition, which easily could've taken an extra 10 seconds. As for the other questions, they're all relatively long sentences and have more nuance. They're all very situational, as people are rarely "always relaxed" or "never relaxed", and it takes time to think whether you're relax a MAJOURITY of the time. Same thing for little concern for others - there are tons of people you care about, but also, tons of people you don't. So, it's a bit tricky to answer those. 
+
+On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either read a dictionary for fun to seem smart, or you don't. I do find it interesting that it's difficult for people to determine whether they're 'relaxed' rather than 'blue'. Likely because you conciously pay attention to when you're sad, but not when you're relaxed? You can also see that these questions are the ones that are asked later (e.g. AGR_9 is part of the 9th out of 10 rounds of questions, meaning that it'll be really close to the ending of the quiz). Anticipation for results may have caused them to rush through the later questions. 
+
+
+Another interesting thing to note is the distrubtion of answers for each question. You may expected that each question has a distribution similar to standard deviation. However... that's actually not the case! Many questions tend to have a distribution like so: 
 
 ```{r}
-rtime <- data %>%
-  select(c (ends_with('_E'))) %>% 
-  select(-c ('EXT1_E')) %>%
-  select(c(starts_with('EXT'))) %>%
-  slice_sample(n=100)
 
-rtime %>%  
-  pivot_longer(everything(), values_to="Value", names_to="Variable") %>% 
-  ggplot() +
-  geom_boxplot(aes(x=Variable, y=Value))
+## analyze the distrbution of responses for each of the high / low quetinos, maybe add into a grid? 
 
-# rtimedf <- data.frame(rtime)
-# 
-# rtimedf
-# 
-# ggplot(rtimedf,aes(x=factor(0), rtime))+geom_boxplot()
-# 
-# rtime
-# 
-# box <- data.frame (question = c("EXT1", "EXT2"), 
-#                    values = rtime$EXT1_E, rtime$EXT2_E)
-# 
-# ggplot(rtime,aes(x=factor(0),"EXT_1_E"))+geom_boxplot()
+ext3p <- data %>%
+  select('EXT3') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+ext3p
+
+
+ggplot(data=ext3p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I am relaxed most of the time.",
+     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
 
 
 
 ```
 
+
 <!--
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
 - get through data (question results, see if you can put all the questions side by side, then grab the funniest ones..?), start research for further analysis 
-- show legend if you hover...? for the top 25 pie chart 
-- statistical distrbution of scores (or at least, agreeable, openness)
+
 - data for each question -> https://www.kaggle.com/code/gchnfgxj/big-five-personalities-factor-analysis 
 - mapping averages of each country onto map (https://www.kaggle.com/code/psqrtpsqrt/big-five-personality-test-eda)
 -- https://www.youtube.com/watch?v=AgWgPSZ7Gp0&ab_channel=StatisticsGuideswithDrPaulChristiansen

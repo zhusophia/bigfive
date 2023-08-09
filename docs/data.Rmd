@@ -267,7 +267,8 @@ WOOO! Congratulations to the XXOAI family for being among the most common result
    
 colnames(pfinaltable) <- c("Results", "Amount of Responses", "Percentage of People")
 knitr::kable(pfinaltable,
-             caption = "The 10 Most Common Results")
+             caption = "The 10 Most Common Results") %>% 
+  kable_styling()
  
 ```
 
@@ -287,7 +288,8 @@ avgscore <- as.data.frame(t(avgscore))
 
 colnames(avgscore) <- c("EXT", "EST", "CSN", "AGR", "OPN")
 # be careful of slice sample since it randomizes every time
-avgscore
+kable(avgscore) %>% 
+  kable_styling()
 
 ```
 
@@ -299,7 +301,7 @@ There seems to be a nice mix of S(ocial) and R(eserved) values, which is represe
 
 When looking at TABLENUM, There are technically about 40000 more R’s than S’s. If I wanted to stereotype (which is an inevitable part of ‘absolute letters’, rather than 70% R vs 30% S), maybe the S’s aren’t as likely to spend 20 minutes on an online test, compared to R’s, who are more likely to be holed up in their room.  
 
-**Neuroticism* *
+**Neuroticism**
 
 Once again, a solid sample of results between C(alm) and L(imbic).  I think it’s similar to extrovertism, where it’s quite easy to determine how strongly you feel your emotions, and your ability to control them. 
 
@@ -825,6 +827,7 @@ plot_grid(csn8g, est9g, ncol = 2, align = "hv")
 There are four major types of distribution seen in the data: 
 
 1. Logarithmic (First Row)
+
 The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily", which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" probably does, because it helps narrow down the situation. You also don't really change your behavior around different strangers, you usually are pretty constant with your behavior.)
 
 Some other examples include: 
@@ -842,6 +845,7 @@ i feel like these are best associated with questions where self-bias is most pre
 
 
 Examples include: 
+
 - I make a mess of things.
 - I get stressed out easily.  
 - I leave my belongings around. 
@@ -877,13 +881,30 @@ exttablec <- exttable %>%
 
 colnames(exttablec)[13] <- "region"
 
-exttablec$region <- countrycode(exttablec$region, "iso2c", "iso3c")
+#  summarize(mean = mean(extscore))
+
+#exttablec$region <- countrycode(exttablec$region, "iso2c", "iso3c")
+
+exttablec <- exttablec %>%
+  group_by(region) %>%
+  arrange(region) %>%
+  drop_na(region) %>% 
+  slice(-(118: 6754)) %>% #mean can't calculate values of like 1000
+  slice(-(702:44700)) %>%
+  slice(-(1889:1900))
 
 extworld <- exttablec %>% 
   group_by(region) %>%
   summarize(mean = mean(extscore))
 
+#remoev canada then test out the map again -> don't want this not working in the end
+
 extworld
+
+#still na
+#B
+
+#CA, CH, CL, CO, CR, CU, CY, cz, DE, DK, DO, EC, ES, FI, FJ, FR, GB, GR, GT, HK, HN, HR, IE, IL, IN, IT, JE, KH, LK, LU, MX, MY, NI, NL, NO, NZ, PE, PH, PK, PL, PR, PT, RO, RU, SA, SE, SG, SR, SV, TH, TR, TT, TW, US, UY, VE, VN, ZA, ZM
 
 ```
 
@@ -903,6 +924,7 @@ ggplot() +
           color="white", size = 0.2) 
 
 ## why is south america and north america gone?? does russia not exist??
+
 
 ```
 

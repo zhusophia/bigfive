@@ -79,7 +79,7 @@ This quiz is self-administered, with users given 50 questions, meaning 10 from e
 Some sample prompts include: 
 
 * I don't mind being the center of attention. (Testing extrovertism) 
-* I have frequent mood swings. (Testing conscientiousness) 
+* I have frequent mood swings. (Testing neuroticism) 
 * I do not have a good imagination. (Testing openness) 
 
 Questions from each category were rotated, starting from Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, Extroversion Q2, etc.

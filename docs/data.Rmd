@@ -18,6 +18,10 @@ library(formattable)
 library(kableExtra)
 library(patchwork)
 library(gridExtra)
+library(cowplot)
+library(countrycode)
+library(maps)
+
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
@@ -57,7 +61,9 @@ Hence, after adding up all the scores, any positive score (> 0) will mean that t
 Sample table of results, where extscore and extletter are calculated using the raw data: 
 
 ```{r, extdata}
-exttable <- data %>% select(starts_with('EXT'))
+exttable <- data %>% 
+  select(starts_with('EXT'))  
+
 exttable <- exttable %>% select(-c (ends_with('E'))) %>% 
   mutate(extscore = EXT1 - EXT2 + EXT3 - EXT4 + EXT5 - EXT6 + EXT7 - EXT8 + EXT9 - EXT10) %>% 
   mutate(extletter = 
@@ -93,10 +99,10 @@ dfext <- data.frame(extlettercount = c(500346, 468068, 45144),
  pext <- ggplot(data=dfext, aes(x=extlettermap, y=extlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "More Users are Introverted Than Extroverted",
+     title = "Responders are More Introverted Than Extroverted",
      subtitle = "Introverts, give me a cheer! Wait... why is it silent? Where did the introverts go?") + 
    xlab("Possible Results") +
-   ylab("Amount of Users")+
+   ylab("Amount of Responses")+
    geom_text(aes(label=extlettercount), vjust=-0.3, size=3.5)+
    theme_minimal()
  pext
@@ -125,10 +131,10 @@ The same process will be applied to the other personality traits^[The neuroticis
  pest <- ggplot(data=dfest, aes(x=estlettermap, y=estlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Users are More Prone to Being Limbic Than Calm",
+     title = "Respondents are More Prone to Being Limbic Than Calm",
      subtitle = "Moody and a little bit groovy") + 
    xlab("Possible Results") +
-   ylab("Amount of Users")+
+   ylab("Amount of Responses")+
    geom_text(aes(label=estlettercount), vjust=-0.3, size=3.5)+
    theme_minimal()
  pest
@@ -152,10 +158,10 @@ dfcsn <- data.frame(csnlettercount = c(614712, 339447, 59399),
  pcsn <- ggplot(data=dfcsn, aes(x=csnlettermap, y=csnlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Users Tend to be Organized, Rather Than Unorganized",
+     title = "Responders Tend to be Organized, Rather Than Unorganized",
      subtitle = "Control freaks reign supreme") + 
    xlab("Possible Letters") +
-   ylab("Amount of people")+
+   ylab("Amount of Responses")+
    geom_text(aes(label=csnlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()
  pcsn
@@ -178,10 +184,10 @@ dfagr <- data.frame(agrlettercount = c(836947, 138063, 38548),
  pagr <- ggplot(data=dfagr, aes(x=agrlettermap, y=agrlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Users Rate Themseleves More Agreeable Than Egocentric",
+     title = "Respondents Rate Themseleves More Agreeable Than Egocentric",
      subtitle = "AKA: People like to think they're a lot nicer than they actually are") + 
    xlab("Possible Letters") +
-   ylab("Amount of people")+
+   ylab("Amount of Responses")+
    geom_text(aes(label=agrlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()
  pagr
@@ -487,6 +493,9 @@ From this table, it's pretty clear that the countries generally have similar res
 However, this also shows these countries follow the trend - every single one of the results were inside the top 25. Of course, this is the expected result, but one can always wish for a little special surprise, you know? 
 
 
+Let's try zooming out.
+
+
 ### Are All Questions Created Equal? <a name="questions"></a>
 
 We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at....
@@ -646,8 +655,8 @@ This is a good visual to compare questions to each other, especially questions i
 For your reference: 
 
 - EXT = Extroversion (S/R)
-- CSN = Neuroticsm (L/C)
-- EST = Organization (O/U) <!-- have i gotten these mixed up?? est shoudl be emotional stability e.g. neuroticsm--> 
+- EST = Neuroticsm (L/C)
+- CSN = Organization (O/U)
 - AGR = Agreeableness (A/E)
 - OPN = Openness (I/U)
 
@@ -711,107 +720,205 @@ Another interesting thing to note is the distrubtion of answers for each questio
 
 ## analyze the distrbution of responses for each of the high / low quetinos, maybe add into a grid? 
 
-ext4p <- data %>%
-  select(c (starts_with('EXT'))) %>%
-  select(-c (ends_with('E'))) %>%
-  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
-  filter(Answers != "0") 
-
-ext4p
-
-
-## https://stackoverflow.com/questions/52822840/ggplot2-create-a-barplot-for-every-column-of-a-dataframe
-
-ggplot(data=ext4p, aes(x=Answers)) +
-   geom_bar(fill="steel blue") +
-   labs(
-     title = "I am relaxed most of the time.",
-     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
-   xlab("Respondent's Possible Answers") +
-   ylab("Amount of Responses")+
-   theme_minimal()
-
 agr1p <- data %>%
   select('AGR1') %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
   filter(Answers != "0")
 
-agr1p
-
-
-ggplot(data=agr1p, aes(x=Answers)) +
+agr1g<- ggplot(data=agr1p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
-     title = "I am relaxed most of the time.",
-     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+     title = "I shirk my duties.",
+     subtitle = "I think we've solved procrasination") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
 
 ###
-ext8p <- data %>%
-  select('EXT8') %>%
+est3p <- data %>%
+  select('AGR3') %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
   filter(Answers != "0")
 
-ext8p
-
-
-ggplot(data=ext8p, aes(x=Answers)) +
+est3g <- ggplot(data=est3p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
-     title = "I am relaxed most of the time.",
-     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+     title = "I insult people.",
+     subtitle = "Wholesome :)") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
 
 ###
 
-est8p <- data %>%
-  select('EST8') %>%
+agr8p <- data %>%
+  select('AGR8') %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
   filter(Answers != "0")
 
-est8p
 
-
-ggplot(data=est8p, aes(x=Answers)) +
+agr8g <- ggplot(data=agr8p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
      title = "I am relaxed most of the time.",
-     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+     subtitle = "Stress balls work..?") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
 
 ###
 
-csn2p <- data %>%
-  select('CSN2') %>%
+csn4p <- data %>%
+  select('CSN4') %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
   filter(Answers != "0")
 
-csn2p
 
-
-ggplot(data=csn2p, aes(x=Answers)) +
+csn4g<- ggplot(data=csn4p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
-     title = "I am relaxed most of the time.",
-     subtitle = "Hey! Stress hasn't caught up too much yet!") + 
+     title = "I feel little concern for others.	",
+     subtitle = "Can't believe that the Internet is nice") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
+
+
+csn8p <- data %>%
+  select('CSN8') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+csn8g <- ggplot(data=csn8p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I don’t like to draw 
+attention to myself.",
+     subtitle = "...") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
+
+est9p <- data %>%
+  select('EST9') %>%
+  pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
+  filter(Answers != "0")
+
+
+est9g <- ggplot(data=est9p, aes(x=Answers)) +
+   geom_bar(fill="steel blue") +
+   labs(
+     title = "I have excellent ideas.",
+     subtitle = "THINK GOOD! STARTUP IDEA STAT!") + 
+   xlab("Respondent's Possible Answers") +
+   ylab("Amount of Responses")+
+   theme_minimal()
+
+
+#grid.arrange(agr1g, est3g, agr8g, csn4g, csn8g, ncol=2)
+plot_grid(agr1g, est3g, agr8g, csn4g, ncol = 2, align = "hv")
+plot_grid(csn8g, est9g, ncol = 2, align = "hv")
+
+
+```
+
+There are four major types of distribution seen in the data: 
+
+1. Logarithmic (First Row)
+The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily", which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" probably does, because it helps narrow down the situation. You also don't really change your behavior around different strangers, you usually are pretty constant with your behavior.)
+
+Some other examples include: 
+
+- I have difficulty understanding abstract ideas.
+- I am quiet around strangers.
+- I have a soft heart.
+- I spend time reflecting on things.
+
+If you're wondering which side they skew on.... just trust your gut on it :)
+
+2. Skewed (Second Row)
+
+i feel like these are best associated with questions where self-bias is most prevalent, as you want to make yourself as something you're not (to make yourself feel better). These questions are also very situational; Sometimes I do this, sometimes I do. That's why people tend to move towards the middle. This is the most common distribution type. 
+
+
+Examples include: 
+- I make a mess of things.
+- I get stressed out easily.  
+- I leave my belongings around. 
+- I follow a schedule. 
+
+3. "Normal" Distribution (Third Row, Left)
+
+I'm lying to you - This graph isn't normal distribution. I'm just calling it normal distribution because the answer 3 (neutral) is the most common answer. Quite frankly, it just means that people are either confused, or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions seem to be the most 'observable/objective' of the bunch. Personally, I try to make a habit on avoiding clicking 3 no matter what (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's associated with the extrovertism questions. 
+
+Examples Include: 
+
+- I don't talk a lot.
+- I keep in the background.
+
+4. Relatively Random (Third Row, Right) 
+
+So these are the ones that don't follow a trend. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
+
+Examples Include: 
+
+- I talk to a lot of different people at parties.
+- I am easily disturbed.
+- I often forget to put things back in their proper place.^[This one is almost inverted, where 2 and 4 are the most common responses, followed by 1 and 5, then 3.]
+- I change my mood a lot.
+
+
+```{r}
+
+## convert iso2c to iso3c
+
+exttablec <- exttable %>% 
+  cbind(countrydata$country)
+
+colnames(exttablec)[13] <- "region"
+
+exttablec$region <- countrycode(exttablec$region, "iso2c", "iso3c")
+
+extworld <- exttablec %>% 
+  group_by(region) %>%
+  summarize(mean = mean(extscore))
+
+extworld
+
+```
+
+```{r}
+world_map = map_data("world")
+world_map$region <- countrycode(world_map$region, "country.name", "iso3c")
+
+mergemap <- inner_join(world_map, extworld, by = "region")
+
+
+#mergemap
+### drop rows that have na in column r to drop, if mean is N/A
+
+ggplot() + 
+  geom_polygon( data=mergemap, 
+          aes(x=long, y=lat, group=group, fill = mean), 
+          color="white", size = 0.2) 
+
+## why is south america and north america gone?? does russia not exist??
 
 ```
 
 
-<!--
-rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
-- get through data (question results, see if you can put all the questions side by side, then grab the funniest ones..?), start research for further analysis 
 
-- data for each question -> https://www.kaggle.com/code/gchnfgxj/big-five-personalities-factor-analysis 
+
+<!--
+
+
+
+
+
+rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
+
+
+
 - mapping averages of each country onto map (https://www.kaggle.com/code/psqrtpsqrt/big-five-personality-test-eda)
 -- https://www.youtube.com/watch?v=AgWgPSZ7Gp0&ab_channel=StatisticsGuideswithDrPaulChristiansen
 - either refer to responders or users, or something consistent 

@@ -811,7 +811,7 @@ est9g <- ggplot(data=est9p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
      title = "I have excellent ideas.",
-     subtitle = "THINK GOOD! STARTUP IDEA STAT!") + 
+     subtitle = "THINK GOOD! 10B STARTUP IDEA!") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
@@ -872,63 +872,138 @@ Examples Include:
 - I change my mood a lot.
 
 
-```{r}
-
-## convert iso2c to iso3c
+```{r, extscores world map}
 
 exttablec <- exttable %>% 
   cbind(countrydata$country)
 
 colnames(exttablec)[13] <- "region"
 
-#  summarize(mean = mean(extscore))
-
-#exttablec$region <- countrycode(exttablec$region, "iso2c", "iso3c")
-
 exttablec <- exttablec %>%
   group_by(region) %>%
-  arrange(region) %>%
-  drop_na(region) %>% 
-  slice(-(118: 6754)) %>% #mean can't calculate values of like 1000
-  slice(-(702:44700)) %>%
-  slice(-(1889:1900))
+  drop_na 
+
+exttablec<- subset(exttablec, region!="NE")
+exttablec <- subset(exttablec, region!="TD")
+exttablec <- subset(exttablec, region!="PW")
+exttablec <- subset(exttablec, region!="KM")
+exttablec <- subset(exttablec, region!="TJ")
+exttablec <- subset(exttablec, region!="GQ")
 
 extworld <- exttablec %>% 
   group_by(region) %>%
-  summarize(mean = mean(extscore))
+  summarize(ExtScores = mean(extscore))
 
-#remoev canada then test out the map again -> don't want this not working in the end
 
-extworld
 
-#still na
-#B
+world_map = map_data("world") 
+world_map$region <- countrycode(world_map$region, "country.name", "iso2c")  
 
-#CA, CH, CL, CO, CR, CU, CY, cz, DE, DK, DO, EC, ES, FI, FJ, FR, GB, GR, GT, HK, HN, HR, IE, IL, IN, IT, JE, KH, LK, LU, MX, MY, NI, NL, NO, NZ, PE, PH, PK, PL, PR, PT, RO, RU, SA, SE, SG, SR, SV, TH, TR, TT, TW, US, UY, VE, VN, ZA, ZM
+colnames(world_map)[1] <- "Longitude"
+colnames(world_map)[2] <- "Latitude"
+
+
+mergemapext <- inner_join(world_map, extworld, by = "region")
+
+
+pext <- ggplot() +
+  geom_polygon(data=mergemapext,
+          aes(x=Longitude, y=Latitude, group=group, fill = ExtScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Extroversion Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="Extroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(pext)
+
 
 ```
 
-```{r}
-world_map = map_data("world")
-world_map$region <- countrycode(world_map$region, "country.name", "iso3c")
+```{r, est world map}
+esttablec <- esttable %>% 
+  cbind(countrydata$country)
 
-mergemap <- inner_join(world_map, extworld, by = "region")
+colnames(esttablec)[13] <- "region"
 
+esttablec <- esttablec %>%
+  group_by(region) %>%
+  drop_na 
 
-#mergemap
-### drop rows that have na in column r to drop, if mean is N/A
+estworld <- esttablec %>% 
+  group_by(region) %>%
+  summarize(EstScores = mean(estscore))
 
-ggplot() + 
-  geom_polygon( data=mergemap, 
-          aes(x=long, y=lat, group=group, fill = mean), 
-          color="white", size = 0.2) 
+mergemapest <- inner_join(world_map, estworld, by = "region")
+pest <- ggplot() +
+  geom_polygon(data=mergemapest,
+          aes(x=Longitude, y=Latitude, group=group, fill = EstScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Neuroticism Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="Neuroticism
+Averages", 
+    xlab('Longitude'), 
+    ylab("Latitude")
+  )  
 
-## why is south america and north america gone?? does russia not exist??
+ggplotly(pest)
 
+##Only one td score
 
 ```
 
+```{r, csn world map}
+Csntablec <- csntable %>% 
+  cbind(countrydata$country)
 
+colnames(Csntablec)[13] <- "region"
+
+Csntablec <- Csntablec %>%
+  group_by(region) %>%
+  drop_na 
+
+## Less than 5 responses, skews data
+
+Csntablec<- subset(Csntablec, region!="NE")
+Csntablec <- subset(Csntablec, region!="TD")
+Csntablec <- subset(Csntablec, region!="PW")
+Csntablec <- subset(Csntablec, region!="KM")
+Csntablec <- subset(Csntablec, region!="TJ")
+Csntablec <- subset(Csntablec, region!="GQ")
+
+Csnworld <- Csntablec %>% 
+  group_by(region) %>%
+  summarize(CsnScores = mean(csnscore))
+
+
+mergemapCsn <- inner_join(world_map, Csnworld, by = "region")
+pCsn <- ggplot() +
+  geom_polygon(data=mergemapCsn,
+          aes(x=Longitude, y=Latitude, group=group, fill = CsnScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Conscientiousness Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="Neuroticism
+Averages", 
+    xlab('Longitude'), 
+    ylab("Latitude")
+  ) 
+  
+
+ggplotly(pCsn)
+
+##Only one td,ne score, km, pw, tj, GQ
+
+```
 
 
 <!--
@@ -939,9 +1014,8 @@ ggplot() +
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
 
+Finish world mapping + write up 
+center graphs 
+proof read
 
-
-- mapping averages of each country onto map (https://www.kaggle.com/code/psqrtpsqrt/big-five-personality-test-eda)
--- https://www.youtube.com/watch?v=AgWgPSZ7Gp0&ab_channel=StatisticsGuideswithDrPaulChristiansen
-- either refer to responders or users, or something consistent 
 -->

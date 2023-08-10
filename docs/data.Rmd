@@ -495,7 +495,268 @@ From this table, it's pretty clear that the countries generally have similar res
 However, this also shows these countries follow the trend - every single one of the results were inside the top 25. Of course, this is the expected result, but one can always wish for a little special surprise, you know? 
 
 
-Let's try zooming out.
+Let's try zooming out by plotting the averages on a world map, and then analyzing results. 
+
+As for a note on the data: Locations with less than 5 responses have been omitted from the data, as they often significantly skewed maps. 
+
+
+```{r, extscores world map}
+
+exttablec <- exttable %>% 
+  cbind(countrydata$country)
+
+colnames(exttablec)[13] <- "region"
+
+exttablec <- exttablec %>%
+  group_by(region) %>%
+  drop_na 
+
+exttablec<- subset(exttablec, region!="NE")
+exttablec <- subset(exttablec, region!="TD")
+exttablec <- subset(exttablec, region!="PW")
+exttablec <- subset(exttablec, region!="KM")
+exttablec <- subset(exttablec, region!="TJ")
+exttablec <- subset(exttablec, region!="GQ")
+exttablec <- subset(exttablec, region!="ML")
+
+extworld <- exttablec %>% 
+  group_by(region) %>%
+  summarize(ExtScores = mean(extscore))
+
+
+
+world_map = map_data("world") 
+world_map$region <- countrycode(world_map$region, "country.name", "iso2c")  
+
+colnames(world_map)[1] <- "Longitude"
+colnames(world_map)[2] <- "Latitude"
+
+
+mergemapext <- inner_join(world_map, extworld, by = "region")
+
+
+pext <- ggplot() +
+  geom_polygon(data=mergemapext,
+          aes(x=Longitude, y=Latitude, group=group, fill = ExtScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Extroversion Scores of the World",
+    fill="Extroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(pext)
+
+
+```
+
+Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+
+When looking at extrovertism, North and South America are generally more introverted, often with negative averages, while Asian countries are more extroverted. Europe seems to be the most introverted, with Africa having a diverse range of scores. 
+
+This is the opposite of stereotypes, as Asians are often seen to value 'education' - a largely individual pursuit. On the other hand, Americans seem to be known as 'loud' and 'boisterous', as culture almost demands "friendliness" as a form of being polite, which can be confused for extroversion.  A good lesson in sterotypes! 
+
+Africa seems to have the most diverse range, with the bright blue representing the Democratic Republic of the Congo (CD) and the dark blue of SD representing Sudan. 
+
+<!-- do we want to show the most and least by country> --> 
+
+
+```{r, est world map}
+
+esttablec <- esttable %>% 
+  cbind(countrydata$country)
+
+colnames(esttablec)[13] <- "region"
+
+esttablec <- esttablec %>%
+  group_by(region) %>%
+  drop_na 
+
+esttablec<- subset(esttablec, region!="NE")
+esttablec <- subset(esttablec, region!="TD")
+esttablec <- subset(esttablec, region!="PW")
+esttablec <- subset(esttablec, region!="KM")
+esttablec <- subset(esttablec, region!="TJ")
+esttablec <- subset(esttablec, region!="GQ")
+esttablec <- subset(esttablec, region!="ML")
+
+estworld <- esttablec %>% 
+  group_by(region) %>%
+  summarize(estScores = mean(estscore))
+
+
+mergemapest <- inner_join(world_map, estworld, by = "region")
+
+
+pest <- ggplot() +
+  geom_polygon(data=mergemapest,
+          aes(x=Longitude, y=Latitude, group=group, fill = estScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Neuroticism Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="estroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(pest)
+```
+
+Higher scores are correlated with being calm, lower scores are correlated being limbic.  
+
+
+```{r, csn world map}
+
+csntablec <- csntable %>% 
+  cbind(countrydata$country)
+
+colnames(csntablec)[13] <- "region"
+
+csntablec <- csntablec %>%
+  group_by(region) %>%
+  drop_na 
+
+csntablec<- subset(csntablec, region!="NE")
+csntablec <- subset(csntablec, region!="TD")
+csntablec <- subset(csntablec, region!="PW")
+csntablec <- subset(csntablec, region!="KM")
+csntablec <- subset(csntablec, region!="TJ")
+csntablec <- subset(csntablec, region!="GQ")
+csntablec <- subset(csntablec, region!="ML")
+
+csnworld <- csntablec %>% 
+  group_by(region) %>%
+  summarize(csnScores = mean(csnscore))
+
+
+mergemapcsn <- inner_join(world_map, csnworld, by = "region")
+
+
+pcsn <- ggplot() +
+  geom_polygon(data=mergemapcsn,
+          aes(x=Longitude, y=Latitude, group=group, fill = csnScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Conscientiousness Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="csnroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(pcsn)
+
+##Only one td,ne score, km, pw, tj, GQ
+
+```
+
+Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+
+
+cheerio!!! \@ref(fig:opn world map) wahahaa
+
+
+```{r, agr world map}
+
+agrtablec <- agrtable %>% 
+  cbind(countrydata$country)
+
+colnames(agrtablec)[13] <- "region"
+
+agrtablec <- agrtablec %>%
+  group_by(region) %>%
+  drop_na 
+
+agrtablec<- subset(agrtablec, region!="NE")
+agrtablec <- subset(agrtablec, region!="TD")
+agrtablec <- subset(agrtablec, region!="PW")
+agrtablec <- subset(agrtablec, region!="KM")
+agrtablec <- subset(agrtablec, region!="TJ")
+agrtablec <- subset(agrtablec, region!="GQ")
+agrtablec <- subset(agrtablec, region!="ML")
+
+agrworld <- agrtablec %>% 
+  group_by(region) %>%
+  summarize(agrScores = mean(agrscore))
+
+mergemapagr <- inner_join(world_map, agrworld, by = "region")
+
+
+pagr <- ggplot() +
+  geom_polygon(data=mergemapagr,
+          aes(x=Longitude, y=Latitude, group=group, fill = agrScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Agreeableness Scores of the World",
+    subtitle="Africa is feeling colorful!",
+    fill="agrroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(pagr)
+
+##Only one td,ne score, km, pw, tj, GQ
+
+```
+
+Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+
+
+```{r opn world map, layout="l-page", fig.cap="Diamond Prices"}
+
+opntablec <- opntable %>% 
+  cbind(countrydata$country)
+
+colnames(opntablec)[13] <- "region"
+
+opntablec <- opntablec %>%
+  group_by(region) %>%
+  drop_na 
+
+opntablec<- subset(opntablec, region!="NE")
+opntablec <- subset(opntablec, region!="TD")
+opntablec <- subset(opntablec, region!="PW")
+opntablec <- subset(opntablec, region!="KM")
+opntablec <- subset(opntablec, region!="TJ")
+opntablec <- subset(opntablec, region!="GQ")
+opntablec <- subset(opntablec, region!="ML")
+
+opnworld <- opntablec %>% 
+  group_by(region) %>%
+  summarize(opnScores = mean(opnscore))
+
+mergemapopn <- inner_join(world_map, opnworld, by = "region")
+
+
+popn <- ggplot() +
+  geom_polygon(data=mergemapopn,
+          aes(x=Longitude, y=Latitude, group=group, fill = opnScores, label=region),
+          color="white", size = 0.2) + 
+  coord_cartesian(ylim = c(-50, 90)) + 
+  labs(
+    title="Openness Scores of the World",
+    fill="opnroversion
+Averages", 
+  )+ theme_minimal() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+
+ggplotly(popn)
+
+##Only one td,ne score, km, pw, tj, GQ
+
+# https://rstudio.github.io/distill/figures.html for making figures expand 
+
+```
+
+Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+
 
 
 ### Are All Questions Created Equal? <a name="questions"></a>
@@ -520,6 +781,7 @@ rtimeext <- rtimeext %>%
   filter(EXT5_E < 20) %>%
   filter(EXT6_E < 20) %>%
   filter(EXT7_E < 20) %>%
+  filter(EXT7_E > 0) %>%
   filter(EXT8_E < 20) %>%
   filter(EXT9_E < 20) %>%
   filter(EXT10_E < 20) %>%
@@ -550,6 +812,7 @@ rtimeCSN <- rtimeCSN %>%
   filter(CSN5_E < 20) %>%
   filter(CSN6_E < 20) %>%
   filter(CSN7_E < 20) %>%
+  filter(CSN7_E > 0) %>%
   filter(CSN8_E < 20) %>%
   filter(CSN9_E < 20) %>%
   filter(CSN10_E < 20) %>%
@@ -577,6 +840,7 @@ rtimeEST <- rtimeEST %>%
   filter(EST5_E < 20) %>%
   filter(EST6_E < 20) %>%
   filter(EST7_E < 20) %>%
+  filter(EST7_E > 0) %>%
   filter(EST8_E < 20) %>%
   filter(EST9_E < 20) %>%
   filter(EST10_E < 20) %>%
@@ -604,6 +868,7 @@ rtimeAGR <- rtimeAGR %>%
   filter(AGR5_E < 20) %>%
   filter(AGR6_E < 20) %>%
   filter(AGR7_E < 20) %>%
+  filter(AGR7_E > 0) %>%
   filter(AGR8_E < 20) %>%
   filter(AGR9_E < 20) %>%
   filter(AGR10_E < 20) %>%
@@ -631,6 +896,7 @@ rtimeOPN <- rtimeOPN %>%
   filter(OPN5_E < 20) %>%
   filter(OPN6_E < 20) %>%
   filter(OPN7_E < 20) %>%
+  filter(OPN7_E > -1) %>%
   filter(OPN8_E < 20) %>%
   filter(OPN9_E < 20) %>%
   filter(OPN10_E < 20) %>%
@@ -872,138 +1138,6 @@ Examples Include:
 - I change my mood a lot.
 
 
-```{r, extscores world map}
-
-exttablec <- exttable %>% 
-  cbind(countrydata$country)
-
-colnames(exttablec)[13] <- "region"
-
-exttablec <- exttablec %>%
-  group_by(region) %>%
-  drop_na 
-
-exttablec<- subset(exttablec, region!="NE")
-exttablec <- subset(exttablec, region!="TD")
-exttablec <- subset(exttablec, region!="PW")
-exttablec <- subset(exttablec, region!="KM")
-exttablec <- subset(exttablec, region!="TJ")
-exttablec <- subset(exttablec, region!="GQ")
-
-extworld <- exttablec %>% 
-  group_by(region) %>%
-  summarize(ExtScores = mean(extscore))
-
-
-
-world_map = map_data("world") 
-world_map$region <- countrycode(world_map$region, "country.name", "iso2c")  
-
-colnames(world_map)[1] <- "Longitude"
-colnames(world_map)[2] <- "Latitude"
-
-
-mergemapext <- inner_join(world_map, extworld, by = "region")
-
-
-pext <- ggplot() +
-  geom_polygon(data=mergemapext,
-          aes(x=Longitude, y=Latitude, group=group, fill = ExtScores, label=region),
-          color="white", size = 0.2) + 
-  coord_cartesian(ylim = c(-50, 90)) + 
-  labs(
-    title="Extroversion Scores of the World",
-    subtitle="Africa is feeling colorful!",
-    fill="Extroversion
-Averages", 
-  )+ theme_minimal() + 
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
-
-ggplotly(pext)
-
-
-```
-
-```{r, est world map}
-esttablec <- esttable %>% 
-  cbind(countrydata$country)
-
-colnames(esttablec)[13] <- "region"
-
-esttablec <- esttablec %>%
-  group_by(region) %>%
-  drop_na 
-
-estworld <- esttablec %>% 
-  group_by(region) %>%
-  summarize(EstScores = mean(estscore))
-
-mergemapest <- inner_join(world_map, estworld, by = "region")
-pest <- ggplot() +
-  geom_polygon(data=mergemapest,
-          aes(x=Longitude, y=Latitude, group=group, fill = EstScores, label=region),
-          color="white", size = 0.2) + 
-  coord_cartesian(ylim = c(-50, 90)) + 
-  labs(
-    title="Neuroticism Scores of the World",
-    subtitle="Africa is feeling colorful!",
-    fill="Neuroticism
-Averages", 
-    xlab('Longitude'), 
-    ylab("Latitude")
-  )  
-
-ggplotly(pest)
-
-##Only one td score
-
-```
-
-```{r, csn world map}
-Csntablec <- csntable %>% 
-  cbind(countrydata$country)
-
-colnames(Csntablec)[13] <- "region"
-
-Csntablec <- Csntablec %>%
-  group_by(region) %>%
-  drop_na 
-
-## Less than 5 responses, skews data
-
-Csntablec<- subset(Csntablec, region!="NE")
-Csntablec <- subset(Csntablec, region!="TD")
-Csntablec <- subset(Csntablec, region!="PW")
-Csntablec <- subset(Csntablec, region!="KM")
-Csntablec <- subset(Csntablec, region!="TJ")
-Csntablec <- subset(Csntablec, region!="GQ")
-
-Csnworld <- Csntablec %>% 
-  group_by(region) %>%
-  summarize(CsnScores = mean(csnscore))
-
-
-mergemapCsn <- inner_join(world_map, Csnworld, by = "region")
-pCsn <- ggplot() +
-  geom_polygon(data=mergemapCsn,
-          aes(x=Longitude, y=Latitude, group=group, fill = CsnScores, label=region),
-          color="white", size = 0.2) + 
-  coord_cartesian(ylim = c(-50, 90)) + 
-  labs(
-    title="Conscientiousness Scores of the World",
-    subtitle="Africa is feeling colorful!",
-    fill="Neuroticism
-Averages", 
-    xlab('Longitude'), 
-    ylab("Latitude")
-  ) 
-  
-
-ggplotly(pCsn)
-
-##Only one td,ne score, km, pw, tj, GQ
-
-```
 
 
 <!--
@@ -1017,5 +1151,7 @@ rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.
 Finish world mapping + write up 
 center graphs 
 proof read
+
+opn7
 
 -->

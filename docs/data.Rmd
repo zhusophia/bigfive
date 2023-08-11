@@ -500,7 +500,7 @@ Let's try zooming out by plotting the averages on a world map, and then analyzin
 As for a note on the data: Locations with less than 5 responses have been omitted from the data, as they often significantly skewed maps. 
 
 
-```{r, extscores world map}
+```{r extscores world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 exttablec <- exttable %>% 
   cbind(countrydata$country)
@@ -552,6 +552,32 @@ ggplotly(pext)
 
 ```
 
+dsadasdsa
+
+```{r, extworldtable}
+
+topext <- extworld %>%
+  arrange(ExtScores) %>%
+  head()
+
+topext$region<- countrycode(topext$region, "iso2c", "country.name")
+
+botext <- extworld %>%
+  arrange(desc(ExtScores)) %>%
+  head()
+
+botext$region<- countrycode(botext$region, "iso2c", "country.name")
+
+  
+knitr::kables(list(
+  kable(caption = "Most Extroverted", topext) %>% kable_styling(),
+  kable(caption = "Most Introverted", botext) %>% kable_styling()
+  )
+) %>% kable_styling()
+
+```
+
+
 Higher scores are correlated with extroversion, lower scores are correlated introversion. 
 
 When looking at extrovertism, North and South America are generally more introverted, often with negative averages, while Asian countries are more extroverted. Europe seems to be the most introverted, with Africa having a diverse range of scores. 
@@ -560,10 +586,8 @@ This is the opposite of stereotypes, as Asians are often seen to value 'educatio
 
 Africa seems to have the most diverse range, with the bright blue representing the Democratic Republic of the Congo (CD) and the dark blue of SD representing Sudan. 
 
-<!-- do we want to show the most and least by country> --> 
 
-
-```{r, est world map}
+```{r, est world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 esttablec <- esttable %>% 
   cbind(countrydata$country)
@@ -606,10 +630,37 @@ Averages",
 ggplotly(pest)
 ```
 
+fasdasd
+
+```{r, estworldtable}
+
+topest <- estworld %>%
+  arrange(estScores) %>%
+  head()
+
+topest$region<- countrycode(topest$region, "iso2c", "country.name")
+
+botest <- estworld %>%
+  arrange(desc(estScores)) %>%
+  head()
+
+botest$region<- countrycode(botest$region, "iso2c", "country.name")
+
+  
+
+knitr::kables(list(
+  kable(caption = "Most Calm", topest) %>% kable_styling(),
+  kable(caption = "Most Limbic", botest) %>% kable_styling()
+  )
+) %>% kable_styling()
+
+```
+
+
 Higher scores are correlated with being calm, lower scores are correlated being limbic.  
 
 
-```{r, csn world map}
+```{r, csn world map, layout="l-body-outset", fig.cap="Diamonddassda sadasds"}
 
 csntablec <- csntable %>% 
   cbind(countrydata$country)
@@ -655,13 +706,39 @@ ggplotly(pcsn)
 
 ```
 
+dsadadas
+
+```{r, csnworldtable}
+
+topcsn <- csnworld %>%
+  arrange(csnScores) %>%
+  head()
+
+topcsn$region<- countrycode(topcsn$region, "iso2c", "country.name")
+
+botcsn <- csnworld %>%
+  arrange(desc(csnScores)) %>%
+  head()
+
+botcsn$region<- countrycode(botcsn$region, "iso2c", "country.name")
+
+  
+
+knitr::kables(list(
+  kable(caption = "Most Contentiousness", topcsn) %>% kable_styling(),
+  kable(caption = "Least Contentiousness", botcsn) %>% kable_styling()
+  )
+) %>% kable_styling()
+
+```
+
 Higher scores are correlated with extroversion, lower scores are correlated introversion. 
 
 
 cheerio!!! \@ref(fig:opn world map) wahahaa
 
 
-```{r, agr world map}
+```{r, agr world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 agrtablec <- agrtable %>% 
   cbind(countrydata$country)
@@ -706,10 +783,37 @@ ggplotly(pagr)
 
 ```
 
-Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+dasdasas
 
 
-```{r opn world map, layout="l-page", fig.cap="Diamond Prices"}
+```{r, agrworldtable}
+
+topagr <- agrworld %>%
+  arrange(agrScores) %>%
+  head()
+
+topagr$region<- countrycode(topagr$region, "iso2c", "country.name")
+
+botagr <- agrworld %>%
+  arrange(desc(agrScores)) %>%
+  head()
+
+botagr$region<- countrycode(botagr$region, "iso2c", "country.name")
+
+  
+
+knitr::kables(list(
+  kable(caption = "Most Agreeable", botagr) %>% kable_styling(),
+  kable(caption = "Most Egocentric", topagr) %>% kable_styling()
+  )
+) %>% kable_styling()
+
+```
+
+Higher scores are correlated with agreeableness, lower scores are correlated egocentrism.  
+
+
+```{r opn world map, layout="l-body-outset", fig.cap="Diamond Prices"}
 
 opntablec <- opntable %>% 
   cbind(countrydata$country)
@@ -755,7 +859,33 @@ ggplotly(popn)
 
 ```
 
-Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+SDADSA
+
+```{r, opnworldtable}
+
+topopn <- opnworld %>%
+  arrange(opnScores) %>%
+  head()
+
+topopn$region<- countrycode(topopn$region, "iso2c", "country.name")
+
+botopn <- opnworld %>%
+  arrange(desc(opnScores)) %>%
+  head()
+
+botopn$region<- countrycode(botopn$region, "iso2c", "country.name")
+
+  
+
+knitr::kables(list(
+  kable(caption = "Most Inquisitive", botopn) %>% kable_styling(),
+  kable(caption = "Least Inquisitve", topopno) %>% kable_styling()
+  )
+) %>% kable_styling()
+
+```
+
+Higher scores are correlated with inquisition, lower scores are correlated non-inquisition.  
 
 
 

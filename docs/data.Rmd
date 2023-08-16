@@ -1,6 +1,8 @@
 ---
-title: "Datalicious Depths of Delectable Data "
-output: html_document
+title: "Datalicious Depths of Delectable Data"
+output: 
+  html_document: 
+    fig_caption: yes
 date: "2023-08-04"
 ---
 
@@ -246,6 +248,7 @@ finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnlett
  pie25 + blank_theme + theme(axis.text.x=element_blank()) +
    labs(title="25 Most Common Results", 
         fill="Results")
+ 
 ```
 
 <br>
@@ -272,7 +275,7 @@ knitr::kable(pfinaltable,
  
 ```
 
-We can also look at the 'average' scores of each personality trait.^[The average values will actually shift every time you refresh this webpage, as I found a function to randomly grab 100 people, then take the average!] 
+We can also look at the 'average' scores of each personality trait.^[The average values will actually shift every time I update the website (on RStudio!), as I found a function to randomly grab 100 people then take the average, with the average changing every time I create a version of this webpage!] 
 
 ```{r, avgtrait}
 #checking average score of each section 
@@ -394,7 +397,7 @@ At first, I was surprised that 'XXXXX' didn't appear, since it's technically the
 
 ### Do results vary between countries? <a name="country"></a>
 
-This data from 224 unique locations/contains 224 different ISO country codes.^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK), Christmas Island (Australia), and the Holy See.] Let's dig through this data - a fun bit of stalking!
+This data from 224 unique locations/contains 224 different ISO country codes.^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK) and Christmas Island (Australia)] Let's dig through this data - a fun bit of stalking!
 
 ```{r, country data}
 
@@ -497,7 +500,7 @@ However, this also shows these countries follow the trend - every single one of 
 
 Let's try zooming out by plotting the averages on a world map, and then analyzing results. 
 
-As for a note on the data: Locations with less than 5 responses have been omitted from the data, as they often significantly skewed maps. 
+As for a note on the data: Locations with less than 10 responses have been omitted from the data, as they often significantly skewed maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
 
 
 ```{r extscores world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
@@ -507,17 +510,17 @@ exttablec <- exttable %>%
 
 colnames(exttablec)[13] <- "region"
 
+redcount <- c('AS', 'RE', 'CK', 'NC', 'PF', 'TC', 'TL', 'VU', 'XK', 'LI', 'MP', 'SL', 'FM', 'LR', 'MC', 'MQ', 'SS', 'SH', 'TO', 'AI', 'GA', 'GP', 'SX', 'CD', 'CG', 'ML', 'MR', 'PW', 'TG', 'VG', 'AQ', 'BF', 'BJ', 'BQ', 'DJ', 'GF', 'MS', 'NU', 'PM', 'SM', 'TJ', 'BI', 'FK', 'GN', 'GQ', 'KM', 'MF', 'MH', 'NE', 'SH', 'TD', 'NE', 'TD', 'PW', 'KM', 'TJ', 'GQ', 'ML')
+
+
 exttablec <- exttablec %>%
   group_by(region) %>%
   drop_na 
 
-exttablec<- subset(exttablec, region!="NE")
-exttablec <- subset(exttablec, region!="TD")
-exttablec <- subset(exttablec, region!="PW")
-exttablec <- subset(exttablec, region!="KM")
-exttablec <- subset(exttablec, region!="TJ")
-exttablec <- subset(exttablec, region!="GQ")
-exttablec <- subset(exttablec, region!="ML")
+for (i in redcount) {
+  exttablec<- subset(exttablec, region!=i)
+}
+
 
 extworld <- exttablec %>% 
   group_by(region) %>%
@@ -552,7 +555,7 @@ ggplotly(pext)
 
 ```
 
-dsadasdsa
+Higher scores are correlated with extroversion, lower scores are correlated introversion. 
 
 ```{r, extworldtable}
 
@@ -570,21 +573,17 @@ botext$region<- countrycode(botext$region, "iso2c", "country.name")
 
   
 knitr::kables(list(
-  kable(caption = "Most Extroverted", topext) %>% kable_styling(),
-  kable(caption = "Most Introverted", botext) %>% kable_styling()
+  kable(caption = "Most Extroverted", botext) %>% kable_styling(),
+  kable(caption = "Least Extroverted", topext) %>% kable_styling()
   )
 ) %>% kable_styling()
 
 ```
 
 
-Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+When looking at extrovertism, countries that are more 'globalized', e.g. North America and East Asia are more extroverted, compared to Africa and South America. When looking at the most and least extroverted, it seems like there's a smattering of locations from various corners of the world. 
 
-When looking at extrovertism, North and South America are generally more introverted, often with negative averages, while Asian countries are more extroverted. Europe seems to be the most introverted, with Africa having a diverse range of scores. 
-
-This is the opposite of stereotypes, as Asians are often seen to value 'education' - a largely individual pursuit. On the other hand, Americans seem to be known as 'loud' and 'boisterous', as culture almost demands "friendliness" as a form of being polite, which can be confused for extroversion.  A good lesson in sterotypes! 
-
-Africa seems to have the most diverse range, with the bright blue representing the Democratic Republic of the Congo (CD) and the dark blue of SD representing Sudan. 
+When looking at the list of least extroverted countries, they're not 'well-known' countries on a global scale. Due to this, it's possible they've become more introverted as they don't regularly encounter new people/foreigners on a day-to-day basis.^'[Did you know that tourists have to pay 200 dollars per day to stay in Bhutan, which consistently ranks as one of the happiest countries? https://www.oneworldeducation.org/our-students-writing/bhutan-the-worlds-happiest-country/]
 
 
 ```{r, est world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
@@ -598,13 +597,9 @@ esttablec <- esttablec %>%
   group_by(region) %>%
   drop_na 
 
-esttablec<- subset(esttablec, region!="NE")
-esttablec <- subset(esttablec, region!="TD")
-esttablec <- subset(esttablec, region!="PW")
-esttablec <- subset(esttablec, region!="KM")
-esttablec <- subset(esttablec, region!="TJ")
-esttablec <- subset(esttablec, region!="GQ")
-esttablec <- subset(esttablec, region!="ML")
+for (i in redcount) {
+  esttablec<- subset(esttablec, region!=i)
+}
 
 estworld <- esttablec %>% 
   group_by(region) %>%
@@ -622,7 +617,7 @@ pest <- ggplot() +
   labs(
     title="Neuroticism Scores of the World",
     subtitle="Africa is feeling colorful!",
-    fill="estroversion
+    fill="Neuroticism  
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
@@ -630,7 +625,8 @@ Averages",
 ggplotly(pest)
 ```
 
-fasdasd
+Higher scores are correlated with being calm, lower scores are correlated being limbic.  
+
 
 ```{r, estworldtable}
 
@@ -649,15 +645,18 @@ botest$region<- countrycode(botest$region, "iso2c", "country.name")
   
 
 knitr::kables(list(
-  kable(caption = "Most Calm", topest) %>% kable_styling(),
-  kable(caption = "Most Limbic", botest) %>% kable_styling()
+  kable(caption = "Most Calm", botest) %>% kable_styling(),
+  kable(caption = "Least Calm", topest) %>% kable_styling()
   )
 ) %>% kable_styling()
 
+##RENAME LEGEND TITLES
+
 ```
 
+It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- things that show the 'mentally-difficult' conditions that they are living it. 
 
-Higher scores are correlated with being calm, lower scores are correlated being limbic.  
+Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to become more emotionally stable. 
 
 
 ```{r, csn world map, layout="l-body-outset", fig.cap="Diamonddassda sadasds"}
@@ -671,13 +670,9 @@ csntablec <- csntablec %>%
   group_by(region) %>%
   drop_na 
 
-csntablec<- subset(csntablec, region!="NE")
-csntablec <- subset(csntablec, region!="TD")
-csntablec <- subset(csntablec, region!="PW")
-csntablec <- subset(csntablec, region!="KM")
-csntablec <- subset(csntablec, region!="TJ")
-csntablec <- subset(csntablec, region!="GQ")
-csntablec <- subset(csntablec, region!="ML")
+for (i in redcount) {
+  csntablec<- subset(csntablec, region!=i)
+}
 
 csnworld <- csntablec %>% 
   group_by(region) %>%
@@ -695,18 +690,17 @@ pcsn <- ggplot() +
   labs(
     title="Conscientiousness Scores of the World",
     subtitle="Africa is feeling colorful!",
-    fill="csnroversion
+    fill="conscientiousness 
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
 
 ggplotly(pcsn)
 
-##Only one td,ne score, km, pw, tj, GQ
 
 ```
 
-dsadadas
+Higher scores are correlated with organization and contentiousness, lower scores are correlated carelessness.  
 
 ```{r, csnworldtable}
 
@@ -725,14 +719,18 @@ botcsn$region<- countrycode(botcsn$region, "iso2c", "country.name")
   
 
 knitr::kables(list(
-  kable(caption = "Most Contentiousness", topcsn) %>% kable_styling(),
-  kable(caption = "Least Contentiousness", botcsn) %>% kable_styling()
+  kable(caption = "Most Contentious", botcsn) %>% kable_styling(),
+  kable(caption = "Least Contentious", topcsn) %>% kable_styling()
   )
 ) %>% kable_styling()
 
 ```
 
-Higher scores are correlated with extroversion, lower scores are correlated introversion. 
+For conscientiousness, Africa is lit up like a Christmas tree! North America is also pretty light. On the other hand, South America is quite dark. 
+
+I also find it interesting that Asia, which is known for their ability to work hard and focus, seem to be quite average. Perhaps, this is where capitalism excels. 
+
+Conscientious people are typically correlated with success, as they're able to complete their work thoroughly. With this hard work, they're able to suceed more in capitalistic countries.
 
 
 cheerio!!! \@ref(fig:opn world map) wahahaa
@@ -749,13 +747,9 @@ agrtablec <- agrtablec %>%
   group_by(region) %>%
   drop_na 
 
-agrtablec<- subset(agrtablec, region!="NE")
-agrtablec <- subset(agrtablec, region!="TD")
-agrtablec <- subset(agrtablec, region!="PW")
-agrtablec <- subset(agrtablec, region!="KM")
-agrtablec <- subset(agrtablec, region!="TJ")
-agrtablec <- subset(agrtablec, region!="GQ")
-agrtablec <- subset(agrtablec, region!="ML")
+for (i in redcount) {
+  agrtablec<- subset(agrtablec, region!=i)
+}
 
 agrworld <- agrtablec %>% 
   group_by(region) %>%
@@ -772,7 +766,7 @@ pagr <- ggplot() +
   labs(
     title="Agreeableness Scores of the World",
     subtitle="Africa is feeling colorful!",
-    fill="agrroversion
+    fill="Agreeableness
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
@@ -783,7 +777,8 @@ ggplotly(pagr)
 
 ```
 
-dasdasas
+Higher scores are correlated with agreeableness, lower scores are correlated egocentrism.  
+
 
 
 ```{r, agrworldtable}
@@ -799,18 +794,19 @@ botagr <- agrworld %>%
   head()
 
 botagr$region<- countrycode(botagr$region, "iso2c", "country.name")
-
   
 
 knitr::kables(list(
   kable(caption = "Most Agreeable", botagr) %>% kable_styling(),
-  kable(caption = "Most Egocentric", topagr) %>% kable_styling()
+  kable(caption = "Least Agreeable", topagr) %>% kable_styling()
   )
 ) %>% kable_styling()
 
 ```
 
-Higher scores are correlated with agreeableness, lower scores are correlated egocentrism.  
+Agreeableness looks pretty similar to the contenciousness graph. It's difficult to not find the most agreeable countries the most egotistical, as they must think they're always so agreeable! However, you can just say that these countries value politeness highly. 
+
+It's also interesting to note that Asian countries typically are very resepctful of their elders, and bend to their will. This idea is not really represented within this graph. 
 
 
 ```{r opn world map, layout="l-body-outset", fig.cap="Diamond Prices"}
@@ -824,13 +820,9 @@ opntablec <- opntablec %>%
   group_by(region) %>%
   drop_na 
 
-opntablec<- subset(opntablec, region!="NE")
-opntablec <- subset(opntablec, region!="TD")
-opntablec <- subset(opntablec, region!="PW")
-opntablec <- subset(opntablec, region!="KM")
-opntablec <- subset(opntablec, region!="TJ")
-opntablec <- subset(opntablec, region!="GQ")
-opntablec <- subset(opntablec, region!="ML")
+for (i in redcount) {
+  opntablec<- subset(opntablec, region!=i)
+}
 
 opnworld <- opntablec %>% 
   group_by(region) %>%
@@ -846,20 +838,21 @@ popn <- ggplot() +
   coord_cartesian(ylim = c(-50, 90)) + 
   labs(
     title="Openness Scores of the World",
-    fill="opnroversion
+    fill="Openness
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
 
 ggplotly(popn)
 
-##Only one td,ne score, km, pw, tj, GQ
 
 # https://rstudio.github.io/distill/figures.html for making figures expand 
-
+#figure out better words for inquistiion/not oppeness
 ```
 
-SDADSA
+Higher scores are correlated with inquisition, lower scores are correlated indifference. 
+
+
 
 ```{r, opnworldtable}
 
@@ -879,15 +872,13 @@ botopn$region<- countrycode(botopn$region, "iso2c", "country.name")
 
 knitr::kables(list(
   kable(caption = "Most Inquisitive", botopn) %>% kable_styling(),
-  kable(caption = "Least Inquisitve", topopno) %>% kable_styling()
+  kable(caption = "Least Inquisitve", topopn) %>% kable_styling()
   )
 ) %>% kable_styling()
 
 ```
 
-Higher scores are correlated with inquisition, lower scores are correlated non-inquisition.  
-
-
+The southern hemisphere seems to be more open compared to the Northern hemisphere, with Europe being the exception. 
 
 ### Are All Questions Created Equal? <a name="questions"></a>
 

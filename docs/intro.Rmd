@@ -10,39 +10,42 @@ date: "2023-08-04"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<!-- rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/intro.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/intro.html') -->
+
 ## Introduction 
 
-This is an analysis of Big Five results, with raw data collected from Open Psychometrics. It contains over 1 million results from various countries, making it *quite* a large file to read through. 
-
-My original goal of this project was to dabble in a bit of data science – data genuinely fascinates me. So, learning how to parse, clean, and modify it, is always going to be a funny endeavor. However, I wanted to drag a bit of psychology in here, just to make it more engaging for me! 
+This is an analysis of Big Five Personality Test results. The raw data was collected by [Open Psychometrics](https://openpsychometrics.org/), containing over 1 million responses from hundreds of different countries. Data was collected with consent from the user.   
 
 If you’re interested in a specific part, you may skip ahead: 
 
 Introduction
 
-1. [Objectives](#Objectives)
+1. [Personal Objectives](#Objectives)
 2. [What is the Big Five (SLOAN)](#SLOAN)
 3. [Discussing Data](#ddata) 
 
 Data
 
-4. [What is the Most Popular Result?](#popres)
-5. [Do results vary between countries?](#country)
-6. How long did people spend on questions?
+4. [What is the most popular result? ](data.html#popres)
+5. [Do results vary between countries?](data.html#country) 
+6. [Are all questions created equal?](data.html#questions)
 
 Further Analysis 
 
 7. Limitations of Big Five 
 8. Connection of Big Five and Daily Life
 
-### Objectives <a name="Objectives"></a>
-After looking at the raw data, there were several questions I wanted to solve: 
+### Personal Objectives <a name="Objectives"></a>
+
+After looking at the raw data, a few questions stood out to me: 
 
 1. What are the actual results of the data? 
-2. Which result was the most popular? How does that compare to other data sets? 
-3. Did these results vary significantly between countries? 
-4. Did certain answers require more time? 
-5. Why did this quiz get the results that it did? 
+2. Which result was the most popular? 
+3. Did these results vary between different countries? How do countries compare against one another? 
+4. How did users react to questions? Was there standard distribution? Did people spend more time on one question compared to another? 
+5. Why did this quiz get the results that it did? Why are people the way they are? 
+
+editing ended here. 
 
 The first three are purely data-based, as they’re just an exploration of the quiz answers. Number four, on the other hand, is trying to understand WHY the results are the way they are. Personally, I find that it’s the most interesting aspect of this: The results are cool, but understanding the people behind the quiz is far more entertaining. 
 

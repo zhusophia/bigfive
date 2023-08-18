@@ -4,43 +4,33 @@ description: |
   The Internet, it turns out, is NOT a microcosm for society. 
 site: distill::distill_website
 ---
-<!-- rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.html') -->
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(knitr)
-library(tidyverse)
-library(dplyr)
-library(plotly)
-library(ggplot2)
-library(distill)
-library(rmarkdown)
-library(RColorBrewer)
-library(formattable)
 
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
 
 ```
 
-NOTICE: This website is currently a WORK-IN-PROGRESS. I am still adding analysis and data, which is why it might look a bit funky towards the bottom of this page. There will also be spelling/grammar mistakes, as well as bad wording (I have not proofread any of my writing). But, something is always better than nothing, and I really needed to double check that Github pages works... I'm learning from my previous mistakes... Welcome to the slow process of analysis, and enjoy your stay (while it lasts)!
+NOTICE: This website is currently a work-in-progress. Throughout the next two weeks or so, I'll be continuously adding various bits and pieces, and you'll absolutely encounter awkward sentences + spelling/grammar mistakes. Welcome to the slow process of analysis, and enjoy your stay (while it lasts)! 
 
 
-### Hello!
+## Hello!
 <!-- rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.html') -->
-Want to jump straight into the analysis? [It's over here!](intro.html)
 
-If you've finished reading the analysis, or got bored and hit the home page, Hi, I'm Sophia! I'm a student at the University of Waterloo and Wilfred Laurier University, pursing a double degree in BMath and BBA. 
+Hi, I'm Sophia! I'm a student at the University of Waterloo and Wilfrid Laurier University, currently pursing a double degree in BMath and BBA. 
 
-I find people fascinating. I love hearing their thoughts, and more importantly, WHY they think that way. That's the fun part, no? The 'Why' is why I like psych - it tells me about the underlying reasons behind actions, and forces people to confront their opinions. It's a process I'm trying to get better at too, but MAN, is it interesting to listen to others.
+You might be thinking: Why are you even dabbling in psych if you're studying math and business? Well, it's simple: I find people (and subsequently, how they act) incredibly fascinating. They allow me to explore different perspectives and it's a really great way of knowing what you don't know. Not only that, but it's so interesting to pick apart WHY people do/believe things  -- everybody has a nuanced reason for their actions, built from a unique mosaic of personal experiences, beliefs, and values. 
 
-Personality, in particular, it quite interesting to me. How easy it is, to compartmentalize people into distinct groups, then tell everybody they're unique! Of course, the previous statement is true - we love to seek patterns, especially in behavior. But how did that come to be? What are people normally like? That stems into nature/nurture, and various other points, but the Big Five is a high-level look this - it's almost a nice introduction.
+When I talk to people, I try to glean as much as I can, creating an image of who they are in my mind. Then, like every other human, proceed to analyze and judge them. Based on what they've shown, I reference my past experiences with similar people to figure out what interests they might have, whether I'd enjoy being friends with them, or how their personality came to be!
 
-I don't get any electives until my 3rd year, so I'll need to wait a year until I can even consider taking a psych course. This is a way to tame that desire for the time being, alongside learning about other psych niches! Not only that, but it's a good way to brush up my data skills. 
+The Big Five's personality system helps with this process, as it compartmentalizes people into distinct and specific groups. It breaks people down into five fundamental traits, and based on these, you can make assumptions on what they're like. I personally don't use the Big Five system to categorize people, but it's still interesting to delve into it and see the groups we split ourselves into. 
 
-<hr>
+Hence, this data project isn't just a way for me to brush up on my R skills. It's a combination of a exploration of general human personalities, as told by the Big Five system, and analyzing why the data shows the results it does. Or, it's a little introduction into psychology and our internal biases, as well as a dash of geography and various other facts I recall when writing this piece! You can even consider it a fun little side-quest to end off my first year. 
 
-As for this project, I'm using R (and their various libraries), I'm exploring Open Psychometric's data set on their Big Five quiz. Visit [HOME](index.html) to hear more about that. 
+Regardless, at this moment in time, this project here for your entertainment -- so have fun exploring the data with me! I'd encourage you to start [here](intro.html), but nobody's going to notice if you don't ;)
 
-If you have any questions about my project or would like to reach out, please contact me [here!](mailto:iceyes123@gmail.com) You can also learn more about me on my website: <a href="https://zhusophia.github.io/" target="_blank"> zhusophia.github.io </a>
+If you have any questions about my project or would like to reach out, please contact me [here!](mailto:iceyes123@gmail.com) You can also learn more about me on my website: <a href="https://zhusophia.github.io/" target="_blank"> zhusophia.github.io </a>.
 

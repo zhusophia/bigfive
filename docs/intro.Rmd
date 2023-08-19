@@ -39,35 +39,40 @@ Further Analysis
 
 After looking at the raw data, a few questions stood out to me: 
 
-1. What are the actual results of the data? 
-2. Which result was the most popular? 
-3. Did these results vary between different countries? How do countries compare against one another? 
-4. How did users react to questions? Was there standard distribution? Did people spend more time on one question compared to another? 
-5. Why did this quiz get the results that it did? Why are people the way they are? 
+1. What are the actual results of the data? Which result was the most popular? 
+2. Did these results vary between different countries? How do countries compare against one another? 
+3. How did users react to questions? Was there standard distribution? Did people spend more time on one question compared to another? 
+4. Why did this quiz get the results that it did? Why are people the way they are? 
+5. What does the Big Five actually tell us? How can people incorporate it into their daily lives and use it to improve themselves? 
 
-editing ended here. 
+Questions 1 through 3 are pretty data-based as the answers lie somewhere within the raw data, allowing me to hone my skills of cleaning, manipulating, and visualizing data. Question 4, on the other hand, is far more speculation and understanding based, where I draw from my experiences and knowledge to form an answer. Together, they make this project an enjoyable challenge to tackle. 
 
-The first three are purely data-based, as they’re just an exploration of the quiz answers. Number four, on the other hand, is trying to understand WHY the results are the way they are. Personally, I find that it’s the most interesting aspect of this: The results are cool, but understanding the people behind the quiz is far more entertaining. 
+In regards to Question 5, I think this project will also allow me to explore the Big Five personality model based on my own interests. I want to see the underlying psychological principals and insights the Big Five provides, and how I can apply it to my daily life. So, I want to also spend some time analyzing the system, and understanding the concept as a whole. 
 
-However, I’m also looking to learn more about the Big Five as a personality model, with a specific interest in common trends and future applications. This means that the second half of this investigation will focus on psychology rather than data science, with a heavier emphasis on writing than code. Furthermore, the tone will remain casual throughout the investigation and I will frequently use personal pronouns and other scientific no-goes - It’s not an academic paper for a reason! 
+But, let's take a detour from answering the above questions and establish the following: 
 
 ### What is the Big Five (SLOAN) <a name="SLOAN"></a>
 
-The Big Five is a personality model that categories people with 5 major personality traits 
+The Big Five is a personality model that categories people with 5 major personality traits: 
 
-* Extroversion - Sociable / Reserved
-* Neuroticism - Calm / Limbic
-* Conscientiousness -  Organized / Unstructured 
-* Agreeableness - Agreeable / Egocentric 
-* Openness - Inquisitive / Non-inquisitive (typically to new experiences)
+* *Extroversion* - Sociable / Reserved 
+  * How outgoing are you? 
+* *Neuroticism* - Calm / Limbic
+  * How emotionally stable are you? 
+* *Conscientiousness* -  Organized / Unstructured 
+  * Can you motivate yourself to diligently complete work?   
+* *Agreeableness* - Agreeable / Egocentric 
+  * Are you willing to compromise your needs for others? Do you get along well with others? 
+* *Openness* - Inquisitive / Non-inquisitive (to new experiences)
+  * Do you prefer familiarity? Is aesthetic important to you? 
 
-Hence, a possible result could look like RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can easily be seen by looking at the beginning letter of each trait. However, an ‘X’ might also be seen. This symbolizes that they equally represent both sides. Therefore, there is no conclusive answer, resulting in a ‘X’, such as SXUAN. 
+These five major traits can be broken down further. For example, extroversion contains 'minor traits' like gregariousness, assertiveness, and excitement-seeking. These traits help you better understand what this test analyzes in regards to 'extrovertedness', but this detail is beyond the scope of this investigation. More information can be found [here](https://www.mindintertwined.com/blog/big-five-personality-traits-extroversion). 
 
-The specific order and formatting of these traits uses the SLOAN formatting, and this investigation will continue using this syntax. However, other common formatting include OCEAN and CANOE. The specific wording (e.g. Extroversion, Conscientiousness) of traits may also vary from one investigation to another. This investigation will continue using the wording above. 
+To get your results, you determine which 'letter' you are for each category (e.g. If you're *more* social than reserved, then you'd say that you're an 'S')^[Note that you're only looking for which side you identify with more. You're never ONLY going to be social or ONLY reserved. Human behaviour exists on a spectrum.] and combine your letters from all the categories together. For example, a possible result is RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can be seen by looking at the first letter of each trait. 
 
-These five major traits can also be broken down further: Extroversion can also contain traits like gregariousness and excitement-seeking. However, these subsets are not within the scope of this investigation. 
+However, if you really can't decide what you are, another possibility is replacing letters with an 'X'. For example, this can be seen in the potential combination of SXUAN. With the 'X' in the neuroticism (2nd) slot, it means that they're in between calm and limbic as they exhibit both traits equally and there is no 'conclusive' answer. However, it is extremely likely for people to identify with one side *slightly* more than the other, so having 'X' (denoting that you're perfectly in between) should not be a common occurrence.^[You'll actually see a surprising number of respondents have an 'X' in their results in this data set. However, I really do believe that people always lean more to one trait more than another, and you'll only receive an 'X' if you take a self-administered quiz -- we're trying to compute humans and that's never a holistic judgement.]   
 
-Furthermore, it should be noted that one person is not entirely one or the other. People exist on a spectrum of these results, despite how black and white they seem to be portrayed. The Big Five result tends to 
+I'm using the SLOAN formatting, (i.e. Extroversion is represented by the 1st letter and Openness is represented by the 5th letter) and will use the above wording (i.e. Agreeableness, Neuroticism) to describe the Big Five traits throughout the investigation. If you decide to do your own research, you'll likely see others using the CANOE or OCEAN formatting/use different words to describe the traits. 
 
 Interested in what your results are? The Open Psychometrics Big Five quiz can be [taken here](https://openpsychometrics.org/tests/IPIP-BFFM/). 
   
@@ -77,7 +82,9 @@ Citations
 * https://similarminds.com/sloan.html
 
 ### Discussing Data <a name="ddata"></a>
-This quiz is self-administered, with users given 50 questions, meaning 10 from each trait. Every question was ranked on a Likert scale (a 5 point scale) with 1 meaning I disagree with the prompt, 3 meaning I am neutral on the prompt, and 5 meaning I agree with the prompt.  
+This quiz is self-administered, with 1,015,342 respondents answering 50 questions over ~2 years. Since we have 50 questions, this means that there were 10 questions from each of the majour personality traits. 
+
+Every question was ranked on a Likert scale (a 5 point scale) with 1 meaning "I disagree with the prompt", 3 meaning "I am neutral on the prompt", and 5 meaning "I agree with the prompt".  
 
 Some sample prompts include: 
 
@@ -85,6 +92,11 @@ Some sample prompts include:
 * I have frequent mood swings. (Testing neuroticism) 
 * I do not have a good imagination. (Testing openness) 
 
-Questions from each category were rotated, starting from Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, Extroversion Q2, etc.
+You can find all the questions [here](https://ipip.ori.org/newBigFive5broadKey.htm), if you look at all the 10-item scale questions. 
 
-Data was also collected on the country of the quiz-taker, the amount of time spent on each question, date taken, and more. In total, 1,015,342 answers were collected over ~2 years, with consent from the user. 
+Questions from each category were rotated, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc.
+
+### Congrats! You've received a run-down of all the admin stuff!
+
+Next: [Explore the Data](data.html)
+

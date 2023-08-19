@@ -30,6 +30,12 @@ library(maps)
 
 ```
 
+```{r}
+htmltools::includeHTML("loadinganimation.html")
+
+```
+
+
 Want to jump to a specific question? 
 
 - [What is the most popular result? ](#popres)
@@ -1268,11 +1274,5 @@ Examples Include:
 
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
-
-Finish world mapping + write up 
-center graphs 
-proof read
-
-opn7
 
 -->

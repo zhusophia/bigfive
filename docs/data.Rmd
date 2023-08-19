@@ -2,7 +2,7 @@
 title: "Datalicious Depths of Delectable Data"
 output: 
   html_document: 
-    fig_caption: yes
+    fig_caption: TRUE
 date: "2023-08-04"
 ---
 
@@ -30,26 +30,22 @@ library(maps)
 
 ```
 
-```{r}
-htmltools::includeHTML("loadinganimation.html")
-
-```
-
 
 Want to jump to a specific question? 
 
-- [What is the most popular result? ](#popres)
-- [Do results vary between countries?](#country) 
+- [Which results are the most common?](#popres)
+- [How do results vary between countries?](#country) 
 - [Are all questions created equal?](#questions)
 
-### What is the most popular result? <a name="popres"></a>
+### Which results are the most common? <a name="popres"></a>
 
-Unfortunately, within this data set, Open Psychometrics did not provide us with specific results (e.g. SCUEI), but with a bunch of numbers. In fact, this is what the data looks like: 
+See, if Open Psychometrics recorded the respondents' results, it would be quite quick to answer this question. Unfortunately, they didn't, and we're working with a bunch of numbers! This is what the data looks like: 
 
 
 ```{r, initialdata, include=FALSE}
-data <- read.csv("data-final.csv")
-data[] <- sapply(data, as.numeric)
+data <- read.csv("country.csv")
+#data <- sapply(data[,!(names(data) %in% c("country"))], as.numeric)
+#data["country"] <- as.character(data["country"])
 options(scipen=10000) 
 ```
 
@@ -57,18 +53,35 @@ options(scipen=10000)
 paged_table(head(data))
 ```
 
+I've selected the first 6 columns.. and it's not too bad! It's a little intimidating to think that there are over 1 million more rows, but we've gotta start somewhere >:)
 
-I've only selected the first 6 responses. Not too bad, right? But, you've gotta imagine about 50 more columns, and about a million more rows. It's a little more intimidating now, but we've gotta start somewhere >:)
+We can start by calculating the scores for the 'Extroversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, answering a 5 on EXT Question 2: I don't talk a lot vs EXT Question 1: I am the life of the party would significantly change the results. 
 
-First, let's calculate the scores for the Extroversion personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, EXT Question 2: I don't talk a lot vs EXT Question 1: I am the life of the party. 
+So, we'll need to make sure to add and subtract scores as necessary - I've arbitrarily made the decision to add 'points' if a question symbolizes extroversion, while subtracting 'points' if a question is correlated with introversion. I've made the key below to help with your understanding: 
 
-So, we'll need to make sure to add and subtract scores as necessary - I've arbitrarily made the decision to add 'points' if a question symbolizes extroversion, while subtracting 'points' if a question is correlated with introversion. 
 
-Hence, after adding up all the scores, any positive score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'. If their score is 0, then they'd receive an 'X', as their results can't really be evaluated since they're perfectly in-between!
+```{r, exttablekey}
+extqs = c("I am the life of the party.", "I don't talk a lot.")
+extkey = c("+", "-")
 
-Sample table of results, where extscore and extletter are calculated using the raw data: 
+keyta = data.frame('Questions' = c("I am the life of the party.", "I don't talk a lot.", "I feel comfortable around people.", "I keep in the background.", "I start conversations.", "I have little to say.", "I talk to a lot of different people at parties.", "I don't like to draw attention to myself.", "I don't mind being the center of attention.", "I am quiet around strangers."), 
+                    'Key' = c("++", "--", "+", "-", "+", "-", "+", "-", "+", "-"))
+
+kable(keyta, caption = "EXT Question Key") %>%
+  kable_styling()
+
+## plus signs don't appear? 
+
+```
+
+
+Hence, after adding up all their points from each question, any positive total score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'. If their score is 0, then they'd receive an 'X', as their results since they're perfectly in-between, and will remain inconclusive.
+
+Below is a sample table of results, where extletter(their final letter result) and extscore (the sum of their points) are calculated from the raw data. 
 
 ```{r, extdata}
+
+
 exttable <- data %>% 
   select(starts_with('EXT'))  
 
@@ -80,14 +93,13 @@ exttable <- exttable %>% select(-c (ends_with('E'))) %>%
       extscore < 0 ~ "R", 
       extscore == 0 ~ "X"
     )) %>%
-  select(extscore, extletter, everything())
+  select(extletter, extscore, everything())
 paged_table(head(exttable))
 
 ```
 
 <br>
-Visualizing this data into a graph: 
-
+We can also visualize our results into a graph: 
 
 ```{r, extgraph}
 exttable <- data %>% select(starts_with('EXT'))
@@ -117,10 +129,9 @@ dfext <- data.frame(extlettercount = c(500346, 468068, 45144),
 
 ```
 
+The same processes will be applied to the other personality traits^[The neuroticism table was actually calculated differently. For the other 4 traits, there were an equal number of positively-keyed questions (i.e. relating to extroversion) and negatively-keyed questions (i.e. relating to introversion). Neuroticism, on the other hand, had 2 'positive' questions and 8 'negative' questions. So, I subtracted 3 from each result, where a score of 5 (Agree) became +2, and a score of 1 (negative) became -2. This ensured that the results weren't skewed by the amount of negatively-keyed questions. I tried comparing this method with the aforementioned method used to calculate extroversion results, and ended up getting the same results. So, am glad to see that they both work!], with their graphs located below: 
 
-I'm going to refrain from any analysis on WHY there's more R's compared to S's until the final results. But, it's a pretty 50/50 split! 
-
-The same process will be applied to the other personality traits^[The neuroticism table was actually calculated differently. For the other 4 traits, there were an equal number of 'positive (e.g. extroversion) questions' and 'negative (e.g. introversion) questions.' Neuroticism had 2 'positive' questions and 8 negative questions. So, subtracted 3 from each result, where a score of 5 (Agree) became +2, and a score of 1 (negative) became -2. This helped balance the questions, while using a similar process. I tried using this method with the other tables and got the same values as my previous method, which is good to see!], with the graphs of results located below: 
+<!-- just explain the process without the footnote, because that what we ended up having to do anwyays.-->
 
 ```{r, est}
  esttable <- data %>% select(starts_with('EST'))
@@ -152,15 +163,15 @@ The same process will be applied to the other personality traits^[The neuroticis
 
  csntable <- data %>% select(starts_with('CSN'))
  csntable <- csntable %>% select(-c (ends_with('E'))) %>% 
-   mutate(csnscore = (CSN1-3) - (CSN2-3) + (CSN3-3) - (CSN4-3) + (CSN5-3) - (CSN6-3) + (CSN7-3) - (CSN8-3) + (CSN9-3) - (CSN10-3)) %>% 
+   mutate(csnscore = (CSN1-3) - (CSN2-3) + (CSN3-3) - (CSN4-3) + (CSN5-3) - (CSN6-3) + (CSN7-3) - (CSN8-3) + (CSN9-3) + (CSN10-3)) %>% 
    mutate(csnletter = 
             case_when(
               csnscore > 0 ~ "O", 
               csnscore < 0 ~ "U", 
               csnscore == 0 ~ "X"
             ))
-
-dfcsn <- data.frame(csnlettercount = c(614712, 339447, 59399),
+ 
+ dfcsn <- data.frame(csnlettercount = c(662846, 302063, 48649),
                      csnlettermap = c('O', 'U', 'X'))
  
  pcsn <- ggplot(data=dfcsn, aes(x=csnlettermap, y=csnlettercount)) +
@@ -178,7 +189,7 @@ dfcsn <- data.frame(csnlettercount = c(614712, 339447, 59399),
 ```{r, agr}
  agrtable <- data %>% select(starts_with('AGR'))
  agrtable <- agrtable %>% select(-c (ends_with('E'))) %>% 
-   mutate(agrscore = AGR2 - AGR1 + AGR4 - AGR3 + AGR6 - AGR5 + AGR8 - AGR7 + AGR10 + AGR9) %>% 
+   mutate(agrscore = (AGR2-3) - (AGR1-3) + (AGR4-3) - (AGR3-3) + (AGR6-3) - (AGR5-3) + (AGR8-3) - (AGR7-3) + (AGR10-3) + (AGR9-3)) %>% 
    mutate(agrletter = 
             case_when(
               agrscore > 0 ~ "A", 
@@ -186,7 +197,7 @@ dfcsn <- data.frame(csnlettercount = c(614712, 339447, 59399),
               agrscore == 0 ~ "X"
             ))
 
-dfagr <- data.frame(agrlettercount = c(836947, 138063, 38548),
+dfagr <- data.frame(agrlettercount = c(846333, 140674, 26551),
                      agrlettermap = c('A', 'E', 'X'))
  
  pagr <- ggplot(data=dfagr, aes(x=agrlettermap, y=agrlettercount)) +
@@ -204,15 +215,15 @@ dfagr <- data.frame(agrlettercount = c(836947, 138063, 38548),
 ```{r, opn}
  opntable <- data %>% select(starts_with('OPN'))
  opntable <- opntable %>% select(-c (ends_with('E'))) %>% 
-   mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) - (OPN8-3) + (OPN9-3) - (OPN10-3)) %>% 
+   mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) + (OPN8-3) + (OPN9-3) + (OPN10-3)) %>% 
    mutate(opnletter = 
             case_when(
               opnscore > 0 ~ "I", 
               opnscore < 0 ~ "N", 
               opnscore == 0 ~ "X"
             )) 
-
-dfopn <- data.frame(opnlettercount = c(924641, 55789, 33128),
+ 
+dfopn <- data.frame(opnlettercount = c(902605, 85372, 25581),
                      opnlettermap = c('I', 'N', 'X'))
  
  popn <- ggplot(data=dfopn, aes(x=opnlettermap, y=opnlettercount)) +
@@ -408,9 +419,7 @@ This data from 224 unique locations/contains 224 different ISO country codes.^['
 ```{r, country data}
 
 
-countrydata <- read.csv("country.csv")
-
-countres <- countrydata %>% 
+countres <- data %>% 
   select('country') %>%
   group_by(country) %>%
   summarize(total = n()) %>%
@@ -435,7 +444,7 @@ Google's SEO (Search Engine Optimization) is also affected by location, and can 
 But, we're not really concerned on WHERE people are taking the quiz, but how it affects answers. Hence, I'm going to find the top 5 most popular results for America, Great Britain, Australia, and the Philippians--top results from different continents--and seeing how they compare to one another. 
 
 ```{r}
-coutdata <- cbind(finaltable$finalletters, countrydata$country) 
+coutdata <- cbind(finaltable$finalletters, data$country) 
 
 
 ## US Data 
@@ -512,7 +521,7 @@ As for a note on the data: Locations with less than 10 responses have been omitt
 ```{r extscores world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 exttablec <- exttable %>% 
-  cbind(countrydata$country)
+  cbind(data$country)
 
 colnames(exttablec)[13] <- "region"
 
@@ -595,7 +604,7 @@ When looking at the list of least extroverted countries, they're not 'well-known
 ```{r, est world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 esttablec <- esttable %>% 
-  cbind(countrydata$country)
+  cbind(data$country)
 
 colnames(esttablec)[13] <- "region"
 
@@ -668,7 +677,7 @@ Yet, it's also reasonable to say that Chinese people are accustomed to high stre
 ```{r, csn world map, layout="l-body-outset", fig.cap="Diamonddassda sadasds"}
 
 csntablec <- csntable %>% 
-  cbind(countrydata$country)
+  cbind(data$country)
 
 colnames(csntablec)[13] <- "region"
 
@@ -745,7 +754,7 @@ cheerio!!! \@ref(fig:opn world map) wahahaa
 ```{r, agr world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
 
 agrtablec <- agrtable %>% 
-  cbind(countrydata$country)
+  cbind(data$country)
 
 colnames(agrtablec)[13] <- "region"
 
@@ -818,7 +827,7 @@ It's also interesting to note that Asian countries typically are very resepctful
 ```{r opn world map, layout="l-body-outset", fig.cap="Diamond Prices"}
 
 opntablec <- opntable %>% 
-  cbind(countrydata$country)
+  cbind(data$country)
 
 colnames(opntablec)[13] <- "region"
 

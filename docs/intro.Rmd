@@ -78,8 +78,9 @@ Interested in what your results are? The Open Psychometrics Big Five quiz can be
   
 Citations
 
-* https://en.wikipedia.org/wiki/Big_Five_personality_traits
-* https://similarminds.com/sloan.html
+* <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">https://en.wikipedia.org/wiki/Big_Five_personality_traits</a>
+* <a href="https://similarminds.com/sloan.html" target="_blank">https://similarminds.com/sloan.html</a>
+
 
 ### Discussing Data <a name="ddata"></a>
 This quiz is self-administered, with 1,015,342 respondents answering 50 questions over ~2 years. Since we have 50 questions, this means that there were 10 questions from each of the majour personality traits. 
@@ -92,7 +93,7 @@ Some sample prompts include:
 * I have frequent mood swings. (Testing neuroticism) 
 * I do not have a good imagination. (Testing openness) 
 
-You can find all the questions [here](https://ipip.ori.org/newBigFive5broadKey.htm), if you look at all the 10-item scale questions. 
+You can find all the questions <a href="https://ipip.ori.org/newBigFive5broadKey.htm" target="_blank">here</a>, if you look at all the 10-item scale questions. 
 
 Questions from each category were rotated, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc.
 

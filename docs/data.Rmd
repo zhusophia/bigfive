@@ -55,9 +55,10 @@ paged_table(head(data))
 
 I've selected the first 6 columns.. and it's not too bad! It's a little intimidating to think that there are over 1 million more rows, but we've gotta start somewhere >:)
 
-We can start by calculating the scores for the 'Extroversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, answering a 5 on EXT Question 2: I don't talk a lot vs EXT Question 1: I am the life of the party would significantly change the results. 
+We can start by calculating the scores for the 'Extroversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. Of course, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, answering a 5 for "I don't talk a lot" vs "I am the life of the party" would significantly change your results. 
 
-So, we'll need to make sure to add and subtract scores as necessary - I've arbitrarily made the decision to add 'points' if a question symbolizes extroversion, while subtracting 'points' if a question is correlated with introversion. I've made the key below to help with your understanding: 
+So, we'll need to make sure to add and subtract scores as necessary, depending on how the questions are keyed. I've arbitrarily made the decision to 
+'positively key' questions symbolising extroversion (meaning that I'd add points to their total score if they showed signs of extroversion), and 'negatively key' questions symbolising introversion (subtracting points from total score). See the table below to better understand this keying: 
 
 
 ```{r, exttablekey}
@@ -65,7 +66,7 @@ extqs = c("I am the life of the party.", "I don't talk a lot.")
 extkey = c("+", "-")
 
 keyta = data.frame('Questions' = c("I am the life of the party.", "I don't talk a lot.", "I feel comfortable around people.", "I keep in the background.", "I start conversations.", "I have little to say.", "I talk to a lot of different people at parties.", "I don't like to draw attention to myself.", "I don't mind being the center of attention.", "I am quiet around strangers."), 
-                    'Key' = c("++", "--", "+", "-", "+", "-", "+", "-", "+", "-"))
+                    'Key' = c('+', "--", "+", "--", "+", "--", "+", "--", "+", "--"))
 
 kable(keyta, caption = "EXT Question Key") %>%
   kable_styling()
@@ -75,9 +76,9 @@ kable(keyta, caption = "EXT Question Key") %>%
 ```
 
 
-Hence, after adding up all their points from each question, any positive total score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'. If their score is 0, then they'd receive an 'X', as their results since they're perfectly in-between, and will remain inconclusive.
+Hence, after adding/subtracting their points from each question, any positive total score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'.^[Recall how introverted questions are negatively keyed and subtracted from your total.] If their score is 0, then they'd receive an 'X', as their results since they're perfectly in-between, and will remain inconclusive.
 
-Below is a sample table of results, where extletter(their final letter result) and extscore (the sum of their points) are calculated from the raw data. 
+Below is a sample table of results, where extletter (their final letter result) and extscore (the sum of their points) are calculated from the raw data. 
 
 ```{r, extdata}
 
@@ -129,9 +130,8 @@ dfext <- data.frame(extlettercount = c(500346, 468068, 45144),
 
 ```
 
-The same processes will be applied to the other personality traits^[The neuroticism table was actually calculated differently. For the other 4 traits, there were an equal number of positively-keyed questions (i.e. relating to extroversion) and negatively-keyed questions (i.e. relating to introversion). Neuroticism, on the other hand, had 2 'positive' questions and 8 'negative' questions. So, I subtracted 3 from each result, where a score of 5 (Agree) became +2, and a score of 1 (negative) became -2. This ensured that the results weren't skewed by the amount of negatively-keyed questions. I tried comparing this method with the aforementioned method used to calculate extroversion results, and ended up getting the same results. So, am glad to see that they both work!], with their graphs located below: 
+The same processes will be applied to the other personality traits, with their graphs located below: 
 
-<!-- just explain the process without the footnote, because that what we ended up having to do anwyays.-->
 
 ```{r, est}
  esttable <- data %>% select(starts_with('EST'))
@@ -147,19 +147,20 @@ The same processes will be applied to the other personality traits^[The neurotic
  dfest <- data.frame(estlettercount = c(517196, 452040, 44322),
                      estlettermap = c('L', 'C', 'X'))
 
- pest <- ggplot(data=dfest, aes(x=estlettermap, y=estlettercount)) +
+ plotest <- ggplot(data=dfest, aes(x=estlettermap, y=estlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Respondents are More Prone to Being Limbic Than Calm",
+     title = "Respondents are More Prone
+to Being Limbic Than Calm",
      subtitle = "Moody and a little bit groovy") + 
    xlab("Possible Results") +
    ylab("Amount of Responses")+
    geom_text(aes(label=estlettercount), vjust=-0.3, size=3.5)+
    theme_minimal()
- pest
+
 ```
 
-```{r, csn}
+```{r, csn, layout="l-body-outset"}
 
  csntable <- data %>% select(starts_with('CSN'))
  csntable <- csntable %>% select(-c (ends_with('E'))) %>% 
@@ -183,7 +184,12 @@ The same processes will be applied to the other personality traits^[The neurotic
    ylab("Amount of Responses")+
    geom_text(aes(label=csnlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()
- pcsn
+
+ 
+ 
+ 
+ plot_grid(plotest, pcsn, ncol = 2, align = "hv")
+ 
 ```
 
 ```{r, agr}
@@ -200,19 +206,21 @@ The same processes will be applied to the other personality traits^[The neurotic
 dfagr <- data.frame(agrlettercount = c(846333, 140674, 26551),
                      agrlettermap = c('A', 'E', 'X'))
  
- pagr <- ggplot(data=dfagr, aes(x=agrlettermap, y=agrlettercount)) +
+ plotagr <- ggplot(data=dfagr, aes(x=agrlettermap, y=agrlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Respondents Rate Themseleves More Agreeable Than Egocentric",
-     subtitle = "AKA: People like to think they're a lot nicer than they actually are") + 
+     title = "Respondents Rate Themseleves
+More Agreeable Than Egocentric",
+     subtitle = "AKA: People like to think they're a lot nicer
+than they actually are") + 
    xlab("Possible Letters") +
    ylab("Amount of Responses")+
    geom_text(aes(label=agrlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()
- pagr
+ 
 ```
 
-```{r, opn}
+```{r, opn, layout="l-body-outset"}
  opntable <- data %>% select(starts_with('OPN'))
  opntable <- opntable %>% select(-c (ends_with('E'))) %>% 
    mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) + (OPN8-3) + (OPN9-3) + (OPN10-3)) %>% 
@@ -226,19 +234,34 @@ dfagr <- data.frame(agrlettercount = c(846333, 140674, 26551),
 dfopn <- data.frame(opnlettercount = c(902605, 85372, 25581),
                      opnlettermap = c('I', 'N', 'X'))
  
- popn <- ggplot(data=dfopn, aes(x=opnlettermap, y=opnlettercount)) +
+ plotopn <- ggplot(data=dfopn, aes(x=opnlettermap, y=opnlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "The Majourity Considers Themselves as Inquisitive",
-     subtitle = "BREAKING NEWS: People like learning, schools are just ineffective... allegedly") + 
+     title = "The Majourity Considers 
+Themselves as Inquisitive",
+     subtitle = "BREAKING NEWS: People like learning, 
+schools are just ineffective... allegedly") + 
    xlab("Possible Letters") +
-   ylab("Amount of people")+
+   ylab("Amount of Responses")+
    geom_text(aes(label=opnlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()
- popn
+
+ 
+  plot_grid(plotagr, plotopn, ncol = 2, align = "hv")
+
+ 
 ```
 
-After getting these values, we can now combine them together to get the results. I'm also going to limit this to the top 25 results... or else the data just gets super messy. 
+Now, we can combine everybody's letters from each personality traits to form their final result, then see which results are the most common within this data set. 
+
+In fact, we can see the 25 most common results below: 
+
+
+<!-- can we zoom out on the graphs?? 
+https://gis.stackexchange.com/questions/154050/is-it-possible-to-zoom-out-a-plot-of-a-map-in-r
+https://www.tutorialspoint.com/how-to-create-a-plot-in-r-with-a-different-plot-window-size-using-plot-function  
+https://stackoverflow.com/questions/51050373/decrease-the-size-of-a-graph-in-ggplot-r
+-->
 
 ```{r, combineresults}
 finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnletter, agrtable$agrletter, opntable$opnletter, sep=""))
@@ -263,13 +286,15 @@ finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnlett
  
  pie25 <- bp25 + coord_polar("y", start=0) 
  pie25 + blank_theme + theme(axis.text.x=element_blank()) +
-   labs(title="25 Most Common Results", 
+   labs(title="Top 25 Most Common Results", 
         fill="Results")
  
 ```
 
 <br>
-WOOO! Congratulations to the XXOAI family for being among the most common result out of 243 possibilities! If you'd prefer to see a more numerical visual, I've provided a table containing the 10 most common results below: 
+WOOO! Congratulations to the XXOAI family for being among the most common result out of 243 possibilities! 
+
+If you'd prefer to see a more numerical representation, I've provided a table with the exact number of each result and the average score of each personality trait^[The average values will actually shift every time I update the website (on RStudio!), as the function 'slice_sample' will grab the average of 100 randomly selected responses, resulting in a unique average every time!]: 
 <br>
 
 ```{r}
@@ -292,8 +317,6 @@ knitr::kable(pfinaltable,
  
 ```
 
-We can also look at the 'average' scores of each personality trait.^[The average values will actually shift every time I update the website (on RStudio!), as I found a function to randomly grab 100 people then take the average, with the average changing every time I create a version of this webpage!] 
-
 ```{r, avgtrait}
 #checking average score of each section 
 
@@ -306,9 +329,9 @@ avgscore <- slice_sample(avgscore, n=75) %>%
 avgscore <- data.table::as.data.table(avgscore, .keep.rownames = "word")
 avgscore <- as.data.frame(t(avgscore))
 
-colnames(avgscore) <- c("EXT", "EST", "CSN", "AGR", "OPN")
-# be careful of slice sample since it randomizes every time
-kable(avgscore) %>% 
+colnames(avgscore) <- c("Extroversion", "Neuroticism", "Conscientiousness", "Agreeableness", "Openness")
+
+kable(avgscore, caption = "Average Score for Each Personliaty Trait") %>% 
   kable_styling()
 
 ```

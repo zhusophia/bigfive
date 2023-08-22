@@ -182,17 +182,13 @@ to Being Limbic Than Calm",
    geom_bar(stat="identity", fill="steel blue") +
    labs(
      title = "Responders Tend to be
-Organized, Rather Than Unorganized",
+Organized, Rather Than\nUnorganized",
      subtitle = "Control freaks reign supreme") + 
    xlab("Possible Letters") +
    ylab("Amount of Responses")+
    geom_text(aes(label=csnlettercount), vjust=-0.3, size=3.5) +
    theme_minimal()+
-   scale_y_continuous(expand = c(0.1, 0)) + 
-   theme(text = element_text(size = 8.5))
-
- ### maybe you can make the graph itself smalelr?
- 
+   scale_y_continuous(expand = c(0.1, 0)) 
  
  plot_grid(plotest, pcsn, ncol = 2, align = "hv")
  
@@ -227,7 +223,7 @@ than they actually are") +
  
 ```
 
-```{r, opn, layout="l-body-outset"}
+```{r, opn}
  opntable <- data %>% select(starts_with('OPN'))
  opntable <- opntable %>% select(-c (ends_with('E'))) %>% 
    mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) + (OPN8-3) + (OPN9-3) + (OPN10-3)) %>% 
@@ -246,7 +242,7 @@ dfopn <- data.frame(opnlettercount = c(902605, 85372, 25581),
    labs(
      title = "The Majourity Considers 
 Themselves as Inquisitive",
-     subtitle = "BREAKING NEWS: People like learning, \n schools are just ineffective... allegedly\n") + 
+     subtitle = "BREAKING: People like learning,\nschools are just ineffective...\nallegedly") + 
    xlab("Possible Letters") +
    ylab("Amount of Responses")+
    geom_text(aes(label=opnlettercount), vjust=-0.3, size=3.5) +
@@ -267,14 +263,7 @@ Now, we can combine everybody's letters from each personality traits to form the
 
 In fact, we can see the 25 most common results below: 
 
-
-<!-- can we zoom out on the graphs?? 
-https://gis.stackexchange.com/questions/154050/is-it-possible-to-zoom-out-a-plot-of-a-map-in-r
-https://www.tutorialspoint.com/how-to-create-a-plot-in-r-with-a-different-plot-window-size-using-plot-function  
-https://stackoverflow.com/questions/51050373/decrease-the-size-of-a-graph-in-ggplot-r
--->
-
-```{r, combineresults, layout="l-body-outset"}
+```{r, combineresults}
 finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnletter, agrtable$agrletter, opntable$opnletter, sep=""))
  finaltable <- data.frame(finalletters) 
   
@@ -347,18 +336,18 @@ kable(avgscore, caption = "Average Score for Each Personliaty Trait") %>%
 
 ```
 
-<hr>
 
-
-Let’s try to analyze why these results happened.
+### Let’s try to analyze why these results happened.
 
 **Extrovertism**
+
 Extrovertism is the most balanced trait, as there seems to be a nice mix of S(ocial) and R(eserved) – representative of the larger population. I’d assume this is because questions in this trait were very straight-forward (e.g. “I start conversations”), and users likely display/are conscious of these behaviors in their everyday life. Hence, with a more ‘objective’ viewpoint, this removes the issue of self-bias and leads to more accurate results. 
 
 There are also about ~40k more introverts compared to extroverts. Maybe the S’s aren’t as likely to spend 20 minutes on an online test, compared to R’s? 
 
 
 **Neuroticism**
+
 Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extrovertism section, the questions tend to be straightforward and there’s relatively less self-bias within the trait, as many people are conscious of their emotions, and whether or not they control them.  
 
 There are ~60000 more limbic people compared to calm. I’m not really surprised - people are more stressed^[https://www.wbur.org/hereandnow/2022/07/13/stress-survey-gallup] and more sad^[https://www.voanews.com/a/why-people-worldwide-are-unhappier-more-stressed-than-ever-/6658784.html] than we’ve ever been. Furthermore, emotional regulation is a result of introspection and reflection. As our society slowly moves towards constant stimulation and excess, it’s no wonder we struggle to achieve emotional stability. 
@@ -375,14 +364,16 @@ No matter how hard we try, we can never be completely objective. Many struggle t
 
 In normal, everyday life, this is not too significant of an issue. A little bit of subjectivity never hurt anybody! However, when we’re trying to objectively analyze and record data about ourselves, since this is a self-administered quiz, our lack of objectivity can lead to delusional answers.
 
-2. We’re fragile creatures 
+2. We’re fragile creatures
+
 For these three categories, there are clear ‘winners’. In this society, it is almost ALWAYS better if you’re organized, agreeable, and inquisitive, rather than the opposite. In fact, it’s almost an insult if we AREN’T these things, because that means we should ‘be better’.^[If someone told you, “Yea, you’re just a bit egocentric… no offense”, would you be happy about it?] For example, you may want to be agreeable and people-pleasing, since it shows that you’re friendly and nice, and people will tend to ‘like’ you more, instead of if you’re confrontational and assertive for your own needs. Or, as our society moves towards maximizing productivity and ‘grind culture’, you NEED to be conscientious and self-disciplined, or else you won’t be successful.  Or, people don’t want to be seen as rigid and unwilling to try new things. Society will call them scaredy-cats, boring, or that you’re ‘bringing the mood down’. 
 
 It doesn’t help that we don’t like being ‘bad people’ – we constantly attempt to justify our actions to be good and perceive ourselves in a positive light. We are rarely the villains in our own stories; it’s always the other person doing something wrong, or doing something worse than we did, or they started the ordeal.
 
 However, when we can’t be objective, we can confuse what we actually do, to what we wish we did. This is going to lead us to choose answers corresponding to those ‘better’ traits of self-discipline, agreeableness and inquisitiveness, instead of objectively saying we have the ‘worse’ traits of unstructuredness, egocentrism and un-inquisitiveness.
 
-3. We’re just built for this (for Openness) 
+3. We’re just built for this (for Openness)
+
 There’s also the classic case of sampling bias. The people who take this quiz are probably curious about psychology, want to know more about themselves, and are willing to try something new. These are typically the types of people who are inquisitive (matching with the I letter) instead of non-inquisitive (matching with the N letter). 
 
 
@@ -418,7 +409,7 @@ Looking at these tables, there’s a clear discrepancy between theoretical and e
 
 However, most of it can be explained by the previous analysis: Wrong results might occur because of biases and societal norms (cementing the last two letters to be A and I), in addition to the natural disposition of respondents. 
 
-Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are, since SCOAI seems like one of the most 'socially-successful’ results.^[Extroverts, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive, as they will tend to have larger social circles, better intrapersonal relationships and private lives, and the ability to study and work hard to get to positions they want academically and corporately.] So, in reality, I think that many respondents are not actually SCOAIs. That’s my best guess!^[If you have more ideas, I’d love to hear them! Reach out :)]
+Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are, since SCOAI seems like one of the most 'socially-successful’ results.^[Extroverted, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive, as they will tend to have larger social circles, better intrapersonal relationships and private lives, and the ability to study and work hard to get to positions they want academically and corporately.] So, in reality, I think that many respondents are not actually SCOAIs. That’s my best guess!^[If you have more ideas, I’d love to hear them! Reach out :)]
 
 Also, just to provide a comphrensive review of the results, here's a list of the most uncommon ones! 
 
@@ -439,11 +430,11 @@ knitr::kable(pfinaltableasc,
 
 No surprise, it's a lot of results with X's!
 
-At first, I was surprised that 'XXXXX' didn't appear, since I'd assume it is(theoretically) the most unlikely.^[There's actually 3794 results for XXXXX in this data set] However, I wouldn't be surprised if only 5% of respondents were geniunely XXXXX, while the other 95% of people who got the result just kept clicking 3 (Neutral) for every question, or had some kind of game to see if they could get the (theoretically) super rare XXXXX. 
+At first, I was surprised that 'XXXXX' didn't appear, since I'd assume it (theoretically) is the most unlikely.^[There's actually 3794 people who got  XXXXX in this data set] However, I wouldn't be surprised if only 5% of respondents were genuinely XXXXX, while the other 95% of people who got the result just kept clicking 3 (Neutral) for every question, or had some kind of game to see if they could get the (theoretically) super rare XXXXX. 
 
 ### Do results vary between countries? <a name="country"></a>
 
-This data from 224 unique locations/contains 224 different ISO country codes.^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK) and Christmas Island (Australia)] Let's dig through this data - a fun bit of stalking!
+This data contains 224 unique ISO country codes^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK) and Christmas Island (Australia)]. Let's dig through this data - a fun bit of stalking!
 
 ```{r, country data}
 
@@ -457,20 +448,20 @@ countres <- data %>%
 
 
 ggplot(data= countres, mapping = aes(x = reorder(country, -total), y = total))+
-  geom_col(fill = "darkseagreen3")+
+  geom_col(fill = "steelblue")+
   theme_classic()+
-  labs(title = "Countries of Responders", 
+  labs(title = "Locations of Respondents", 
        subtitle = "OH SAY, CAN YOU SEEEEE!", 
        y = "Amount of Responses", 
-       x = "Country")
+       x = "Location")
 
 ```
 
-We can see that the majority of data came from the US, with a whopping total of 546403 respondents. Followed behind them is Great Britain (GB), Canada (CA), and Australia (Au). This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language.
+We can see that the majority of data came from the US, with a whopping total of 546403 respondents. Trailing (very far) behind, we also have Great Britain (GB), Canada (CA), and Australia (AU). 
 
-Google's SEO (Search Engine Optimization) is also affected by location, and can rank websites by their proximity to the user^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher]. So, it's possible that Open Psychometrics is American^[I couldn't find any location data on the website itself], and when Americans search up "Big Five Personality Test", this is the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
+This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language. In addition, Google's SEO (Search Engine Optimization) is also affected by location, and can rank websites by their proximity to the user.^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher] So, it's possible that Open Psychometrics is American^[I couldn't find any location data on the website itself], and when Americans search up "Big Five Personality Test", this would be the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
 
-But, we're not really concerned on WHERE people are taking the quiz, but how it affects answers. Hence, I'm going to find the top 5 most popular results for America, Great Britain, Australia, and the Philippians--top results from different continents--and seeing how they compare to one another. 
+But, we're not really concerned on WHERE people are taking the quiz. Instead, we only care about how it affects the responses. Hence, we're going to start by finding the most common results for America, Great Britain, Australia, and the Philippians --these location shave the most amount of results while being from different continents-- and seeing how they compare to one another. 
 
 ```{r}
 coutdata <- cbind(finaltable$finalletters, data$country) 
@@ -537,14 +528,20 @@ knitr::kables(list(
 ```
 
 
-From this table, it's pretty clear that the countries generally have similar results, but Philippines is the only one that really stands out from the rest. Namely, the country has more RLAOI than SCOAI, meaning respondents tended to be more limbic and introverted than their counterparts. It's difficult to point out why without knowing the average age of the respondents, as that could dictate a lot of their behaviors. 
+From the above table, it's pretty clear that countries have very similar trends, with the top 7 result virtually the same between all countries. However, there are slight differences you can take out of it: 
 
-However, this also shows these countries follow the trend - every single one of the results were inside the top 25. Of course, this is the expected result, but one can always wish for a little special surprise, you know? 
+- The Philippines tends to be more introverted than extroverted 
+- The Philippines tends to be more limbic than calm 
+- The Philippines is the only location to have an 'X' appear in their results
+- The Philippines contains the only 'N', instead of 'I'
+- Great Britain has the 'least variation' in regard to percentage (Their percentage column has the smallest range)
+- 'E' only appears 7 times, relative to the 33 appearances of 'A'
+- Every result in this table also appears in the top 25 most common results
 
 
 Let's try zooming out by plotting the averages on a world map, and then analyzing results. 
 
-As for a note on the data: Locations with less than 10 responses have been omitted from the data, as they often significantly skewed maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
+A note on the data: Locations with less than 10 responses have been omitted from the data, as they often significantly skewed maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
 
 
 ```{r extscores world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
@@ -1306,10 +1303,6 @@ Examples Include:
 
 
 <!--
-
-
-
-
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')
 

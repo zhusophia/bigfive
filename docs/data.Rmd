@@ -2,6 +2,8 @@
 title: "Datalicious Depths of Delectable Data"
 output: 
   html_document: 
+    includes: 
+      in_header: loadinganimation.html
     fig_caption: TRUE
 date: "2023-08-04"
 ---
@@ -553,24 +555,25 @@ colnames(exttablec)[13] <- "region"
 
 redcount <- c('AS', 'RE', 'CK', 'NC', 'PF', 'TC', 'TL', 'VU', 'XK', 'LI', 'MP', 'SL', 'FM', 'LR', 'MC', 'MQ', 'SS', 'SH', 'TO', 'AI', 'GA', 'GP', 'SX', 'CD', 'CG', 'ML', 'MR', 'PW', 'TG', 'VG', 'AQ', 'BF', 'BJ', 'BQ', 'DJ', 'GF', 'MS', 'NU', 'PM', 'SM', 'TJ', 'BI', 'FK', 'GN', 'GQ', 'KM', 'MF', 'MH', 'NE', 'SH', 'TD', 'NE', 'TD', 'PW', 'KM', 'TJ', 'GQ', 'ML')
 
+#can you remove this from the entire dataset, after thsi point
+
 
 exttablec <- exttablec %>%
   group_by(region) %>%
   drop_na 
 
 for (i in redcount) {
-  exttablec<- subset(exttablec, region!=i)
+  exttablec<- filter(exttablec, region!=i)
 }
 
+exttablec$region <- countrycode(exttablec$region, "iso2c", "country.name")  
 
 extworld <- exttablec %>% 
   group_by(region) %>%
   summarize(ExtScores = mean(extscore))
 
-
-
 world_map = map_data("world") 
-world_map$region <- countrycode(world_map$region, "country.name", "iso2c")  
+world_map$region[world_map$region == 'USA'] <- 'United States'
 
 colnames(world_map)[1] <- "Longitude"
 colnames(world_map)[2] <- "Latitude"
@@ -604,13 +607,9 @@ topext <- extworld %>%
   arrange(ExtScores) %>%
   head()
 
-topext$region<- countrycode(topext$region, "iso2c", "country.name")
-
 botext <- extworld %>%
   arrange(desc(ExtScores)) %>%
   head()
-
-botext$region<- countrycode(botext$region, "iso2c", "country.name")
 
   
 knitr::kables(list(
@@ -621,13 +620,18 @@ knitr::kables(list(
 
 ```
 
+There doesn't seem to be a clear trend in the world, but there seems to be several generalizations. 
 
-When looking at extrovertism, countries that are more 'globalized', e.g. North America and East Asia are more extroverted, compared to Africa and South America. When looking at the most and least extroverted, it seems like there's a smattering of locations from various corners of the world. 
+- North America is slightly more introverted than extroverted 
+- South America is more introverted than extroverted
+- East Asia is slightly more extroverted than introverted
+- Africa has a diverse smattering of extroversion/introversion scores 
+- Europe is more introverted than extroverted 
 
-When looking at the list of least extroverted countries, they're not 'well-known' countries on a global scale. Due to this, it's possible they've become more introverted as they don't regularly encounter new people/foreigners on a day-to-day basis.^'[Did you know that tourists have to pay 200 dollars per day to stay in Bhutan, which consistently ranks as one of the happiest countries? https://www.oneworldeducation.org/our-students-writing/bhutan-the-worlds-happiest-country/]
+It's quite interesting that the sterotype is that Americans are more extroverted, while Asians are more introverted. Doesn't seem to apply to this dataset!
 
 
-```{r, est world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
+```{r, est world map, layout="l-body-outset"}
 
 esttablec <- esttable %>% 
   cbind(data$country)
@@ -639,8 +643,11 @@ esttablec <- esttablec %>%
   drop_na 
 
 for (i in redcount) {
-  esttablec<- subset(esttablec, region!=i)
+  esttablec<- filter(esttablec, region!=i)
 }
+
+
+esttablec$region <- countrycode(esttablec$region, "iso2c", "country.name")  
 
 estworld <- esttablec %>% 
   group_by(region) %>%
@@ -648,7 +655,7 @@ estworld <- esttablec %>%
 
 
 mergemapest <- inner_join(world_map, estworld, by = "region")
-
+mergemapest
 
 pest <- ggplot() +
   geom_polygon(data=mergemapest,
@@ -675,13 +682,10 @@ topest <- estworld %>%
   arrange(estScores) %>%
   head()
 
-topest$region<- countrycode(topest$region, "iso2c", "country.name")
-
 botest <- estworld %>%
   arrange(desc(estScores)) %>%
   head()
 
-botest$region<- countrycode(botest$region, "iso2c", "country.name")
 
   
 
@@ -700,7 +704,7 @@ It seems like the south-eastern part of the world is less limbic, specifically A
 Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to become more emotionally stable. 
 
 
-```{r, csn world map, layout="l-body-outset", fig.cap="Diamonddassda sadasds"}
+```{r, csn world map, layout="l-body-outset"}
 
 csntablec <- csntable %>% 
   cbind(data$country)
@@ -712,8 +716,11 @@ csntablec <- csntablec %>%
   drop_na 
 
 for (i in redcount) {
-  csntablec<- subset(csntablec, region!=i)
+  csntablec<- filter(csntablec, region!=i)
 }
+
+csntablec$region <- countrycode(csntablec$region, "iso2c", "country.name")  
+
 
 csnworld <- csntablec %>% 
   group_by(region) %>%
@@ -749,13 +756,10 @@ topcsn <- csnworld %>%
   arrange(csnScores) %>%
   head()
 
-topcsn$region<- countrycode(topcsn$region, "iso2c", "country.name")
 
 botcsn <- csnworld %>%
   arrange(desc(csnScores)) %>%
   head()
-
-botcsn$region<- countrycode(botcsn$region, "iso2c", "country.name")
 
   
 
@@ -789,8 +793,11 @@ agrtablec <- agrtablec %>%
   drop_na 
 
 for (i in redcount) {
-  agrtablec<- subset(agrtablec, region!=i)
+  agrtablec<- filter(agrtablec, region!=i)
 }
+
+agrtablec$region <- countrycode(agrtablec$region, "iso2c", "country.name")  
+
 
 agrworld <- agrtablec %>% 
   group_by(region) %>%
@@ -828,14 +835,10 @@ topagr <- agrworld %>%
   arrange(agrScores) %>%
   head()
 
-topagr$region<- countrycode(topagr$region, "iso2c", "country.name")
-
 botagr <- agrworld %>%
   arrange(desc(agrScores)) %>%
   head()
 
-botagr$region<- countrycode(botagr$region, "iso2c", "country.name")
-  
 
 knitr::kables(list(
   kable(caption = "Most Agreeable", botagr) %>% kable_styling(),
@@ -862,8 +865,11 @@ opntablec <- opntablec %>%
   drop_na 
 
 for (i in redcount) {
-  opntablec<- subset(opntablec, region!=i)
+  opntablec<- filter(opntablec, region!=i)
 }
+
+opntablec$region <- countrycode(opntablec$region, "iso2c", "country.name")  
+
 
 opnworld <- opntablec %>% 
   group_by(region) %>%
@@ -901,13 +907,10 @@ topopn <- opnworld %>%
   arrange(opnScores) %>%
   head()
 
-topopn$region<- countrycode(topopn$region, "iso2c", "country.name")
 
 botopn <- opnworld %>%
   arrange(desc(opnScores)) %>%
   head()
-
-botopn$region<- countrycode(botopn$region, "iso2c", "country.name")
 
   
 

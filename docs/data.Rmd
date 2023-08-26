@@ -628,7 +628,7 @@ There doesn't seem to be a clear trend in the world, but there seems to be sever
 - Africa has a diverse smattering of extroversion/introversion scores 
 - Europe is more introverted than extroverted 
 
-It's quite interesting that the sterotype is that Americans are more extroverted, while Asians are more introverted. Doesn't seem to apply to this dataset!
+It's quite interesting that the sterotype is that Americans are more extroverted and loud, while Asians are more introverted and quiet. Doesn't seem to apply to this dataset!
 
 
 ```{r, est world map, layout="l-body-outset"}
@@ -655,7 +655,6 @@ estworld <- esttablec %>%
 
 
 mergemapest <- inner_join(world_map, estworld, by = "region")
-mergemapest
 
 pest <- ggplot() +
   geom_polygon(data=mergemapest,
@@ -699,9 +698,9 @@ knitr::kables(list(
 
 ```
 
-It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- things that show the 'mentally-difficult' conditions that they are living it. 
+It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- conditions that would propagate negative moods and emotional instability.
 
-Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to become more emotionally stable. 
+Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to regulate their emotions. 
 
 
 ```{r, csn world map, layout="l-body-outset"}
@@ -773,15 +772,10 @@ knitr::kables(list(
 
 For conscientiousness, Africa is lit up like a Christmas tree! North America is also pretty light. On the other hand, South America is quite dark. 
 
-I also find it interesting that Asia, which is known for their ability to work hard and focus, seem to be quite average. Perhaps, this is where capitalism excels. 
-
-Conscientious people are typically correlated with success, as they're able to complete their work thoroughly. With this hard work, they're able to suceed more in capitalistic countries.
+I find it interesting that Asia, which is known for their disciplined schedules and focus, seems to be quite average. 
 
 
-cheerio!!! \@ref(fig:opn world map) wahahaa
-
-
-```{r, agr world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
+```{r, agr world map, layout="l-body-outset"}
 
 agrtablec <- agrtable %>% 
   cbind(data$country)
@@ -848,10 +842,10 @@ knitr::kables(list(
 
 ```
 
-Agreeableness looks pretty similar to the contenciousness graph. It's difficult to not find the most agreeable countries the most egotistical, as they must think they're always so agreeable! However, you can just say that these countries value politeness highly. 
 
-It's also interesting to note that Asian countries typically are very resepctful of their elders, and bend to their will. This idea is not really represented within this graph. 
+I had to double check twice to make sure I didn't accidentally duplicate the conscientiousness graph, as they look almost identical. 
 
+I find it quite interesting that everybody thinks they're agreeable. When looking at the scores on the 'least agreeable' table, not a single country is willing to admit they're more egotistical! Alas, the bias goes deep. 
 
 ```{r opn world map, layout="l-body-outset", fig.cap="Diamond Prices"}
 
@@ -897,7 +891,7 @@ ggplotly(popn)
 #figure out better words for inquistiion/not oppeness
 ```
 
-Higher scores are correlated with inquisition, lower scores are correlated indifference. 
+Higher scores are correlated with inquisition, lower scores are correlated traditionalists. 
 
 
 
@@ -922,13 +916,13 @@ knitr::kables(list(
 
 ```
 
-The southern hemisphere seems to be more open compared to the Northern hemisphere, with Europe being the exception. 
+The Americas, Africa, and Europe seem to be a lot more open to new experiences, as they're significantly brighter than the other continents. I can only think that risk-taking is just encouraged inside these societies or people are given more personal freedom and allowed more individuality. However, in other locations, they may prioritize stability and traditional methods -- not necessarily a bad thing. 
 
 ### Are All Questions Created Equal? <a name="questions"></a>
 
-We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at....
+We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at!
 
-Thus, I present to you: General time spent on each question!
+Thus, I present to you: Amount of time spent on each question!
 
 ```{r, rtimext}
 rtimeext <- data %>%
@@ -1083,17 +1077,17 @@ rqopnp
 ```
 
 
-This is a good visual to compare questions to each other, especially questions in the same category. 
-
 For your reference: 
 
 - EXT = Extroversion (S/R)
 - EST = Neuroticsm (L/C)
 - CSN = Organization (O/U)
 - AGR = Agreeableness (A/E)
-- OPN = Openness (I/U)
+- OPN = Openness (I/N)
 
-For those unaware, this is a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!]. The white box symbolizes the interquartile range, with the lower half of the box showing the bottom 25%, while the top half of the box shows the top 25%. The line in the center is the median of the question. It's really good for visualizing the spread of data (which seems to range quite a bit). However, I've skewed the data by cutting off any values above 20 seconds^[as it's quite uncommon and makes plotting the graph difficult] and only took a random sample of 500 response times for each question^[500 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
+I really liked using a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!]. to symbolize these results. For those who are unaware,The white box symbolizes the interquartile range, with the lower half of the box represents the bottom 25%, while the top half of the box represents the top 25% of users. The line in the center is the median time taken. Box plots are great for visualizing the spread of data (which seems to range quite a bit). 
+
+A note of the data: I've removed values above 20 seconds^[as they're significant outliars] and only took a random sample of 500 response times for each question^[500 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
 
 However, I want to be more precise with these loading times, so I've specifically pulled the questions that take the longest and shortest times to complete. 
 
@@ -1117,7 +1111,7 @@ qtimes <- mutate(qtimes, question = qcolnames) %>%
 
 
 highqtime <- qtimes %>%
-  slice(2:6) %>% 
+  slice(1:5) %>% 
   mutate(qtimeframe =  qtimeframe/1000) %>%
   mutate(qs = c("I shirk my duties.", "I leave my belongings around.", "I am relaxed most of the time.", "I feel little concern for others.", "I don't like to draw attention to myself.")) %>%
   relocate(question, qs, qtimeframe)
@@ -1138,16 +1132,16 @@ knitr::kables(list(
   )
 ) %>% kable_styling()
 ```
-
+## LYING!!
 
 I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. This is likely because people people were getting accustomed to the quiz, had loading time issues, or started the quiz, then immediately forgot about it. 
 
-"I shirk my duties" took the longest, likely because 'shirk' is an uncommon word and people wanted to search up the definition, which easily could've taken an extra 10 seconds. As for the other questions, they're all relatively long sentences and have more nuance. They're all very situational, as people are rarely "always relaxed" or "never relaxed", and it takes time to think whether you're relax a MAJOURITY of the time. Same thing for little concern for others - there are tons of people you care about, but also, tons of people you don't. So, it's a bit tricky to answer those. 
+"I shirk my duties" took the longest, likely because 'shirk' is an uncommon word and people may have searched up thed efintion - increasing the amount of time it took to answer. In addition, questions that look longer often had more words to read and often focused on situation prompts. For example, people are rarely "always relaxed" or "never relaxed", so it takes time to think whether you're relaxed a MAJOURITY of the time. Same thing for little concern for others - there are tons of people you care about, but also, tons of people you don't. So, do you take everybody into consideration? Do you focus more on the people close to you to answer this question? it's a bit tricky to have an answer at the top of your head for these cases.  
 
-On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either read a dictionary for fun to seem smart, or you don't. I do find it interesting that it's difficult for people to determine whether they're 'relaxed' rather than 'blue'. Likely because you conciously pay attention to when you're sad, but not when you're relaxed? You can also see that these questions are the ones that are asked later (e.g. AGR_9 is part of the 9th out of 10 rounds of questions, meaning that it'll be really close to the ending of the quiz). Anticipation for results may have caused them to rush through the later questions. 
+On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either talk pretentiously to seem smart, or you don't. I do find it interesting that it's difficult for people to determine whether they're 'relaxed' rather than 'blue'. Likely because you consciously pay attention to when you're sad, but not when you're relaxed? You can also see that these questions are the ones that are asked later (i.e. AGR_9 is part of the 9th out of 10 rounds of questions, more specifically, the 44th question they've read). Anticipation for results may have caused them to rush through the later questions. 
 
 
-Another interesting thing to note is the distrubtion of answers for each question. You may expected that each question has a distribution similar to standard deviation. However... that's actually not the case! Many questions tend to have a distribution like so: 
+Another interesting thing to note is the distribution of answers for each question. You may expected that each question has a distribution similar to standard distribution. However, that's actually not the case! Many questions tend to have a distribution like so: 
 
 ```{r}
 
@@ -1169,14 +1163,14 @@ agr1g<- ggplot(data=agr1p, aes(x=Answers)) +
 
 ###
 est3p <- data %>%
-  select('AGR3') %>%
+  select('AGR6') %>%
   pivot_longer(everything(), values_to="Answers", names_to="Question") %>%
   filter(Answers != "0")
 
 est3g <- ggplot(data=est3p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
-     title = "I insult people.",
+     title = "I have a soft heart",
      subtitle = "Wholesome :)") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
@@ -1259,13 +1253,12 @@ There are four major types of distribution seen in the data:
 
 1. Logarithmic (First Row)
 
-The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily", which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" probably does, because it helps narrow down the situation. You also don't really change your behavior around different strangers, you usually are pretty constant with your behavior.)
+The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[I.e. If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily" is seen to be a relatively normal thing to say, which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" does because the question narrow down the situation. You also don't really change your behavior around different strangers - it's pretty consistent.)
 
 Some other examples include: 
 
 - I have difficulty understanding abstract ideas.
 - I am quiet around strangers.
-- I have a soft heart.
 - I spend time reflecting on things.
 
 If you're wondering which side they skew on.... just trust your gut on it :)
@@ -1284,7 +1277,7 @@ Examples include:
 
 3. "Normal" Distribution (Third Row, Left)
 
-I'm lying to you - This graph isn't normal distribution. I'm just calling it normal distribution because the answer 3 (neutral) is the most common answer. Quite frankly, it just means that people are either confused, or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions seem to be the most 'observable/objective' of the bunch. Personally, I try to make a habit on avoiding clicking 3 no matter what (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's associated with the extrovertism questions. 
+I'm lying to you - This graph isn't normal distribution. I'm just calling it normal distribution because the answer 3 (neutral) is the most common answer. Quite frankly, it just means that people are either confused or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions seem to be the most 'observable/objective' of the bunch. Personally, I try to make a habit on avoiding clicking 3 no matter what (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's typically associated with the extrovertism questions. 
 
 Examples Include: 
 
@@ -1293,7 +1286,7 @@ Examples Include:
 
 4. Relatively Random (Third Row, Right) 
 
-So these are the ones that don't follow a trend. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
+So these are the ones that don't follow any of the trends above. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. Basically, the columns are relatively the same. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
 
 Examples Include: 
 
@@ -1301,8 +1294,6 @@ Examples Include:
 - I am easily disturbed.
 - I often forget to put things back in their proper place.^[This one is almost inverted, where 2 and 4 are the most common responses, followed by 1 and 5, then 3.]
 - I change my mood a lot.
-
-
 
 
 <!--

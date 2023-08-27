@@ -95,7 +95,7 @@ Some sample prompts include:
 
 You can find all the questions <a href="https://ipip.ori.org/newBigFive5broadKey.htm" target="_blank">here</a>, if you look at all the 10-item scale questions. 
 
-Questions from each category were rotated, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc.
+Questions from each category were rotated, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc. Each rotation will be called a 'round', with 10 rounds in total (until Q10).
 
 ### Congrats! You've received a run-down of all the admin stuff!
 

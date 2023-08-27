@@ -737,7 +737,7 @@ pcsn <- ggplot() +
   labs(
     title="Conscientiousness Scores of the World",
     subtitle="Africa is feeling colorful!",
-    fill="conscientiousness 
+    fill="Conscientiousness 
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
@@ -944,7 +944,7 @@ rtimeext <- rtimeext %>%
   filter(EXT8_E < 20) %>%
   filter(EXT9_E < 20) %>%
   filter(EXT10_E < 20) %>%
-  slice_sample(n=500) 
+  slice(1:1000)
 
 
 rqextp<-rtimeext  %>%  
@@ -975,7 +975,7 @@ rtimeCSN <- rtimeCSN %>%
   filter(CSN8_E < 20) %>%
   filter(CSN9_E < 20) %>%
   filter(CSN10_E < 20) %>%
-  slice_sample(n=500) 
+  slice(1:1000)
 
 
 rqcsnp <- rtimeCSN  %>%  
@@ -1003,7 +1003,7 @@ rtimeEST <- rtimeEST %>%
   filter(EST8_E < 20) %>%
   filter(EST9_E < 20) %>%
   filter(EST10_E < 20) %>%
-  slice_sample(n=500) 
+  slice(1:1000)
 
 
 rqestp <- rtimeEST  %>%  
@@ -1031,7 +1031,7 @@ rtimeAGR <- rtimeAGR %>%
   filter(AGR8_E < 20) %>%
   filter(AGR9_E < 20) %>%
   filter(AGR10_E < 20) %>%
-  slice_sample(n=500) 
+  slice(1:1000)
 
 
 rqagrp<- rtimeAGR  %>%  
@@ -1059,7 +1059,7 @@ rtimeOPN <- rtimeOPN %>%
   filter(OPN8_E < 20) %>%
   filter(OPN9_E < 20) %>%
   filter(OPN10_E < 20) %>%
-  slice_sample(n=500) 
+  slice(1:1000)
 
 
 rqopnp <- rtimeOPN  %>%  
@@ -1087,7 +1087,7 @@ For your reference:
 
 I really liked using a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!]. to symbolize these results. For those who are unaware,The white box symbolizes the interquartile range, with the lower half of the box represents the bottom 25%, while the top half of the box represents the top 25% of users. The line in the center is the median time taken. Box plots are great for visualizing the spread of data (which seems to range quite a bit). 
 
-A note of the data: I've removed values above 20 seconds^[as they're significant outliars] and only took a random sample of 500 response times for each question^[500 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
+A note of the data: I've removed values above 20 seconds^[as they're significant outliars, and make the data difficult to visualize] in the graph and only took a random sample of 50000 response times for each question^[50000 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
 
 However, I want to be more precise with these loading times, so I've specifically pulled the questions that take the longest and shortest times to complete. 
 
@@ -1097,8 +1097,9 @@ qtime <- data %>%
   select(c (ends_with('_E')))
 
 qtimeframe <- data.frame(qtime)  %>%
-  slice_sample(n=100) %>%
-  colMeans() 
+  slice(1:50000) %>%
+  colMeans()
+
 
 qtimes <- data.table::as.data.table(qtimeframe, .keep.rownames = "word")
 qcolnames <- colnames(qtime) 
@@ -1106,25 +1107,25 @@ qcolnames <- colnames(qtime)
 
 qtimes <- mutate(qtimes, question = qcolnames) %>%
   select(question, everything())%>%
-  arrange(desc(qtimeframe)) 
-
+  arrange(desc(qtimeframe)) %>% 
+  subset(question != "EXT1_E")
 
 
 highqtime <- qtimes %>%
   slice(1:5) %>% 
   mutate(qtimeframe =  qtimeframe/1000) %>%
-  mutate(qs = c("I shirk my duties.", "I leave my belongings around.", "I am relaxed most of the time.", "I feel little concern for others.", "I don't like to draw attention to myself.")) %>%
+  mutate(qs = c("I feel little concern for others.", "I don't talk a lot.", "I worry about things.", "I am always prepared.", "I make a mess of things.")) %>%
   relocate(question, qs, qtimeframe)
 
 
 lowqtime <- qtimes %>%
-  slice (46:50) %>% 
+  slice (45:50) %>% 
   mutate(qtimeframe =  qtimeframe/1000) %>%
-  mutate(qs = c("I use difficult words.", "I often feel blue.", "I have excellent ideas.", "I am full of ideas.", "I have a rich vocabulary."))%>%
+  mutate(qs = c("I am quiet around strangers.","I get irritated easily.", "I follow a schedule.", "I use difficult words.", "I am full of ideas."))%>%
   relocate(question, qs, qtimeframe)
 
-colnames(highqtime) <- c("Category", "Question", "Time in Seconds")
-colnames(lowqtime) <- c("Category", "Question", "Time in Seconds")
+colnames(highqtime) <- c("Category", "Question", "Average Time in Seconds")
+colnames(lowqtime) <- c("Category", "Question", "Average Time in Seconds")
 
 knitr::kables(list(
   kable(caption = "Questions That Took the Longest", highqtime) %>% kable_styling(),
@@ -1132,14 +1133,12 @@ knitr::kables(list(
   )
 ) %>% kable_styling()
 ```
-## LYING!!
+I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. I'd assume it's skewed because people might've wanted to scroll around the webpage and get accustomed to it or maybe started then quiz then forgot about it. 
 
-I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. This is likely because people people were getting accustomed to the quiz, had loading time issues, or started the quiz, then immediately forgot about it. 
+"I feel little concern for others" seems to be the question that takes the longest. It's likely because it's incredibly situational - others is very vague. Does it mean if you care about everybody, including strangers or people you hate? Or should you just limit it to your friends, and people you may feel an obligation to care about? This 'situational' factor also plagues the other high-ranking questions, where there are SOMETIMES you agree with the actions, and other times you don't. There's a lot of nuance that people need to consider, hence, requiring a longer response time.  
 
-"I shirk my duties" took the longest, likely because 'shirk' is an uncommon word and people may have searched up thed efintion - increasing the amount of time it took to answer. In addition, questions that look longer often had more words to read and often focused on situation prompts. For example, people are rarely "always relaxed" or "never relaxed", so it takes time to think whether you're relaxed a MAJOURITY of the time. Same thing for little concern for others - there are tons of people you care about, but also, tons of people you don't. So, do you take everybody into consideration? Do you focus more on the people close to you to answer this question? it's a bit tricky to have an answer at the top of your head for these cases.  
 
-On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either talk pretentiously to seem smart, or you don't. I do find it interesting that it's difficult for people to determine whether they're 'relaxed' rather than 'blue'. Likely because you consciously pay attention to when you're sad, but not when you're relaxed? You can also see that these questions are the ones that are asked later (i.e. AGR_9 is part of the 9th out of 10 rounds of questions, more specifically, the 44th question they've read). Anticipation for results may have caused them to rush through the later questions. 
-
+On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either talk pretentiously to seem smart, or you don't.^[I'm refering to the difficult words question.] You can also see that these questions are the ones that are asked later (i.e. A majority of the questions have an XXX9_E tag, meaning that it's part of the 9th out of 10 rounds of questions, so they'd be the 40th - 45th question they've completed). Anticipation for results may have caused them to rush through the later questions. This is also shown in reverse for the questions that took more time - they tend to be questions that show up earlier in the quiz, rather than later.  
 
 Another interesting thing to note is the distribution of answers for each question. You may expected that each question has a distribution similar to standard distribution. However, that's actually not the case! Many questions tend to have a distribution like so: 
 
@@ -1251,7 +1250,7 @@ plot_grid(csn8g, est9g, ncol = 2, align = "hv")
 
 There are four major types of distribution seen in the data: 
 
-1. Logarithmic (First Row)
+1. Logarithmic (First Row, i.e. I shirk my duties and I have a small heart)
 
 The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[I.e. If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily" is seen to be a relatively normal thing to say, which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" does because the question narrow down the situation. You also don't really change your behavior around different strangers - it's pretty consistent.)
 
@@ -1265,8 +1264,7 @@ If you're wondering which side they skew on.... just trust your gut on it :)
 
 2. Skewed (Second Row)
 
-i feel like these are best associated with questions where self-bias is most prevalent, as you want to make yourself as something you're not (to make yourself feel better). These questions are also very situational; Sometimes I do this, sometimes I do. That's why people tend to move towards the middle. This is the most common distribution type. 
-
+I feel like these are best associated with questions where self-bias is most prevalent, as you want to make yourself as something you're not (to make yourself feel better). These questions are also very situational; Sometimes I do this, sometimes I do. That's why people tend to move towards the middle. This is the most common distribution type. 
 
 Examples include: 
 
@@ -1286,7 +1284,7 @@ Examples Include:
 
 4. Relatively Random (Third Row, Right) 
 
-So these are the ones that don't follow any of the trends above. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. Basically, the columns are relatively the same. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
+These are the ones that don't follow any of the trends above. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. Basically, the columns are relatively the same. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
 
 Examples Include: 
 

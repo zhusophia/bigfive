@@ -41,7 +41,7 @@ Want to jump to a specific question?
 
 ### Which results are the most common? <a name="popres"></a>
 
-See, if Open Psychometrics recorded the respondents' results, it would be quite quick to answer this question. Unfortunately, they didn't, and we're working with a bunch of numbers! 
+See, if Open Psychometrics recorded the respondents' results, it would be quite quick to answer this question. Unfortunately, they didn't, so we're working with a bunch of numbers! 
 
 This is what the data looks like: 
 
@@ -57,7 +57,7 @@ options(scipen=10000)
 paged_table(head(data))
 ```
 
-I've selected the first 6 columns.. and it's not too bad! It's a little intimidating to think that there are over 1 million more rows, but we've gotta start somewhere >:)
+I've selected the first 6 columns of the data set... and it's not too bad! It's a little intimidating to think that there are over 1 million more rows, but we've gotta start somewhere >:)
 
 We start by calculating the scores for the 'Extroversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. However, it should be noted that answering a '4' or '5' on a EXT question doesn't always mean that a user is more extroverted. For example, answering 5 for "I don't talk a lot" vs "I am the life of the party" would significantly affect your results. 
 
@@ -78,7 +78,7 @@ kable(keyta, caption = "EXT Question Key") %>%
 ```
 
 
-Hence, after adding/subtracting their points from each question, any positive total score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R'.^[Recall how introverted questions are negatively keyed and subtracted from your total.] If their score is 0, then they'd receive an 'X', as their results since they're perfectly in-between, and will remain inconclusive.
+Hence, after adding/subtracting their points from each question, any positive total score (> 0) will mean that the user receives an 'S' for Sociable, while a negative score (< 0) would result in an 'R' for reserved.^[Recall how introverted questions are negatively keyed and subtracted from your total.] If their score is 0, then they'd receive an 'X', as their results since they're perfectly in-between S and R, and will remain inconclusive.
 
 Below is a sample table of results, where extletter (their final letter result) and extscore (the sum of their points) are calculated from the raw data. 
 
@@ -261,7 +261,7 @@ Themselves as Inquisitive",
  
 ```
 
-Now, we can combine everybody's letters from each personality traits to form their final result, then determine which results are the most common within this data set. 
+Now, we can combine everybody's letters from each personality traits to form their final result. Then we can determine which results are the most common within this data set. 
 
 In fact, we can see the 25 most common results below: 
 
@@ -294,9 +294,9 @@ finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnlett
 ```
 
 <br>
-WOOO! Congratulations to the XXOAI family for being among the most common result out of 243 possibilities! 
+WOOO! Out of the 243 possible answers, congratulations to the __OAI family for dominating the top 4 spots! 
 
-If you'd prefer to see a more numerical representation, I've provided a table with the exact number of each result and the average score of each personality trait^[The average values will actually shift every time I update the website (on RStudio!), as the function 'slice_sample' will grab the average of 100 randomly selected responses, resulting in a unique average every time!]: 
+If you'd prefer to see a more numerical representation, I've provided a table with the exact number of the top 10 results and the average score of each personality trait^[The average values will actually shift every time I update the website (on RStudio!), as the function 'slice_sample' will grab the average of 100 randomly selected responses, resulting in a unique average every time!]: 
 <br>
 
 ```{r}
@@ -343,36 +343,38 @@ kable(avgscore, caption = "Average Score for Each Personliaty Trait") %>%
 
 **Extrovertism**
 
-Extrovertism is the most balanced trait, as there seems to be a nice mix of S(ocial) and R(eserved) – representative of the larger population. I’d assume this is because questions in this trait were very straight-forward (e.g. “I start conversations”), and users likely display/are conscious of these behaviors in their everyday life. Hence, with a more ‘objective’ viewpoint, this removes the issue of self-bias and leads to more accurate results. 
+Extrovertism is the most balanced trait, as there seems to be a nice mix of S(ocial) and R(eserved) – representative of the larger population. I’d assume this is because questions in this trait were very straight-forward (e.g. “I start conversations”), and users likely display/are conscious of these behaviors in their everyday life. Hence, users will have a  more ‘objective’ viewpoint, leading to more accurate results. 
 
 There are also about ~40k more introverts compared to extroverts. Maybe the S’s aren’t as likely to spend 20 minutes on an online test, compared to R’s? 
 
 
 **Neuroticism**
 
-Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extrovertism section, the questions tend to be straightforward and there’s relatively less self-bias within the trait, as many people are conscious of their emotions, and whether or not they control them.  
+Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extrovertism section, the questions tend to be straightforward and there’s relatively less self-bias within the trait, as I believe that many people are conscious of their experience with their emotions emotions, and whether or not they control them.  
 
 There are ~60000 more limbic people compared to calm. I’m not really surprised - people are more stressed^[https://www.wbur.org/hereandnow/2022/07/13/stress-survey-gallup] and more sad^[https://www.voanews.com/a/why-people-worldwide-are-unhappier-more-stressed-than-ever-/6658784.html] than we’ve ever been. Furthermore, emotional regulation is a result of introspection and reflection. As our society slowly moves towards constant stimulation and excess, it’s no wonder we struggle to achieve emotional stability. 
 
 **Conscientiousness, Agreeableness, and Openness**
 
-With these three traits, we start to see a much larger gap between the possible letters. There are significantly more people that are organized, agreeable, and inquisitive, relative to unstructured, egocentric, and non-inquisitive. 
+With these three personality traits, we start to see a much larger gap between the possible letters. There are significantly more people that are organized, agreeable, and inquisitive, relative to unstructured, egocentric, and non-inquisitive. 
 
-I definitely don’t think these results reflect the general population, despite the fact that I have no evidence stating so. If I had to speculate, I’d say that this data is just a *tiny* bit biased, leading to skewed results. 
+I definitely don’t think these results genuinely reflect the general population, despite the fact that I have no evidence stating so. If I had to speculate, I’d say that this data is just a quite biased, leading to skewed results. 
 
 1. We’re just a little bit tainted 
 
-No matter how hard we try, we can never be completely objective. Many struggle to see things beyond ourselves, to judge every action we take from a neutral standpoint. 
+No matter how hard we try, we can never be completely objective. Many struggle to see things beyond ourselves and to judge every action we take from a neutral standpoint. 
 
-In normal, everyday life, this is not too significant of an issue. A little bit of subjectivity never hurt anybody! However, when we’re trying to objectively analyze and record data about ourselves, since this is a self-administered quiz, our lack of objectivity can lead to delusional answers.
+In normal, everyday life, this is not too significant of an issue. A little bit of subjectivity never hurt anybody! However, when we’re trying to objectively analyze and record data about ourselves, our lack of objectivity can lead to delusional answers - espicially since this is an self-administrated quiz.
 
 2. We’re fragile creatures
 
-For these three categories, there are clear ‘winners’. In this society, it is almost ALWAYS better if you’re organized, agreeable, and inquisitive, rather than the opposite. In fact, it’s almost an insult if we AREN’T these things, because that means we should ‘be better’.^[If someone told you, “Yea, you’re just a bit egocentric… no offense”, would you be happy about it?] For example, you may want to be agreeable and people-pleasing, since it shows that you’re friendly and nice, and people will tend to ‘like’ you more, instead of if you’re confrontational and assertive for your own needs. Or, as our society moves towards maximizing productivity and ‘grind culture’, you NEED to be conscientious and self-disciplined, or else you won’t be successful.  Or, people don’t want to be seen as rigid and unwilling to try new things. Society will call them scaredy-cats, boring, or that you’re ‘bringing the mood down’. 
+For these three categories, some traits are 'better' to have than others. In this society, it is almost ALWAYS better if you’re organized, agreeable, and inquisitive, rather than the opposite. In fact, it’s almost an insult if we AREN’T these things.^[If someone told you, “Yea, you’re just a bit egocentric… no offense”, would you be happy about it?] 
+
+For example, people tend to be more agreeable and people-pleasing, since it shows that you’re friendly and nice. Because you exhibit these behaviours people will tend to ‘like’ you more (relative to being confrontational and assertive for your own needs). Similar comparisons can be made for being  conscientiousness, especially as our society moves towards maximizing productivity and ‘grind culture’. People NEED to be conscientious and self-disciplined, or else you won’t be successful.  Or, in relation to inquisitivity, people don’t want to be seen as rigid and unwilling to try new things. Society will call them scaredy-cats, boring, or tell them that you’re ‘bringing the mood down’. 
 
 It doesn’t help that we don’t like being ‘bad people’ – we constantly attempt to justify our actions to be good and perceive ourselves in a positive light. We are rarely the villains in our own stories; it’s always the other person doing something wrong, or doing something worse than we did, or they started the ordeal.
 
-However, when we can’t be objective, we can confuse what we actually do, to what we wish we did. This is going to lead us to choose answers corresponding to those ‘better’ traits of self-discipline, agreeableness and inquisitiveness, instead of objectively saying we have the ‘worse’ traits of unstructuredness, egocentrism and un-inquisitiveness.
+However, when we can’t be objective, we can confuse what we actually do, with what we wish we did. This is going to lead us to choose answers corresponding to those ‘better’ traits of self-discipline, agreeableness and inquisitiveness, instead of objectively saying we have the ‘worse’ traits of unstructuredness, egocentrism and un-inquisitiveness.
 
 3. We’re just built for this (for Openness)
 
@@ -381,9 +383,9 @@ There’s also the classic case of sampling bias. The people who take this quiz 
 
 **Sheer Statistical Impossibility...?** 
 
-However, When analyzing this data, it seems.. strange that so many __OAI types are represented. In fact, it feels weird that 15%(!!!!) of people were the EXACT SAME TYPE, despite ALL POSSIBLE COMBINATIONS! 
+When analyzing this data, it seems.. strange that so many __OAI types are represented. In fact, it feels weird that 15%(!!!!) of people were the EXACT SAME TYPE, despite ALL POSSIBLE COMBINATIONS! 
 
-So, let's see how it compares to the theoretical data. Using the data^[This was the only site that had theoretical values. I don't know where they got their percentages from, and there was also no data on certain combinations. It should also be noted that this site does not use 'X' as a possible result. E.g. XLUEI (or any combination with an 'X') is not considered. So this source can not be completely trusted. It should also be noted that SimilarMinds separates the theoretical values by female and male. Since this data set does not have this distinction, I used the average of the male and female theoretical values to get my average number.] from [SimilarMinds](https://similarminds.com/global5/rcoai.html), we can see how our data stacks up. 
+So, let's see how it compares to the theoretical data. Using the data^[This was the only site that had theoretical values, but I don't know where they got their percentages from. It should also be noted that this site does not use 'X' as a possible result. E.g. XLUEI (or any combination with an 'X') is not considered. So, this means that there is no data for specific combinations. Hence, the theoretical values should be trusted with a grain of salt. It should also be noted that SimilarMinds separates the theoretical values by female and male. Since this data set does not have this distinction, I used the average of the male and female theoretical values to get my average number.] from [SimilarMinds](https://similarminds.com/global5/rcoai.html), we can see how our data stacks up. 
 
 
 ```{r}
@@ -407,13 +409,15 @@ knitr::kables(list(
 ```
 
 
-Looking at these tables, there’s a clear discrepancy between theoretical and experimental data, where none of the theoretical results really match up to what is seen in our data set -- certain results are far more represented than the average value. 
+Looking at these tables, there’s a clear discrepancy between theoretical and experimental data, where only SCUAI matches the theoretical results. It's clear that certain results are far more represented in our data set than the average value of the general population. 
 
-However, most of it can be explained by the previous analysis: Wrong results might occur because of biases and societal norms (cementing the last two letters to be A and I), in addition to the natural disposition of respondents. 
+I believe that most of it can be explained by the previous analysis: Wrong results might occur because of biases and societal norms (cementing the last two letters to be A and I, and increasing the likelihood of an O vs an U), in addition to the natural disposition of respondents. 
 
-Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are, since SCOAI seems like one of the most 'socially-successful’ results.^[Extroverted, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive, as they will tend to have larger social circles, better intrapersonal relationships and private lives, and the ability to study and work hard to get to positions they want academically and corporately.] So, in reality, I think that many respondents are not actually SCOAIs. That’s my best guess!^[If you have more ideas, I’d love to hear them! Reach out :)]
+Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are. My best guess is that SCOAI seems like one of the most 'socially-successful’ results, since extroverted, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive in this society. They tend to have larger social circles, better interpersonal relationships and private lives, and the ability to study and work hard to get to positions they want academically and corporately.
 
-Also, just to provide a comphrensive review of the results, here's a list of the most uncommon ones! 
+So, my guess is that many respondents are not actually SCOAIs, and they're not answering these questions objectively. That’s my best guess!^[If you have more ideas, I’d love to hear them! Reach out :)]
+
+Also, just to provide a comprehensive review of the results, here's a list of the most uncommon ones! 
 
 ```{r, unpoptable}
 pfinaltableasc <- finaltable %>% 
@@ -432,7 +436,7 @@ knitr::kable(pfinaltableasc,
 
 No surprise, it's a lot of results with X's!
 
-At first, I was surprised that 'XXXXX' didn't appear, since I'd assume it (theoretically) is the most unlikely.^[There's actually 3794 people who got  XXXXX in this data set] However, I wouldn't be surprised if only 5% of respondents were genuinely XXXXX, while the other 95% of people who got the result just kept clicking 3 (Neutral) for every question, or had some kind of game to see if they could get the (theoretically) super rare XXXXX. 
+At first, I was surprised that 'XXXXX' didn't appear, since I'd assume it (theoretically) is the most unlikely.^[There's actually 3794 people who got  XXXXX in this data set.] However, I wouldn't be surprised if only 5% of XXXXX respondents were genuinely XXXXX, while the other 95% of people who got the result just kept clicking 3 (Neutral) for every question, or had some kind of game to see if they could get the (theoretically) super rare XXXXX. 
 
 ### Do results vary between countries? <a name="country"></a>
 

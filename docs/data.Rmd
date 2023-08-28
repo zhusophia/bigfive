@@ -465,9 +465,9 @@ ggplot(data= countres, mapping = aes(x = reorder(country, -total), y = total))+
 
 We can see that the majority of data came from the US, with a whopping total of 546403 respondents. Trailing (very far) behind, we also have Great Britain (GB), Canada (CA), and Australia (AU). 
 
-This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language. In addition, Google's SEO (Search Engine Optimization) is also affected by location, and can rank websites by their proximity to the user.^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher] So, it's possible that Open Psychometrics is American^[I couldn't find any location data on the website itself], and when Americans search up "Big Five Personality Test", this would be the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
+This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language. In addition, Google's SEO (search engine optimization) algorithm is also affected by location, and will rank websites by their proximity to the user.^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher] So, it's possible that Open Psychometrics is located in America^[I couldn't find any specific location data on the website.], and when Americans search up "Big Five Personality Test", this would be the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
 
-But, we're not really concerned on WHERE people are taking the quiz. Instead, we only care about how it affects the responses. Hence, we're going to start by finding the most common results for America, Great Britain, Australia, and the Philippians --these location shave the most amount of results while being from different continents-- and seeing how they compare to one another. 
+But, we're not really concerned on WHERE people are taking the quiz. Instead, we only care about how it affects the responses. Hence, we're going to start by finding the most common results for America, Great Britain, Australia, and the Philippines -- these location have the most amount of results while being from different continents -- and see how they compare to one another. 
 
 ```{r}
 coutdata <- cbind(finaltable$finalletters, data$country) 
@@ -534,7 +534,7 @@ knitr::kables(list(
 ```
 
 
-From the above table, it's pretty clear that countries have very similar trends, with the top 7 result virtually the same between all countries. However, there are slight differences you can take out of it: 
+From the above table, it's pretty clear that countries have very similar trends, with almost identical top 7 results between all the countries. However, there are slight differences: 
 
 - The Philippines tends to be more introverted than extroverted 
 - The Philippines tends to be more limbic than calm 
@@ -545,9 +545,11 @@ From the above table, it's pretty clear that countries have very similar trends,
 - Every result in this table also appears in the top 25 most common results
 
 
-Let's try zooming out by plotting the averages on a world map, and then analyzing results. 
+**Generalizing the World**
 
-A note on the data: Locations with less than 10 responses have been omitted from the data, as they often significantly skewed maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
+We can also plotting the trait averages on a world map, and then analyze the results. 
+
+A note on the data: Locations with less than 10 responses have been omitted from the map data, as they often significantly skew the scale of the maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
 
 
 ```{r extscores world map, layout="l-body-outset", fig.cap="Diamond sadasds"}
@@ -558,9 +560,6 @@ exttablec <- exttable %>%
 colnames(exttablec)[13] <- "region"
 
 redcount <- c('AS', 'RE', 'CK', 'NC', 'PF', 'TC', 'TL', 'VU', 'XK', 'LI', 'MP', 'SL', 'FM', 'LR', 'MC', 'MQ', 'SS', 'SH', 'TO', 'AI', 'GA', 'GP', 'SX', 'CD', 'CG', 'ML', 'MR', 'PW', 'TG', 'VG', 'AQ', 'BF', 'BJ', 'BQ', 'DJ', 'GF', 'MS', 'NU', 'PM', 'SM', 'TJ', 'BI', 'FK', 'GN', 'GQ', 'KM', 'MF', 'MH', 'NE', 'SH', 'TD', 'NE', 'TD', 'PW', 'KM', 'TJ', 'GQ', 'ML')
-
-#can you remove this from the entire dataset, after thsi point
-
 
 exttablec <- exttablec %>%
   group_by(region) %>%
@@ -624,7 +623,7 @@ knitr::kables(list(
 
 ```
 
-There doesn't seem to be a clear trend in the world, but there seems to be several generalizations. 
+There doesn't seem to be an overarching trend in the world, but there are several generalizations. 
 
 - North America is slightly more introverted than extroverted 
 - South America is more introverted than extroverted
@@ -702,7 +701,7 @@ knitr::kables(list(
 
 ```
 
-It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- conditions that would propagate negative moods and emotional instability.
+It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- factors that would propagate negative moods and emotional instability.
 
 Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to regulate their emotions. 
 

@@ -14,23 +14,23 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction 
 
-This is an analysis of Big Five Personality Test results. The raw data was collected by [Open Psychometrics](https://openpsychometrics.org/), containing over 1 million responses from hundreds of different countries. Data was collected with consent from the user.   
+This is an analysis of Big Five Personality Test results. The raw data was collected by <a href="https://openpsychometrics.org/" target="_blank">Open Psychometrics</a>, containing over 1 million responses from hundreds of different countries. Data was collected with consent from the user.   
 
 If you’re interested in a specific part, you may skip ahead: 
 
-Introduction
+**Introduction**
 
 1. [Personal Objectives](#Objectives)
 2. [What is the Big Five (SLOAN)](#SLOAN)
 3. [Discussing Data](#ddata) 
 
-Data
+**Data**
 
 4. [What is the most popular result? ](data.html#popres)
 5. [Do results vary between countries?](data.html#country) 
 6. [Are all questions created equal?](data.html#questions)
 
-Further Analysis 
+**Further Analysis** 
 
 7. Limitations of Big Five 
 8. Connection of Big Five and Daily Life
@@ -39,15 +39,15 @@ Further Analysis
 
 After looking at the raw data, a few questions stood out to me: 
 
-1. What are the actual results of the data? Which result was the most popular? 
+1. What are the actual results of the data? Which results were the most popular? 
 2. Did these results vary between different countries? How do countries compare against one another? 
 3. How did users react to questions? Was there standard distribution? Did people spend more time on one question compared to another? 
 4. Why did this quiz get the results that it did? Why are people the way they are? 
 5. What does the Big Five actually tell us? How can people incorporate it into their daily lives and use it to improve themselves? 
 
-Questions 1 through 3 are pretty data-based as the answers lie somewhere within the raw data, allowing me to hone my skills of cleaning, manipulating, and visualizing data. Question 4, on the other hand, is far more speculation and understanding based, where I draw from my experiences and knowledge to form an answer. Together, they make this project an enjoyable challenge to tackle. 
+Questions 1 through 3 are pretty data-based as the answers lie somewhere within the raw data, allowing me to hone my skills of cleaning, manipulating, and visualizing data. Question 4, on the other hand, is far more speculation alongside slight research, where I draw from my experiences and Google's knowledge to form an answer. 
 
-In regards to Question 5, I think this project will also allow me to explore the Big Five personality model based on my own interests. I want to see the underlying psychological principals and insights the Big Five provides, and how I can apply it to my daily life. So, I want to also spend some time analyzing the system, and understanding the concept as a whole. 
+Question 5 also allows me to explore the Big Five personality model based on my own interests. I want to see the underlying psychological principals and insights the Big Five provides, and how I can apply it to my daily life. Hence, I'll be spending some  time analyzing the system and understanding the concept as a whole. Together, these objectives make this project an enjoyable challenge to tackle. 
 
 But, let's take a detour from answering the above questions and establish the following: 
 
@@ -66,26 +66,25 @@ The Big Five is a personality model that categories people with 5 major personal
 * *Openness* - Inquisitive / Non-inquisitive (to new experiences)
   * Do you prefer familiarity? Is aesthetic important to you? 
 
-These five major traits can be broken down further. For example, extroversion contains 'minor traits' like gregariousness, assertiveness, and excitement-seeking. These traits help you better understand what this test analyzes in regards to 'extrovertedness', but this detail is beyond the scope of this investigation. More information can be found [here](https://www.mindintertwined.com/blog/big-five-personality-traits-extroversion). 
+These five major traits can be broken down further. For example, extroversion contains 'sub-traits' like gregariousness, assertiveness, and excitement-seeking, and these sub-traits help you better understand what this test analyzes in regards to 'extrovertedness'. However, sub-traits are  beyond the scope of this investigation. More information can be found<a href="https://www.mindintertwined.com/blog/big-five-personality-traits-extroversion" target="_blank"> here.</a>
 
-To get your results, you determine which 'letter' you are for each category (e.g. If you're *more* social than reserved, then you'd say that you're an 'S')^[Note that you're only looking for which side you identify with more. You're never ONLY going to be social or ONLY reserved. Human behaviour exists on a spectrum.] and combine your letters from all the categories together. For example, a possible result is RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can be seen by looking at the first letter of each trait. 
+To get your results, you determine which 'letter' you are for each category (e.g. If you're *more* social than reserved, then you'd say that you're an 'S'),^[Note that you're only looking for which side you identify with more. You're never ONLY going to be social or ONLY reserved. Human behaviour exists on a spectrum.] then combine your letters from all the categories together. For example, a possible result is RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can be seen by looking at the first letter of each trait. 
 
-However, if you really can't decide what you are, another possibility is replacing letters with an 'X'. For example, this can be seen in the potential combination of SXUAN. With the 'X' in the neuroticism (2nd) slot, it means that they're in between calm and limbic as they exhibit both traits equally and there is no 'conclusive' answer. However, it is extremely likely for people to identify with one side *slightly* more than the other, so having 'X' (denoting that you're perfectly in between) should not be a common occurrence.^[You'll actually see a surprising number of respondents have an 'X' in their results in this data set. However, I really do believe that people always lean more to one trait more than another, and you'll only receive an 'X' if you take a self-administered quiz -- we're trying to compute humans and that's never a holistic judgement.]   
+However, if you really can't decide what you are, another possibility is replacing letters with an 'X'. For example, this can be seen in the potential combination of SXUAN. The 'X' in the neuroticism (2nd) slot means that you're in between calm and limbic, as you exhibit both traits equally and there is no 'conclusive' answer. However, it is extremely likely for people to identify with one side *slightly* more than the other, so having 'X' (denoting that you're perfectly in between) should not be a common occurrence.^[You'll actually see a surprising number of respondents have an 'X' in their results in this data set. However, I really do believe that people always lean more to one trait more than another, and you'll only receive an 'X' if you take a self-administered quiz -- after all, we're trying to compute humans and that will never result in a completely holistic judgement.]   
+I'm using SLOAN formatting (i.e. Letters will be in the order of extroversion, neuroticism, conscientiousness, agreeableness, and openness) and will use the above wording (i.e. Agreeableness, Neuroticism) to describe the Big Five traits throughout the investigation. If you decide to do your own research, you'll likely see others using the CANOE or OCEAN formatting/use different words to describe the traits. 
 
-I'm using the SLOAN formatting, (i.e. Extroversion is represented by the 1st letter and Openness is represented by the 5th letter) and will use the above wording (i.e. Agreeableness, Neuroticism) to describe the Big Five traits throughout the investigation. If you decide to do your own research, you'll likely see others using the CANOE or OCEAN formatting/use different words to describe the traits. 
-
-Interested in what your results are? The Open Psychometrics Big Five quiz can be [taken here](https://openpsychometrics.org/tests/IPIP-BFFM/). 
+Interested in what your results are? The Open Psychometrics Big Five quiz can be <a href="https://openpsychometrics.org/tests/IPIP-BFFM/" target="_blank">taken here.</a>
   
-Citations
+**Citations**
 
 * <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">https://en.wikipedia.org/wiki/Big_Five_personality_traits</a>
 * <a href="https://similarminds.com/sloan.html" target="_blank">https://similarminds.com/sloan.html</a>
 
 
 ### Discussing Data <a name="ddata"></a>
-This quiz is self-administered, with 1,015,342 respondents answering 50 questions over ~2 years. Since we have 50 questions, this means that there were 10 questions from each of the majour personality traits. 
+This quiz is self-administered, with 1,015,342 respondents answering 50 questions over ~2 years. Since we have 50 questions, this means that there were 10 questions correlated with each personality trait. 
 
-Every question was ranked on a Likert scale (a 5 point scale) with 1 meaning "I disagree with the prompt", 3 meaning "I am neutral on the prompt", and 5 meaning "I agree with the prompt".  
+Every question used a Likert scale (i.e. a 5 point scale) with 1 meaning "I disagree with the prompt", 3 meaning "I am neutral on the prompt", and 5 meaning "I agree with the prompt".  
 
 Some sample prompts include: 
 
@@ -95,9 +94,9 @@ Some sample prompts include:
 
 You can find all the questions <a href="https://ipip.ori.org/newBigFive5broadKey.htm" target="_blank">here</a>, if you look at all the 10-item scale questions. 
 
-Questions from each category were rotated, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc. Each rotation will be called a 'round', with 10 rounds in total (until Q10).
+Every respondent received the questions in the same questions, in the same order. However, the questions were displayed in a specific order, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc. Each rotation will be called a 'round', with 10 rounds in total.
 
-### Congrats! You've received a run-down of all the admin stuff!
+### Congrats! You've received a run-down of all the admin/context stuff!
 
 Next: [Explore the Data](data.html)
 

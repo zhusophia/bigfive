@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-NOTICE: This website is currently a work-in-progress. Throughout the next two weeks or so, I'll be continuously adding various bits and pieces, and you'll absolutely encounter awkward sentences + spelling/grammar mistakes. Welcome to the slow process of analysis, and enjoy your stay (while it lasts)! 
+NOTICE: This website is currently a work-in-progress. The data analysis and introduction are finished, however, further research is not. I'll be continuously adding various bits and pieces, and you'll absolutely encounter awkward sentences + spelling/grammar mistakes. Welcome to the slow process of analysis, and enjoy your stay (while it lasts)! 
 
 
 ## Hello!
@@ -24,11 +24,11 @@ Hi, I'm Sophia! I'm a student at the University of Waterloo and Wilfrid Laurier 
 
 You might be thinking: Why are you even dabbling in psych if you're studying math and business? Well, it's simple: I find people (and subsequently, how they act) incredibly fascinating. They allow me to explore different perspectives and it's a really great way of knowing what you don't know. Not only that, but it's so interesting to pick apart WHY people do/believe things  -- everybody has a nuanced reason for their actions, built from a unique mosaic of personal experiences, beliefs, and values. 
 
-When I talk to people, I try to glean as much as I can, creating an image of who they are in my mind. Then, like every other human, proceed to analyze and judge them. Based on what they've shown, I reference my past experiences with similar people to figure out what interests they might have, whether I'd enjoy being friends with them, or how their personality came to be!
+When I talk to people, I try to glean as much as I can, creating an image of who they are in my mind. Then, like every other human, proceed to analyze and judge them. Based on what traits they've shown, I reference my past experiences with similar people to figure out what interests they might have, whether I'd enjoy being friends with them, or how their personality came to be!
 
 The Big Five's personality system helps with this process, as it compartmentalizes people into distinct and specific groups. It breaks people down into five fundamental traits, and based on these, you can make assumptions on what they're like. I personally don't use the Big Five system to categorize people, but it's still interesting to delve into it and see the groups we split ourselves into. 
 
-Hence, this data project isn't just a way for me to brush up on my R skills. It's a combination of a exploration of general human personalities, as told by the Big Five system, and analyzing why the data shows the results it does. Or, it's a little introduction into psychology and our internal biases, as well as a dash of geography and various other facts I recall when writing this piece! You can even consider it a fun little side-quest to end off my first year. 
+Hence, this data project isn't just a way for me to brush up on my R skills. It's a combination of exploring of general human personalities, as told by the Big Five system, and analyzing why the data shows the results it does. Or, it's a little introduction into psychology and our internal biases, as well as a dash of geography and various other facts I recall when writing this piece! You can even consider it a fun little side-quest to end off my first year. 
 
 Regardless, at this moment in time, this project here for your entertainment -- so have fun exploring the data with me! I'd encourage you to start [here](intro.html), but nobody's going to notice if you don't ;)
 

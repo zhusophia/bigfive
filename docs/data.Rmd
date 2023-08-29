@@ -383,7 +383,7 @@ There’s also the classic case of sampling bias. The people who take this quiz 
 
 **Sheer Statistical Impossibility...?** 
 
-When analyzing this data, it seems.. strange that so many __OAI types are represented. In fact, it feels weird that 15%(!!!!) of people were the EXACT SAME TYPE, despite ALL POSSIBLE COMBINATIONS! 
+When analyzing this data, it seems.. strange that so many __OAI types are represented. In fact, it feels weird that 15% (!!!!) of people were the EXACT SAME TYPE, despite ALL POSSIBLE COMBINATIONS! 
 
 So, let's see how it compares to the theoretical data. Using the data^[This was the only site that had theoretical values, but I don't know where they got their percentages from. It should also be noted that this site does not use 'X' as a possible result. E.g. XLUEI (or any combination with an 'X') is not considered. So, this means that there is no data for specific combinations. Hence, the theoretical values should be trusted with a grain of salt. It should also be noted that SimilarMinds separates the theoretical values by female and male. Since this data set does not have this distinction, I used the average of the male and female theoretical values to get my average number.] from [SimilarMinds](https://similarminds.com/global5/rcoai.html), we can see how our data stacks up. 
 
@@ -453,7 +453,7 @@ countres <- data %>%
   slice(1:25)
 
 
-ggplot(data= countres, mapping = aes(x = reorder(country, -total), y = total))+
+ggplot(data= countres, mapping = aes(x = reorder(country, total), y = total))+
   geom_col(fill = "steelblue")+
   theme_classic()+
   labs(title = "Locations of Respondents", 
@@ -552,22 +552,56 @@ We can also plot the trait averages on a world map, and then analyze the results
 A note on the data: Locations with less than 10 responses have been omitted from the map data, as they often significantly skew the scale of the maps. This removed 58 locations off the map, with Africa losing a pretty big chunk of their land. 
 
 
+```{r, filterredcount}
+redcount <- c('AS', 'RE', 'CK', 'NC', 'PF', 'TC', 'TL', 'VU', 'XK', 'LI', 'MP', 'SL', 'FM', 'LR', 'MC', 'MQ', 'SS', 'SH', 'TO', 'AI', 'GA', 'GP', 'SX', 'CD', 'CG', 'ML', 'MR', 'PW', 'TG', 'VG', 'AQ', 'BF', 'BJ', 'BQ', 'DJ', 'GF', 'MS', 'NU', 'PM', 'SM', 'TJ', 'BI', 'FK', 'GN', 'GQ', 'KM', 'MF', 'MH', 'NE', 'SH', 'TD', 'NE', 'TD', 'PW', 'KM', 'TJ', 'GQ', 'ML')
+
+colnames(data)[108] <- "region"
+
+for (i in redcount) {
+  data<- filter(data, region!=i)
+}
+
+exttable <- data %>% 
+  select(starts_with('EXT'))  
+exttable <- exttable %>% select(-c (ends_with('E'))) %>% 
+  mutate(extscore = (EXT1-3) - (EXT2-3) + (EXT3-3) - (EXT4-3) + (EXT5-3) - (EXT6-3) + (EXT7-3) - (EXT8-3) + (EXT9-3) - (EXT10-3))
+
+
+ esttable <- data %>% select(starts_with('EST'))
+ esttable <- esttable %>% select(-c (ends_with('E'))) %>%
+   mutate(estscore = (EST2-3) - (EST1-3) - (EST3-3) + (EST4-3)  - (EST5-3)- (EST6-3)- (EST7-3)- (EST8-3)- (EST9-3)- (EST10-3)) 
+
+ 
+  csntable <- data %>% 
+  select(starts_with('CSN'))
+
+
+ csntable <- csntable %>% select(-c (ends_with('E'))) %>% 
+   mutate(csnscore = (CSN1-3) - (CSN2-3) + (CSN3-3) - (CSN4-3) + (CSN5-3) - (CSN6-3) + (CSN7-3) - (CSN8-3) + (CSN9-3) + (CSN10-3))
+ 
+ 
+  agrtable <- data %>% select(starts_with('AGR'))
+ agrtable <- agrtable %>% select(-c (ends_with('E'))) %>% 
+   mutate(agrscore = (AGR2-3) - (AGR1-3) + (AGR4-3) - (AGR3-3) + (AGR6-3) - (AGR5-3) + (AGR8-3) - (AGR7-3) + (AGR10-3) + (AGR9-3))
+ 
+  opntable <- data %>% select(starts_with('OPN'))
+ opntable <- opntable %>% select(-c (ends_with('E'))) %>% 
+   mutate(opnscore = (OPN1-3) - (OPN2-3) + (OPN3-3) - (OPN4-3) + (OPN5-3) - (OPN6-3) + (OPN7-3) + (OPN8-3) + (OPN9-3) + (OPN10-3)) 
+## OVERHERE
+```
+
+
 ```{r extscores world map, layout="l-body-outset"}
 
 exttablec <- exttable %>% 
-  cbind(data$country)
+  cbind(data$region)
 
-colnames(exttablec)[13] <- "region"
-
-redcount <- c('AS', 'RE', 'CK', 'NC', 'PF', 'TC', 'TL', 'VU', 'XK', 'LI', 'MP', 'SL', 'FM', 'LR', 'MC', 'MQ', 'SS', 'SH', 'TO', 'AI', 'GA', 'GP', 'SX', 'CD', 'CG', 'ML', 'MR', 'PW', 'TG', 'VG', 'AQ', 'BF', 'BJ', 'BQ', 'DJ', 'GF', 'MS', 'NU', 'PM', 'SM', 'TJ', 'BI', 'FK', 'GN', 'GQ', 'KM', 'MF', 'MH', 'NE', 'SH', 'TD', 'NE', 'TD', 'PW', 'KM', 'TJ', 'GQ', 'ML')
+colnames(exttablec)[12] <- "region"
 
 exttablec <- exttablec %>%
   group_by(region) %>%
   drop_na 
 
-for (i in redcount) {
-  exttablec<- filter(exttablec, region!=i)
-}
 
 exttablec$region <- countrycode(exttablec$region, "iso2c", "country.name")  
 
@@ -637,17 +671,14 @@ It's quite interesting that Americans are stereotyped to be more extroverted and
 ```{r, est world map, layout="l-body-outset"}
 
 esttablec <- esttable %>% 
-  cbind(data$country)
+  cbind(data$region)
 
-colnames(esttablec)[13] <- "region"
+colnames(esttablec)[12] <- "region"
 
 esttablec <- esttablec %>%
   group_by(region) %>%
   drop_na 
 
-for (i in redcount) {
-  esttablec<- filter(esttablec, region!=i)
-}
 
 
 esttablec$region <- countrycode(esttablec$region, "iso2c", "country.name")  
@@ -709,17 +740,13 @@ Yet, it's also reasonable to say that Chinese people are accustomed to high stre
 ```{r, csn world map, layout="l-body-outset"}
 
 csntablec <- csntable %>% 
-  cbind(data$country)
+  cbind(data$region)
 
-colnames(csntablec)[13] <- "region"
+colnames(csntablec)[12] <- "region"
 
 csntablec <- csntablec %>%
   group_by(region) %>%
   drop_na 
-
-for (i in redcount) {
-  csntablec<- filter(csntablec, region!=i)
-}
 
 csntablec$region <- countrycode(csntablec$region, "iso2c", "country.name")  
 
@@ -783,17 +810,13 @@ I find it interesting that Asia, which is known for their disciplined schedules 
 ```{r, agr world map, layout="l-body-outset"}
 
 agrtablec <- agrtable %>% 
-  cbind(data$country)
+  cbind(data$region)
 
-colnames(agrtablec)[13] <- "region"
+colnames(agrtablec)[12] <- "region"
 
 agrtablec <- agrtablec %>%
   group_by(region) %>%
   drop_na 
-
-for (i in redcount) {
-  agrtablec<- filter(agrtablec, region!=i)
-}
 
 agrtablec$region <- countrycode(agrtablec$region, "iso2c", "country.name")  
 
@@ -855,17 +878,14 @@ I am, once again, not surprised that everybody thinks they're agreeable. When lo
 ```{r opn world map, layout="l-body-outset"}
 
 opntablec <- opntable %>% 
-  cbind(data$country)
+  cbind(data$region)
 
-colnames(opntablec)[13] <- "region"
+colnames(opntablec)[12] <- "region"
 
 opntablec <- opntablec %>%
   group_by(region) %>%
   drop_na 
 
-for (i in redcount) {
-  opntablec<- filter(opntablec, region!=i)
-}
 
 opntablec$region <- countrycode(opntablec$region, "iso2c", "country.name")  
 

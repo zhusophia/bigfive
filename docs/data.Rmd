@@ -296,7 +296,7 @@ finalletters <- c(paste(exttable$extletter, esttable$estletter, csntable$csnlett
 <br>
 WOOO! Out of the 243 possible answers, congratulations to the __OAI family for dominating the top 4 spots! 
 
-If you'd prefer to see a more numerical representation, I've provided a table with the exact number of the top 10 results and the average score of each personality trait^[The average values will actually shift every time I update the website (on RStudio!), as the function 'slice_sample' will grab the average of 100 randomly selected responses, resulting in a unique average every time!]: 
+If you'd prefer to see a more numerical representation, I've provided a table with the exact number of the top 10 results and the average score of each personality trait:^[The average values will actually shift every time I update the website (on RStudio!), as the function 'slice_sample' will grab the average of 100 randomly selected responses, resulting in a unique average every time!] 
 <br>
 
 ```{r}
@@ -440,7 +440,7 @@ At first, I was surprised that 'XXXXX' didn't appear, since I'd assume it (theor
 
 ### Do results vary between countries? <a name="country"></a>
 
-This data contains 224 unique ISO country codes^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK) and Christmas Island (Australia)]. Let's dig through this data - a fun bit of stalking!
+This data contains 224 unique ISO country codes.^['Country codes' are kinda misleading. There are ~195 countries, and ISO has 249 different codes. This is because the ISO contains subdivisions of countries, e.g. Caymen Islands (UK) and Christmas Island (Australia).] Let's dig through this data - a fun bit of stalking!
 
 ```{r, country data}
 
@@ -465,7 +465,7 @@ ggplot(data= countres, mapping = aes(x = reorder(country, -total), y = total))+
 
 We can see that the majority of data came from the US, with a whopping total of 546403 respondents. Trailing (very far) behind, we also have Great Britain (GB), Canada (CA), and Australia (AU). 
 
-This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language. In addition, Google's SEO (search engine optimization) algorithm is also affected by location, and will rank websites by their proximity to the user.^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher] So, it's possible that Open Psychometrics is located in America^[I couldn't find any specific location data on the website.], and when Americans search up "Big Five Personality Test", this would be the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
+This is likely because this quiz is in English, and will generally cater towards countries with English as their primary language. In addition, Google's SEO (search engine optimization) algorithm is also affected by location, and will rank websites by their proximity to the user.^[https://www.searchenginejournal.com/ranking-factors/physical-proximity-to-searcher] So, it's possible that Open Psychometrics is located in America,^[I couldn't find any specific location data on the website.] and when Americans search up "Big Five Personality Test", this would be the first quiz that shows up.^[As a Canadian, it's actually the third search result!]
 
 But, we're not really concerned on WHERE people are taking the quiz. Instead, we only care about how it affects the responses. Hence, we're going to start by finding the most common results for America, Great Britain, Australia, and the Philippines -- these location have the most amount of results while being from different continents -- and see how they compare to one another. 
 
@@ -701,9 +701,9 @@ knitr::kables(list(
 
 ```
 
-It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances^[e.g. the 996 schedule of working from 9am to 9pm, 6 days a week], the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- factors that would propagate negative moods and emotional instability.
+It seems like the south-eastern part of the world is less limbic, specifically Africa and East Asia. I find it funny that China specifically is seen to be relatively 'calm', as they are notorious for bad work-life balances,^[E.g. the 996 schedule of working from 9am to 9pm, 6 days a week.] the 'lie down' movement^[Youth in China are adopting the philosophy of 'lying down' and giving up, due to the bad job market after graduation. They often feel let down by their society, as they've always been taught that studying hard and getting into a good university will lead to a good life. Yet, when they graduate, they struggle to find jobs and keep themselves afloat.] -- factors that would propagate negative moods and emotional instability.
 
-Yet, it's also reasonable to say that Chinese people are accustomed to high stress when dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to regulate their emotions. 
+Yet, it's also reasonable to say that Chinese people are accustomed to high stress after dealing with academic pressures.^[E.g. To get into university, students take the Gaokao, a two-day standardized test that determines their entire future.] Hence, they might have learned to better regulate their emotions. 
 
 
 ```{r, csn world map, layout="l-body-outset"}
@@ -775,7 +775,8 @@ knitr::kables(list(
 
 For conscientiousness, Africa is lit up like a Christmas tree! North America is also pretty light. On the other hand, South America is quite dark. 
 
-I find it interesting that Asia, which is known for their disciplined schedules and focus, seems to be quite average. 
+I find it interesting that Asia, which is known for their disciplined schedules and focus, seems to be quite average. Furthermore, Sub-Saharan Africa seems to be incredibly conscientious - yet, there's a direct link between low conscientiousness and poverty.^[Report discussing link: https://www.econlib.org/archives/2009/03/econlog_book_cl_10.html
+Report of poverty in Sub-Saharan Africa: https://issafrica.org/iss-today/africa-is-losing-the-battle-against-extreme-poverty] Is this just another instance of self-bias? 
 
 
 ```{r, agr world map, layout="l-body-outset"}
@@ -848,7 +849,7 @@ knitr::kables(list(
 
 I had to double check twice to make sure I didn't accidentally duplicate the conscientiousness graph, as they look almost identical. 
 
-I find it quite interesting that everybody thinks they're agreeable. When looking at the scores on the 'least agreeable' table, not a single country is willing to admit they're more egotistical! Alas, the bias goes deep. 
+I am, once again, not surprised that everybody thinks they're agreeable. When looking at the scores on the 'least agreeable' table, not a single country is willing to admit they're... *just a tiny bit* egotistical! Alas, the bias goes deep. 
 
 ```{r opn world map, layout="l-body-outset", fig.cap="Diamond Prices"}
 
@@ -923,7 +924,7 @@ The Americas, Africa, and Europe seem to be a lot more open to new experiences, 
 
 ### Are All Questions Created Equal? <a name="questions"></a>
 
-We can also analyze the questions themselves. A funky little thing that this quiz did, was record how many milliseconds each respondent spent on each question. That seems like a fun thing to look at!
+We can also analyze the questions themselves. This quiz actually recorded how many milliseconds each respondent spent on each question.^[The timer starts when you answer to a previous question, and runs until you answer the current question. The first question's timer starts when you load into the page. An 'answer' means clicking on of the options between 1 and 5.] 
 
 Thus, I present to you: Amount of time spent on each question!
 
@@ -947,7 +948,8 @@ rtimeext <- rtimeext %>%
   filter(EXT8_E < 20) %>%
   filter(EXT9_E < 20) %>%
   filter(EXT10_E < 20) %>%
-  slice(1:1000)
+  slice(1:1000) %>%
+  select(-EXT10_E,everything())
 
 
 rqextp<-rtimeext  %>%  
@@ -978,7 +980,8 @@ rtimeCSN <- rtimeCSN %>%
   filter(CSN8_E < 20) %>%
   filter(CSN9_E < 20) %>%
   filter(CSN10_E < 20) %>%
-  slice(1:1000)
+  slice(1:1000) %>%
+  select(-CSN10_E,everything())
 
 
 rqcsnp <- rtimeCSN  %>%  
@@ -1006,7 +1009,8 @@ rtimeEST <- rtimeEST %>%
   filter(EST8_E < 20) %>%
   filter(EST9_E < 20) %>%
   filter(EST10_E < 20) %>%
-  slice(1:1000)
+  slice(1:1000) %>%
+  select(-EST10_E,everything())
 
 
 rqestp <- rtimeEST  %>%  
@@ -1034,7 +1038,8 @@ rtimeAGR <- rtimeAGR %>%
   filter(AGR8_E < 20) %>%
   filter(AGR9_E < 20) %>%
   filter(AGR10_E < 20) %>%
-  slice(1:1000)
+  slice(1:1000) %>%
+  select(-AGR10_E,everything())
 
 
 rqagrp<- rtimeAGR  %>%  
@@ -1062,7 +1067,8 @@ rtimeOPN <- rtimeOPN %>%
   filter(OPN8_E < 20) %>%
   filter(OPN9_E < 20) %>%
   filter(OPN10_E < 20) %>%
-  slice(1:1000)
+  slice(1:1000) %>%
+  select(-OPN10_E,everything())
 
 
 rqopnp <- rtimeOPN  %>%  
@@ -1088,11 +1094,11 @@ For your reference:
 - AGR = Agreeableness (A/E)
 - OPN = Openness (I/N)
 
-I really liked using a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!]. to symbolize these results. For those who are unaware,The white box symbolizes the interquartile range, with the lower half of the box represents the bottom 25%, while the top half of the box represents the top 25% of users. The line in the center is the median time taken. Box plots are great for visualizing the spread of data (which seems to range quite a bit). 
+I really like using a box plot^[I actually forgot this type of graph existed, until I was randomly scrolling through the ggplot2 library of different graph types!] to symbolize these results. For those who are unaware, the white box symbolizes the interquartile range (the range of values encompassing 25% to 75% of the data). The lower end of the box represents the bottom 25%, while the top end of the box represents the top 25% of users. The line in the center is the median value taken -- in this case, the median time taken for each question. Box plots are great for visualizing the spread of data (which seems to range quite a bit) and managing outliars. 
 
-A note of the data: I've removed values above 20 seconds^[as they're significant outliars, and make the data difficult to visualize] in the graph and only took a random sample of 50000 response times for each question^[50000 is enough to show the general trend, and utilizing more only makes graphs take longer to load.]. 
+A note of the data: I've removed values above 20 seconds^[As they're significant outliars, and make the data difficult to visualize.] in the graph. I've also taken a sample of 50000 response times for each question.^[50000 is enough to show the general trend, and utilizing more only makes graphs take longer to load.] 
 
-However, I want to be more precise with these loading times, so I've specifically pulled the questions that take the longest and shortest times to complete. 
+However, I want to be more precise when analyzing loading times, so I've specifically pulled the questions that take the longest and shortest times to complete. 
 
 
 ```{r, questiontimes}
@@ -1136,18 +1142,16 @@ knitr::kables(list(
   )
 ) %>% kable_styling()
 ```
-I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. I'd assume it's skewed because people might've wanted to scroll around the webpage and get accustomed to it or maybe started then quiz then forgot about it. 
+I've taken the liberty of removing EXT_1 (the first question on the quiz), which had an average score of 87 seconds. I'd assume it's skewed because people might've wanted to scroll around the webpage and get accustomed to it or maybe started then quiz then forgot about it.^[Recall that the timer for question 1 starts as soon as the page loads (since there are no previous questions to start from).] 
 
-"I feel little concern for others" seems to be the question that takes the longest. It's likely because it's incredibly situational - others is very vague. Does it mean if you care about everybody, including strangers or people you hate? Or should you just limit it to your friends, and people you may feel an obligation to care about? This 'situational' factor also plagues the other high-ranking questions, where there are SOMETIMES you agree with the actions, and other times you don't. There's a lot of nuance that people need to consider, hence, requiring a longer response time.  
+"I feel little concern for others" seems to be the question that takes the longest. It's likely because it's incredibly situational - 'others' is very vague. Does it mean if you care about everybody, including strangers or people you hate? Or should you just limit it to your friends,  people you may feel an obligation to care about, or want to care about? This 'situational' factor also plagues the other high-ranking questions, where there are SOMETIMES you agree with the actions, and other times you don't. There's a lot of nuance that people need to consider, hence, requiring a longer response time.  
 
 
-On the other hand, the questions that took the least amount of time are short and straightforward, and are obvious to judge yourself on. You either talk pretentiously to seem smart, or you don't.^[I'm refering to the difficult words question.] You can also see that these questions are the ones that are asked later (i.e. A majority of the questions have an XXX9_E tag, meaning that it's part of the 9th out of 10 rounds of questions, so they'd be the 40th - 45th question they've completed). Anticipation for results may have caused them to rush through the later questions. This is also shown in reverse for the questions that took more time - they tend to be questions that show up earlier in the quiz, rather than later.  
+On the other hand, the questions that took the least amount of time are concise and straightforward, contain simple words, and are obvious to judge yourself on. You either talk pretentiously to seem smart, or you don't.^[I'm referring to the difficult words question.] You can also see that these questions are the ones that are asked later (i.e. A majority of the questions have an XXX9_E tag, meaning that it's part of the 9th out of 10 rounds of questions, so they'd be the 40th - 45th question they've completed). Anticipation for results may have caused them to rush through the later questions. The reverse is also seen in the questions that look the longest (i.e. they show up earlier in the quiz).  
 
-Another interesting thing to note is the distribution of answers for each question. You may expected that each question has a distribution similar to standard distribution. However, that's actually not the case! Many questions tend to have a distribution like so: 
+Another interesting thing to note is the distribution of answers for each question. You may expected that each question has a distribution similar to standard distribution. However, that's actually not the case! There are various patterns you can spot: 
 
 ```{r}
-
-## analyze the distrbution of responses for each of the high / low quetinos, maybe add into a grid? 
 
 agr1p <- data %>%
   select('AGR1') %>%
@@ -1238,7 +1242,7 @@ est9g <- ggplot(data=est9p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
      title = "I have excellent ideas.",
-     subtitle = "THINK GOOD! 10B STARTUP IDEA!") + 
+     subtitle = "THINK GOOD!\n10B STARTUP IDEA STAT!") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()
@@ -1253,9 +1257,11 @@ plot_grid(csn8g, est9g, ncol = 2, align = "hv")
 
 There are four major types of distribution seen in the data: 
 
-1. Logarithmic (First Row, i.e. I shirk my duties and I have a small heart)
+**1. Logarithmic (First Row, i.e. I shirk my duties and I have a small heart)**
 
-The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[I.e. If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily" is seen to be a relatively normal thing to say, which allows people to be honest and pick extremes. Questions also tend to be less 'situation' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" does because the question narrow down the situation. You also don't really change your behavior around different strangers - it's pretty consistent.)
+The columns progressively increase or decrease. I think these graphs are the most "trustworthy", as you'd only put 1 or 5 (the extremes) if you were incredibly confident in your answer.^[I.e. If you ask people to choose a number between 1 and 5, they tend to pick 2, 3, or 4, rather than 1 or 5.] Not only that, but these questions aren't really 'shameful' to admit, like "I get stressed out easily" is seen to be a relatively normal thing to say, which allows people to be honest and pick extremes. 
+
+Questions also tend to be less 'situational' and more 'specific', where you can very clearly visualize what you'd be doing in that situation, rather than responding "Oh... sometimes I am, sometimes I'm not!" (E.g. "I am quiet" likely wouldn't follow this trend, but "I am quiet around strangers" does because the question narrow down the situation. You also don't really change your behavior around different strangers - it's pretty consistent.)
 
 Some other examples include: 
 
@@ -1265,9 +1271,9 @@ Some other examples include:
 
 If you're wondering which side they skew on.... just trust your gut on it :)
 
-2. Skewed (Second Row)
+**2. Skewed (Second Row, i.e. I am relaxed most of the time, I feel litte concern for others)**
 
-I feel like these are best associated with questions where self-bias is most prevalent, as you want to make yourself as something you're not (to make yourself feel better). These questions are also very situational; Sometimes I do this, sometimes I do. That's why people tend to move towards the middle. This is the most common distribution type. 
+I feel like these are best associated with questions where self-bias is most prevalent, as you want to make yourself as something you're not (to make yourself feel better). These questions are also very situational; Sometimes I do this, sometimes I do. That's why people tend to lean towards the middle. This is the most common distribution type. 
 
 Examples include: 
 
@@ -1276,18 +1282,20 @@ Examples include:
 - I leave my belongings around. 
 - I follow a schedule. 
 
-3. "Normal" Distribution (Third Row, Left)
+**3. "Normal" Distribution (Third Row, Left Plot)**
 
-I'm lying to you - This graph isn't normal distribution. I'm just calling it normal distribution because the answer 3 (neutral) is the most common answer. Quite frankly, it just means that people are either confused or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions seem to be the most 'observable/objective' of the bunch. Personally, I try to make a habit on avoiding clicking 3 no matter what (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's typically associated with the extrovertism questions. 
+I'm lying to you - This graph isn't normal distribution. I'm just calling it normal distribution because the answer 3 (the middle) is the most common answer -- similar to a normal distribution graph. Quite frankly, I think this pattern means that people are either confused or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions also seem to be the most 'observable/objective' of the bunch.
+
+Personally, I try to make a habit on avoiding clicking 3 no matter what (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's typically associated with the extrovertism questions. 
 
 Examples Include: 
 
 - I don't talk a lot.
 - I keep in the background.
 
-4. Relatively Random (Third Row, Right) 
+**4. Relatively Random (Third Row, Right)** 
 
-These are the ones that don't follow any of the trends above. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. Basically, the columns are relatively the same. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
+These are the ones that don't follow any of the trends above. Well, what happens is that 1 and 5 are similar in height and have about 150k responses, while  3, 4, 5 are also similar in height, with about 250k responses. Or, to generalize this pattern, it means that columns have relatively uniform distribution. It's the kinds of questions that go "Yea... I'm definitely not SUPER ___, but it happens from time to time... I'm not sure how I would compare with other people though... so 2, 3, or 4 sound about right."
 
 Examples Include: 
 
@@ -1295,7 +1303,6 @@ Examples Include:
 - I am easily disturbed.
 - I often forget to put things back in their proper place.^[This one is almost inverted, where 2 and 4 are the most common responses, followed by 1 and 5, then 3.]
 - I change my mood a lot.
-
 
 <!--
 

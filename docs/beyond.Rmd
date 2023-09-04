@@ -17,3 +17,177 @@ Will be populating this with analysis on:
 a) The limitations of the big five personality test
 b) Is there any practical usage
 c) Any other fun psych ideas/research I come across :)
+
+----------
+Origins: 
+“It all stemmed from the idea of: can you find a taxonomy to describe human personality?”
+Trying to find empirical research 
+At first, just chose words that described “conspicuous aspects of the character”, but later has been refined 
+ Robert McCrae and Paul Costa in the ‘80s and ‘90s. Is where it now stems from 
+
+Used eysenck’s concept of extroversion rather than jung’s 
+Jung: an extrovert seeks intensive contact with the outside world seeking action and sensory input. An introvert instead focuses their energy internally, on reflection, dreaming and understanding.
+Eysenck’s:  they gain and recharge their mental energy. By nature, introverted people have a higher level of brain activity and therefore feel a greater need to shield themselves from external stimuli. 
+Each has 6 different subtraits 
+
+Strengths of Big Five 
+Stay relatively stable during adulthood 
+Conscientiousness and agreeable increase, with neutocism, extraversion, and openness decrease with age
+Predictable based on life’s responibiltiies, called “maturation effect” 
+Accepted as a pretty empirical framework in the scientific world 
+Lots of validity (various tests that are very imperical) 
+Most widely accepted 
+Very easily repeatable 
+Broad scope of traits, and generalizatin gpersonality traits cross-culture and environments
+Mutually exclusive 
+
+
+Limitations of the Big Five Personality Test
+
+Although this test samples hundreds of locations, it’s not completely representative of the population it claims to show. 
+
+Notice that a majority of our responses come from western, educated, industrialized, rich, and democratic (WIRED) populations, with less developed countries (such as the ones in Africa) often have a lot less. 
+
+Not only that, but the Big Five doesnt seem to have the same results when testing non-WIRED popualtiosn. Iot showed that conscientiousness doesn’t correlate with income (10/14 countries) and extraversion and agreeabless also show a negative correlation. On the other hand, emotional stability and opness show more of a positive correlation. 
+People care more about cognitive ability 
+
+Other tests also show that there’s a correlation between extraoversion and job performance, or there is just no correlation. 
+These results vary a lot (in relation to performance) -> not as standarized as people think 
+
+
+Onlyu 25% fo respondents in these severys have college education, compared to 81% of internet data 
+
+Cognitive ability can affect people’s ability of abstract Big Five questions. 
+People often mmisplace items. 
+Basically only emotional stability shoudl be correlated with income 
+Strangely, openness also seems to be an income 
+Could be a result of biases
+
+Need to develop better udnerstaning of developmental countries to measure specific personality traits 
+
+Openness is a little bit funny, since different genders actually interpret it differently
+Males were more e “imaginative” and “inquisitive”, even more specifically for the patriarchal cutlureal context in Turkey, where there are veys trict gender roles 
+Males are encouraged to pursue what they want, while women are often shoved into a hole of what they should do instead, and monitored to be socailized into a rule-abidng lifestyle 
+This is less prevalent in WIRED societies 
+In addition, openness is kinda varied, and can signify be impacted by culture, does this matter? Is that still the reason person? Is it what they truly think, or were they just taught to think that?  
+Motivation, have varied experiences, rqeuies a vision and aestehticen sentivity and a willingness not abondnet traditions, so it might have different meaning in cultural contexts. 
+This is also impacted in China, where Openness doesn’t appear ince the Chinese Personality Assessment Inventory, as it’s a far more western-centric trait, rather than collectivist cultures. 
+For example, women consistently report higher Neuroticism, Agreeableness, warmth (an extraversion facet) and openness to feelings, and men often report higher assertiveness (a facet of extraversion) and openness to ideas as assessed by the NEO-PI-R.[153]
+That is, men in highly developed world regions were less neurotic, less extraverted, less conscientious and less agreeable compared to men in less developed world regions. 
+Women didnt’ change 
+
+Do males need more resources? Women’s natural deposition is more stable than men’s? Evolutionary pressures, 
+
+Failure on the Test’s end, do we need to test it in more varied contests? 
+
+Ignore spirituality and religioucity
+Essential component of every culture and greatly influences behaviour  
+Relicioustiy is shown to correlate with agreeableness and concicenciousness
+Also neutocism sometimes(?) 
+
+Religion can’t just be considered as ‘social attitudes’ and should be reated as another trait (refer back to definition of personality?)
+Six subtrats, relicious faith, commitment, self-transendence 
+Icnreidbly important in Arab adn Islamic personlitieis/states, as they’re intertwined with their being, and likely should be considered when trying to describe who one is 
+
+Etic Approach: Traits are universal regalrdess of environment, culture or context
+Emic = culture specific 
+Etic is too simplicitse, as everybody is teh same liek chemical elements and does not account for human diversity (which is wider than biological diversity) 
+Man’s last resort when in different circumstances 
+
+People use different questions with different amount of questiosn -> how can this lead to standarized measurement (44 items, 25 items, etc.)
+
+Argument about 
+Manipulestness, honestly, seductiveness, thrifitness, humor. Humility 
+
+Humility subtraits: Facets: Sincerity, Fairness, Greed Avoidance, Modesty
+Low levels of the Honesty-Humility factor are associated with greater levels of materialism, unethical business practices and deviant sexual behavior.
+Associated with dark triad
+
+Lexical hypothesis and how does that affect 
+Positive and negative affects how someone interpreits 
+Basically social and negativity bias -> how someone interpretes it is going to skew ther result 
+
+What even is personality 
+“pattern of r elatively permanent traits and unique characteristics that give both consistency and individuality to a person’s behaviour.”
+Gives us individuality and differences in chevaour, consistently of behavioirity. 
+
+Trait: 
+person’s typical style of thinking,feeling, and acting in different kinds of situ-ations and at different times” and each traitis  a  personality  dimension  which  repre-sents a most essential way in which peoplevary (Costa and McCrae 1988)
+Stable over time and differen stiatuions
+Avaliaibiltiy of trait helps predict certain bevhaiours 
+
+Temperament: biologically based differences? 
+The question is that is temperament apart of personality 
+Models of temperament often include four trait dimensions: surgency/sociability, negative emotionality, persistence/effortful control, and activity level.
+
+Correlation with Society 
+Conscienticousness and emotionally stasbility are strong predictors of job performance and wages 
+Personality traits are pretty important for people with lower levels fo job complexity or education level 
+Valid self reporting tool, can be used to enhance academic acahievement to tailor teching methods to individuals in school settings 
+
+This is incredibly important as people have started turning to personality tests within job interviews, with the popularity of tests like MBTI 
+According to Undercover Recruiter, the cost of a bad hire can reach up to 30% of the employee's first-year earnings. Leadership IQ found that 46% of newly-hired employees will be deemed failures within 18 months after starting.
+But, this can easily be gamed (already happens unintentionally with social desirability bias)  
+. Social desirability bias, for instance, could help explain why Conscientiousness and Agreeableness are the most problematic PTs and why Conscientiousness has little predictive power in the survey data. 
+Also associated with: 
+Acedmic performance
+Sense of coherence
+Job burnout 
+Psychotism in youth 
+
+Knockoff tests
+Developed due to the failures or oversights of the current model 
+Big two traits -> Plasticity (extraversion and openness) and Stability (neuroticism, agreeableness, and conscientiousness) — show that Plasticity has a more robust and stronger association with creativity than Stability
+Also extraversion and anxiety (Wiggins) 
+Three factor model 
+Psychoticsm 
+Extraversion And neuroticism 
+Four factor 
+Agreeablness, neuroticism, conscienticousness, culture-intellicet (wider than openness to experience) 
+Other big five traits 
+sincerity, excitement, compe-tence, sophistication, and ruggedness
+Big six traits (HEXACO)
+ Honesty-Humility (H), Emotionality (E), Extraversion (X), Agreeableness (A), Conscientiousness (C), and Openness to Experience (O).
+Big seven traits
+positive emotionality, negative emotionality, dependability, agreeability, conventionality, positive valence, and negative valence.
+Adjustment, ambition, sociability, likeability, prudence, intellectance, and school success 
+Big ten traits (jordan peterson) 
+Conscientiousness is about Industriousness and Orderliness
+Agreeableness is about Politeness and Compassion
+Neuroticism is about Withdrawal and Volatility
+Openness to Experience is about Intellect and “Openness” proper
+Extraversion is about Assertiveness and Enthusiasm
+
+Also has lead to: Psychopathology Five (PSY-5), (Harkness et al. 2002), Alternative Five-Factor Model (2012), and Chinese Person-ality  Assessment  Inventory  (CPAI)
+
+CPAI
+Harmony, Ren Qing (relationship orientation), modernization, thrift, Ah-Q mentality (defensiveness), graciousness, trustworthiness, face, family orientation, and somatization (expression of distress)
+big four traits: Dependability, Chinese Tradition, Social Potency, Individualism
+
+Pscyhopathy Five 
+Aggressiveness, psychoticism, disconstraint, negative emotionality/ neuroticism, introversion/low positive emotionality
+Psychopathology 
+
+Alternative 
+Impulsive sensation seeking, aggression-hostility, activity, sociability, neuroticism-anxiety
+
+
+Other uses of Big Five
+Alzheimers -> decrease in conscientiousness, and icnreqse in nuetoricms, crease in extraversion, openness, and agreeableness 
+
+Drug users 
+Heroion = High N, O, Down A, C
+Ecstacy = High E, O, Lower, A, C
+
+Mental disorders re just linked ot neurociism (development), conscienticousness and is the strongest personaltiy predictr of reduced morality, makes bad health choices. Also low extroversion. No disorders associated with openness. Neutocism is also shown to have worse health outcomes. 
+
+Can affect teaching styles(?) 
+Openness 
+
+HEXACO vs Big Five 
+Big five has limited ability to identify dark traid (psychologay, narcissism, and machiavellianism) 
+Overlap with agreeableness and emotionallity between two tests 
+They define subtarits slightly differently, affecting intererpation, and offers ‘better description’ 
+
+Big five and mbti 
+

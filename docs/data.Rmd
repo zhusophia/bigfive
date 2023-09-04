@@ -1325,6 +1325,10 @@ Examples Include:
 - I often forget to put things back in their proper place.^[This one is almost inverted, where 2 and 4 are the most common responses, followed by 1 and 5, then 3.]
 - I change my mood a lot.
 
+
+### Learn More Theory
+Explore the Big Five Test beyond this dataset. Continue to ['Beyond the Dataset'](beyond.html) to learn about the test's history, common critiques, and connections to society and other tests.  
+
 <!--
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/data.html')

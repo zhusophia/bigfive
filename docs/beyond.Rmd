@@ -19,6 +19,32 @@ b) Is there any practical usage
 c) Any other fun psych ideas/research I come across :)
 
 ----------
+
+When discussing the Big Five, there are several bits of terminology that needs to be understood: 
+
+**Trait**: “Person’s typical style of thinking, feeling, and acting in different kinds of situations and at different times”  (Costa and McCrae 1988). Traits can be used to predict certain behaviors. 
+
+**Personality**: “Pattern of relatively permanent traits and unique characteristics that give both consistency and individuality to a person’s behavior.” They’re acquired through life experiences and are relatively stable. 
+
+**Temperament**: “Physical, mental, and emotional traits people are born with.”
+
+Many consider temperament as a subset of personality. However, temperament often has their own model, with different traits. This model is called the CBQ (Children’s Behavior Questionnaire) and the three traits are: 
+
+- Negative Affectivity (Neuroticism)
+- Surgency Extraversion (Extroversion)
+- Effortful Control (Conscientiousness) 
+
+Notice the overlap between the two - we’re only missing openness and agreeableness. However, despite the similarities, it should be acknowledged that the Big Five aims to cover personality traits, while integrating temperament into the mix. 
+
+While we’re talking about definitions, I should also clarify extroversion. The Big Five uses Eysenck’s concept of extroversion rather than Jung’s. 
+
+**Eysenck:** Extroverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy through withdrawing themselves. 
+
+**Jung:** Extroverts seek action and sensory input from the external world, using their experiences to influence themselves. Introverts immerse themselves in their internal environment, through reflection, dreaming, and understanding [themselves]. 
+
+This clarification may be redundant -- many people have only heard of Eysenck’s version of extroversion, as society tends to use his version as the ‘only’ version. However, I still find value in acknowledging Jung’s definition, especially because Eynsenck build his off of Jung’s. 
+
+
 Origins: 
 “It all stemmed from the idea of: can you find a taxonomy to describe human personality?”
 Trying to find empirical research 

@@ -8,6 +8,11 @@ date: "2023-08-04"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+library(dplyr)
+library(distill)
+library(kableExtra)
 ```
 
 ### Definitions
@@ -92,6 +97,32 @@ This has the potential to be a positive addition: Bad hires can cost “up to 30
 High conscientiousness is also a general indicator for superior academic performance. This is likely because conscientiousness and agreeableness were “positively related with all four learning styles (synthesis analysis, methodical study, fact retention, and elaborative processing)”. It was also concluded that the Big Five “explained 14% of the variance in [a student’s] grade point average” whereas “learning systems explained an additional 3%”, establishing a clear connection between personality traits and learning styles improving one’s academics. 
 
 Certain traits can also correlate with specific learning styles.
+
+In a study, there were four types of learning styles analyzed: 
+
+**Meaning Directed**: Focuses on self-regulated learning and critical information synthesis, developing independent thinking and establishing connections between ideas and concepts. 
+**Reproduction Directed**: Focuses on memorizing and rehearsing information, directed by an external figurehead (teacher). Typically, the information is memorized to be reproduced/recalled on a test. 
+**Application Directed**: Focuses on understanding and learning to meet certifications of accreditations, focus on real-world application and examples. 
+**Undirected**: Enjoys cooperative learning, directed by an external figurehead, has difficulty finding ways to approach their studying and self-regulation. 
+
+These learning styles are apart of Vermunt’s Inventory of Learning and has been validated through several studies. However, it has fallen out of favor with the public since the introduction of the VARK (visual, aural, read/write, and kinesthetic).^[The VARK model also has many critiques for various reasons.]  
+
+The correlations are as shown below: 
+
+```{R correlationtable}
+
+ctable = data.frame('Learning Style' = c('Meaning Directed', 'Reproduction Directed', 'Application Directed', 'Undirected'),
+                    'Extroversion' = c('$+$', '$+$', '$+$', ""), 
+                    'Conscientiousness' = c('$+$','$+$','$+$','$-$'), 
+                    'Neuroticism' = c('$-$','$-$','','$+$'),
+                    'Agreeableness' = c("", '$+$','$+$',''), 
+                    'Openness' = c('$+$','$+$', "",  '$-$') 
+                    )
+
+kable(ctable, caption = "Correlation between Big Five and Vermunt's learning styles") %>%
+  kable_styling()
+
+```
 
 
 ### Limitations 

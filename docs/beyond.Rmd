@@ -107,22 +107,32 @@ In a study, there were four types of learning styles analyzed:
 
 These learning styles are apart of Vermunt’s Inventory of Learning and has been validated through several studies. However, it has fallen out of favor with the public since the introduction of the VARK (visual, aural, read/write, and kinesthetic).^[The VARK model also has many critiques for various reasons.]  
 
-The correlations are as shown below: 
+The correlations are as shown in the table below, with  a '+' representing a positive correlation, a '-' representing a negative correlation. Otherwise, a blank cell means that there is no correlation between the two variables. 
 
 ```{R correlationtable}
 
-ctable = data.frame('Learning Style' = c('Meaning Directed', 'Reproduction Directed', 'Application Directed', 'Undirected'),
-                    'Extroversion' = c('$+$', '$+$', '$+$', ""), 
-                    'Conscientiousness' = c('$+$','$+$','$+$','$-$'), 
-                    'Neuroticism' = c('$-$','$-$','','$+$'),
-                    'Agreeableness' = c("", '$+$','$+$',''), 
-                    'Openness' = c('$+$','$+$', "",  '$-$') 
+
+
+ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
+                    'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 
+                    'Reproduction Directed' = c('$+$','$+$',"$-$", '$+$',''), 
+                    'Application Directed' = c('$+$','$+$','','$+$', "$+$"),
+                    'Undirected' = c("", '$-$','$+$','', "$-$") 
                     )
 
 kable(ctable, caption = "Correlation between Big Five and Vermunt's learning styles") %>%
   kable_styling()
 
+
 ```
+
+This connection could potentially allow teachers to better help struggling students, using different tactics to best assist them. For example, neurotic and undirected students could benefit from more direction on the task, asking other students to form groups and help teach each other the concepts, or giving them additional assistance while others continue other work. This ‘other work’ could also be personalized to better suit a student’s preference. Teachers could opt for more independent assignments for conscientious students, or give more thorough instructions to students who are more agreeable.  
+
+There are also various patterns with Big Five traits and health related information. 
+
+People with Alzhimers typically have a massive decrease in conscientiousness and large increase in neuroticism. Decreases in extraversion, openness, and agreeableness were also spotted. Hence, these Big Five traits could assist an early diagnosis for the patient. 
+
+Heroin and Ecstasy also had patterns when testing their Big Five traits. Heroin users had high neuroticism and openness, while Ecstasy had high extraversion and openness. Both had lower agreeableness and conscientiousness. Mental disorders are also linked to neuroticism (especially high neuroticism during adolescence). 
 
 
 ### Limitations 

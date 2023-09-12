@@ -14,8 +14,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-NOTICE: This website is currently a work-in-progress. The data analysis and introduction are finished, however, further research is not. I'll be continuously adding various bits and pieces, and you'll absolutely encounter awkward sentences + spelling/grammar mistakes. Welcome to the slow process of analysis, and enjoy your stay (while it lasts)! 
-
 
 ## Hello!
 <!-- rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/index.html') -->

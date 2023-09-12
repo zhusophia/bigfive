@@ -72,15 +72,18 @@ As we grow older, our traits are going to naturally develop and change. For exam
 However, after adolescence, people’s traits tend to stabilize, ensuring there are distinct behavior patterns to analyze. This consistency (leading to replicability) is desirable for scientists. 
 
 2. Widely accepted by the scientific community 
+
 Many scientists have conducted studies to confirm the validity and reliability of the Big Five Personality Test. This includes Satow, 2021 and Kamarulzaman and Nordin, 2012). Using confirmatory factor analysis, invariance analysis, and various other empirical tests, the Big Five test is considered to be validated and reliable, and is now the most widely accepted test within this niche. 
 
 3. Very easily repeatable 
+
 Scientists value repeatability. Got a fascinating result? Make sure to do the experiment 2 more times, just in case something was off! 
 
 The Big Five test is easily repeatable, as it’s generally delivered as a 50-question Likert scale test. It can easily be printed and distributed to thousands of participants, ensuring consistency between studies. 
 
-4. Simplicity and Generalization’
-As a result of constantly improving the Big Five personality test, the traits we’ve selected are 
+4. Simplicity and Generalization
+
+As a result of constantly improving the Big Five personality test, the traits we’ve selected are:
 
 a) Easy to understand and specific - Traits are clearly defined and simple
 b) Mutually exclusive - Makes it easy to quantify 
@@ -98,20 +101,21 @@ This has the potential to be a positive addition: Bad hires can cost “up to 30
 
 High conscientiousness is also a general indicator for superior academic performance. This is likely because conscientiousness and agreeableness were “positively related with all four learning styles (synthesis analysis, methodical study, fact retention, and elaborative processing)”. It was also concluded that the Big Five “explained 14% of the variance in [a student’s] grade point average” whereas “learning systems explained an additional 3%”, establishing a clear connection between personality traits and learning styles improving one’s academics. 
 
-Certain traits can also correlate with specific learning styles.
-
-In a study, there were four types of learning styles analyzed: 
+Certain traits can also correlate with specific learning styles. In a study, there were four types of learning styles analyzed: 
 
 **Meaning Directed**: Focuses on self-regulated learning and critical information synthesis, developing independent thinking and establishing connections between ideas and concepts. 
+
 **Reproduction Directed**: Focuses on memorizing and rehearsing information, directed by an external figurehead (teacher). Typically, the information is memorized to be reproduced/recalled on a test. 
+
 **Application Directed**: Focuses on understanding and learning to meet certifications of accreditations, focus on real-world application and examples. 
+
 **Undirected**: Enjoys cooperative learning, directed by an external figurehead, has difficulty finding ways to approach their studying and self-regulation. 
 
 These learning styles are apart of Vermunt’s Inventory of Learning and has been validated through several studies. However, it has fallen out of favor with the public since the introduction of the VARK (visual, aural, read/write, and kinesthetic).^[The VARK model also has many critiques for various reasons.]  
 
 The correlations are as shown in the table below, with  a '+' representing a positive correlation, a '-' representing a negative correlation. Otherwise, a blank cell means that there is no correlation between the two variables. 
 
-```{R correlationtable}
+```{R correlationtable, include=FALSE}
 
 
 

@@ -144,6 +144,7 @@ Heroin and Ecstasy users also showed patterns when testing their Big Five traits
 
 ### Limitations of the Big Five Test
 
+**Lexical Hypothesis**
 Despite the Big Five’s numerous applications in society, rigorous tests for reliability and validity, and general acceptance within the scientific community, there are various criticisms of the test. 
 
 One of the biggest criticisms of the test is the basis of lexical hypothesis. Lexical hypothesis assumes that “the most important personality traits are encoded as words…. and that the analysis of [these words] may lead to a scientifically acceptable personality model”. Hence, by using language (or for the Big Five, a dictionary) as a resource, researchers can create a list of important personality traits to judge people off of. 
@@ -155,6 +156,31 @@ Verbal descriptors result in social bias (i.e. people consciously or unconscious
 Others also deem personality as ‘too complex’ to be encoded into a singular word or used in everyday language. We may need far more detail to fully express what characteristics we want to capture, as language may not be an adequate vessel to describe the human condition and personality.  Traits can also be too ambiguous – they could be misunderstood or their meaning could change overtime. 
 
 The lexical hypothesis also has little scientific backing. The terms used with lexical hypotheses were developed for daily use, and could represent different meanings/perceptions rather than the definition researchers aim to use. Furthermore, tests to validate the lexical hypothesis are deemed ‘unscientific’. 
+
+
+**Culture and Gender**
+There are two approaches for the Big Five: 
+**Etic:** “Traits are universal, regardless of the environment,culture or context." 
+**Emic:** "Traits are culture and context-specific.” 
+
+Often, Big Five studies use the Etic approach, generalizing the results to encompass the entirety of the human population, rather than specificity. 
+
+The Etic approach was led by Aysenck, as he tried to emphasize how these traits were more ‘biological’ and universal to every human language. Pg 167
+
+
+**Lack of Representation**
+Although this test samples hundreds of locations, it’s not completely representative of the population it claims to show. This is because a majority of our data comes from Western, educated, industrialized, rich and democratic (WEIRD) populations. Less developed countries (such as the ones within Africa) are often glossed over and represent a tiny amount of data points. 
+
+A clear example of this is the data set that I’ve been analyzing. When we look at the data points on the map (to find trends between countries), it’s clear that much of Africa has been omitted from the data.^[Recall that I removed any countries that had less than 10 responses to reduce skewing and better visualize the data.] It brings the reliability of the data set into question: can we rely on WEIRD populations to make generalizations, and assume it will be correct? Are these results universally applicable?
+
+For the Big Five, studies have shown that non-WEIRD populations **do not follow the same trends as WEIRD populations**. In fact, for low and middle income countries, Big Five personality questions fail to measure the personality traits they’re built for, and have low validity. This is a huge contrast to the high validity seen in internet surveys from the same low/middle income countries.  
+
+Previously, it has been mentioned that conscientiousness and emotional stability are more correlated with income. It also intuitively makes sense — if you can work hard and have good stress management, workers could perform their job better. Yet, when analyzing non-WEIRD populations, it was seen that conscientiousness was not a predictor for increased income. Instead, only emotional stability and openness were predictors. However, openness items “poorly differentiate from other items… one cannot exclude that this result is driven by systematic responses biases” and other external factors. One must remain cautious between correlation and causation. 
+
+During the process of surveying non-WEIRD populations, it should also be noted that errors may occur due to the quality of translation (i.e. wording of question, how they are interpreted within a specific culture) via an enumerator, as there was effort to adapt to respondents with lower cognitive ability. Thus, the impact of an enumerator’s face-to-face interactions with respondents should be taken into consideration. It was also noted that less educated populations had lower interest in taking the survey, as their incentives and expectations for the survey may be completely different than a respondent in a WEIRD country who is taking the Big Five test for fun. 
+
+**Inconclusive Studies and Variability of Tests**
+
 
 ### Possible Improvements 
 

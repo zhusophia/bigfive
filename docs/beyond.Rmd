@@ -165,7 +165,9 @@ There are two approaches for the Big Five:
 
 Often, Big Five studies use the Etic approach, generalizing the results to encompass the entirety of the human population, rather than specificity. 
 
-The Etic approach was led by Aysenck, as he tried to emphasize how these traits were more ‘biological’ and universal to every human language. Pg 167
+The Etic (or universal) approach was led by Aysenck, as he tried to emphasize how these traits were more ‘biological’ and universal to every human language, regardless of one’s culture or environment. It is used to describe a generalized personality, then expand these personality traits to other species. 
+
+The Emic (or local) approach believes that the cultures heavily shape personality traits. For example, with the test’s origins stemming from lexical hypothesis, the current model proposes a Western-centric view of personality traits, rather than a holistic view. Korean, Mexican, Indian, Filipino and Arabic cultures have reported that there are many special traits that only exist within their culture. Furthermore, using lexical hypothesis in Chinese has created a completely different quiz with different traits. Similar results can be found when using Arabic language and culture. 
 
 
 **Lack of Representation**

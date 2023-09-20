@@ -167,8 +167,11 @@ Often, Big Five studies use the Etic approach, generalizing the results to encom
 
 The Etic (or universal) approach was led by Aysenck, as he tried to emphasize how these traits were more ‘biological’ and universal to every human language, regardless of one’s culture or environment. It is used to describe a generalized personality, then expand these personality traits to other species. 
 
-The Emic (or local) approach believes that the cultures heavily shape personality traits. For example, with the test’s origins stemming from lexical hypothesis, the current model proposes a Western-centric view of personality traits, rather than a holistic view. Korean, Mexican, Indian, Filipino and Arabic cultures have reported that there are many special traits that only exist within their culture. Furthermore, using lexical hypothesis in Chinese has created a completely different quiz with different traits. Similar results can be found when using Arabic language and culture. 
+The Emic (or local) approach believes that the cultures heavily shape personality traits. For example, with the test’s origins stemming from lexical hypothesis, the current model proposes a Western-centric view of personality traits, rather than a holistic view. 
 
+Korean, Mexican, Indian, Filipino and Arabic cultures have reported that there are many special traits that only exist within their culture. Furthermore, using lexical hypothesis in Chinese has created a completely different quiz with different traits. Similar results can be found when using Arabic language and culture. In fact, differences were prominent enough to birth a completely new sixth trait: religiosity. 
+
+Thus, the question becomes: Do you value a generalized and universal model to encompass the entire human condition? Or, do you take a more personalized approach, envisioning how one’s environment can influence their behavior? 
 
 **Lack of Representation**
 Although this test samples hundreds of locations, it’s not completely representative of the population it claims to show. This is because a majority of our data comes from Western, educated, industrialized, rich and democratic (WEIRD) populations. Less developed countries (such as the ones within Africa) are often glossed over and represent a tiny amount of data points. 

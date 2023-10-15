@@ -216,14 +216,15 @@ Previously, it has been mentioned that conscientiousness and emotional stability
 
 During the process of surveying non-WEIRD populations, it should also be noted that errors may occur due to the quality of translation (i.e. wording of question, how they are interpreted within a specific culture) via an enumerator, as there was effort to adapt to respondents with lower cognitive ability. Thus, the impact of an enumerator’s face-to-face interactions with respondents should be taken into consideration. It was also noted that less educated populations had lower interest in taking the survey, as their incentives and expectations for the survey may be completely different than a respondent in a WEIRD country who is taking the Big Five test for fun. 
 
-**Inconclusive Studies**
-Assuming that we continue to use an ‘etic’ or an universal approach, various studies have shown differing results, decreasing the reliability of the Big Five as a universal measuring tool of personality. 
-
-For example, 
-
-Under the ‘Etic’ or universal approach, it’s difficult to justify these differences. 
+Even after categorizing respondents into different categories (e.g. sexes, countries), there still seems to be constantly shifting answers instead of a general trend. Assuming that we continue to use an ‘etic’ approach, the reliability of the test can be called into question, as there are inconclusive results. 
 
 **Variability of Tests**
+
+The Big Five Personality Test has dozens of different versions. Some contain 44 questions, some contain 25, 50, or even 60. In addition, each test will use different questions to poll respondents. In non-Western countries, people will also have translators which could twist the meaning of the question. 
+
+Of course, the test will always attempt to measure the respondent’s personality and there are standardized subtraits within each trait (i.e. the subtrait assertiveness within the trait extroversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
+
+
 
 
 

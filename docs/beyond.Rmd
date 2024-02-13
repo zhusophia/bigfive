@@ -25,33 +25,35 @@ When discussing the Big Five, there are several bits of terminology that needs t
 
 **Personality**: “Pattern of relatively permanent traits and unique characteristics that give both consistency and individuality to a person’s behavior.” They’re acquired through life experiences and are relatively stable. 
 
-**Temperament**: “Physical, mental, and emotional traits people are born with.”
+**Temperament**: “Physical, mental, and emotional traits people are born with.”^[<a href="https://hrdqstore.com/blogs/hrdq-blog/difference-behavior-personality-temperament" target="_blank">Source.</a>]
 
-Many consider temperament as a subset of personality. However, temperament often has their own model, with different traits. This model is called the CBQ (Children’s Behavior Questionnaire) and the three traits are: 
+Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Source.</a>] However, temperament is considered to have their own model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
 
 - Negative Affectivity (Neuroticism)
 - Surgency Extraversion (Extroversion)
 - Effortful Control (Conscientiousness) 
 
-Notice the overlap between the two - we’re only missing openness and agreeableness. However, despite the similarities, it should be acknowledged that the Big Five aims to cover personality traits, while integrating temperament into the mix. 
+Notice the overlap between CBQ and Big Five - we’re only missing openness and agreeableness. However, despite the similarities, we will not be separating personality and temperament, as the Big Five aims to cover personality traits while integrating temperament into the mix. 
 
-While we’re talking about definitions, I should also clarify extroversion. The Big Five uses Eysenck’s concept of extroversion rather than Jung’s. 
+I'm also going to clarify the definition of extroversion. The Big Five uses Eysenck’s concept of extroversion rather than Jung’s. 
 
-**Eysenck:** Extroverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy through withdrawing themselves. 
+**Eysenck:** Extroverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy by withdrawing themselves.^[<a href="https://www.introvertpalace.com/blogs/news/the-psychology-of-introversion-eysenck-s-theory-of-arousal" target="_blank">Source.</a>]
+ 
 
-**Jung:** Extroverts seek action and sensory input from the external world, using their experiences to influence themselves. Introverts immerse themselves in their internal environment, through reflection, dreaming, and understanding [themselves]. 
+**Jung:** Extroverts seek action and sensory input from the external world, using their experiences to influence their thoughts, beliefs, and actions. Introverts immerse themselves in their internal environment, through reflection, dreaming, and keeping their 'head in the clouds' to influence their actions.^[<a href="https://fractalenlightenment.com/31622/life/jungs-theory-of-introvert-and-extrovert-personalities
+" target="_blank">Source.</a>]
+ 
 
-This clarification may be redundant -- many people have only heard of Eysenck’s version of extroversion, as society tends to use his version as the ‘only’ version. However, I still find value in acknowledging Jung’s definition, especially because Eynsenck built his off of Jung’s. 
+This clarification may be redundant -- many people have only heard of Eysenck’s version of extroversion. However, I still find value in acknowledging Jung, especially because Eysenck built his definition off of Jung’s. 
 
 
 ### Big Five Personality Test - Origins  
 
 “Can you find a taxonomy to describe human personality?” 
 
-That’s the idea that started the Big Five Personality Test. We wanted to understand human personality and map it out qualitatively. We needed to use the power of science to obtain even more knowledge! 
+That’s the idea that started the Big Five Personality Test.^[<a href="https://www.discovermagazine.com/mind/understanding-the-big-five-personality-traits" target="_blank">Source.</a>] Similar to all our other discoveries, we were greedy for more, desperate to understand human personality, longed to map it out qualitatively, and hungry for more knowledge.  
 
-Scientists have been interested in personality since the 1880s, with the first official study of personality done by Gordon Allport and Henry Odbert in 1936. First, they gathered 18000 
-personality-describing words from the Webster’s Dictionary. Then, using this list, found 4504 adjectives to describe non-physical characters, creating the first ‘personality wordbank’. 
+Since the 1880s, scientists have been interested in personality starting with the first official study of personality done by Gordon Allport and Henry Odbert in 1936. For their study, they gathered 18000 personality-describing words from the Webster’s Dictionary. Then, using this list, found 4504 adjectives to describe non-physical characters, creating the first ‘personality wordbank’. ^[<a href="https://www.retorio.com/blog/big-5-history-psychometric-test" target="_blank">Source.</a>] STOPPED HERE
 
 Then, in 1943, Raymond Cattel reduced this wordbank to ~160 traits, removing any words with similar meanings. He proceeded to add 22 more words to describe “interest” and “abilities”, then created “personality cultures” to group these words. By 1948, he narrowed it down to 36 terms with 12 personality cultures. 
 
@@ -145,6 +147,7 @@ Heroin and Ecstasy users also showed patterns when testing their Big Five traits
 ### Limitations of the Big Five Test
 
 **Lexical Hypothesis**
+
 Despite the Big Five’s numerous applications in society, rigorous tests for reliability and validity, and general acceptance within the scientific community, there are various criticisms of the test. 
 
 One of the biggest criticisms of the test is the basis of lexical hypothesis. Lexical hypothesis assumes that “the most important personality traits are encoded as words…. and that the analysis of [these words] may lead to a scientifically acceptable personality model”. Hence, by using language (or for the Big Five, a dictionary) as a resource, researchers can create a list of important personality traits to judge people off of. 
@@ -159,7 +162,9 @@ The lexical hypothesis also has little scientific backing. The terms used with l
 
 
 **(In)correct Approaches**
+
 There are two approaches for the Big Five: 
+
 **Etic:** “Traits are universal, regardless of the environment, culture or context” 
 **Emic:**”Traits are culture and context-specific” 
 
@@ -172,6 +177,7 @@ The Emic (or local) approach believes that the cultures heavily shape personalit
 Thus, the question becomes: Do you value a generalized and universal model to encompass the entire human condition? Or, do you take a more personalized approach, envisioning how one’s environment can influence their behavior? 
 
 **Culture and Sex Differences** 
+
 Korean, Mexican, Indian, Filipino and Arabic cultures have reported that there are many special traits that only exist within their culture – something that can’t be generalized and would destroy our current Etic approach.
 
 This is further explored by using lexical hypothesis in Chinese, replicating the origins of the Big Five test in Western countries. By utilizing the lexical hypothesis, researchers created a completely different quiz with different traits, suited to a Chinese audience. 
@@ -206,6 +212,7 @@ When analyzing results from 55 nations, the trend changes slightly: women scored
 Of course, there are various reasons for these differences in personality based on sex, such as social roles and evolutionary reasons. For example, due to parental investment, men are more open to risks and tend to be more socially dominant, while women tend to be more nurturing and cautious. However, with these results, can you measure and generalize certain traits such as openness and extraversion accurately when it is actively being manipulated by cultural, societal, and evolutionary factors?  
 
 **Lack of Representation**
+
 Although this test samples hundreds of locations, it’s not completely representative of the population it claims to show. This is because a majority of our data comes from Western, educated, industrialized, rich and democratic (WEIRD) populations. Less developed countries (such as the ones within Africa) are often glossed over and represent a tiny amount of data points. 
 
 A clear example of this is the data set that I’ve been analyzing. When we look at the data points on the map (to find trends between countries), it’s clear that much of Africa has been omitted from the data.^[Recall that I removed any countries that had less than 10 responses to reduce skewing and better visualize the data.] It brings the reliability of the data set into question: can we rely on WEIRD populations to make generalizations, and assume it will be correct? Are these results universally applicable?
@@ -224,8 +231,10 @@ The Big Five Personality Test has dozens of different versions. Some contain 44 
 
 Of course, the test will always attempt to measure the respondent’s personality and there are standardized subtraits within each trait (i.e. the subtrait assertiveness within the trait extroversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
 
+### Possible Improvements to the Big Five Tests
 
+### Spin-off Tests
 
-
+### Connections to MBTI
 
 

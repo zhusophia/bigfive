@@ -13,6 +13,7 @@ library(tidyverse)
 library(dplyr)
 library(distill)
 library(kableExtra)
+library(stringr)
 ```
 
 NOTICE: This section is currently a work-in-progress. I'll be continuously adding various bits and pieces, and you'll absolutely encounter awkward sentences + spelling/grammar mistakes. Welcome to the slow process of analysis, and enjoy your stay (while it lasts)! 
@@ -51,17 +52,12 @@ This clarification may be redundant -- many people have only heard of Eysenck’
 
 “Can you find a taxonomy to describe human personality?” 
 
-That’s the idea that started the Big Five Personality Test.^[<a href="https://www.discovermagazine.com/mind/understanding-the-big-five-personality-traits" target="_blank">Source.</a>] Similar to all our other discoveries, we were greedy for more, desperate to understand human personality, longed to map it out qualitatively, and hungry for more knowledge.  
+That’s the idea that started the Big Five Personality Test.^[<a href="https://www.discovermagazine.com/mind/understanding-the-big-five-personality-traits" target="_blank">Source.</a>] After all, humans were greedy for more, desperate to understand human personality, and longed to map it out qualitatively.  
 
-Since the 1880s, scientists have been interested in personality starting with the first official study of personality done by Gordon Allport and Henry Odbert in 1936. For their study, they gathered 18000 personality-describing words from the Webster’s Dictionary. Then, using this list, found 4504 adjectives to describe non-physical characters, creating the first ‘personality wordbank’. ^[<a href="https://www.retorio.com/blog/big-5-history-psychometric-test" target="_blank">Source.</a>] STOPPED HERE
+Since the 1880s, scientists have been interested in personality. But, it only became official in 1936 when Gordon Allport and Henry Odbert conducted the first study of personality. They gathered 18000 personality-describing words from the Webster’s Dictionary, then narrowed it down to 4504 adjectives to describe non-physical characteristics. This created the first ‘personality wordbank’ -- a 'formal' way to describe personality.
 
-Then, in 1943, Raymond Cattel reduced this wordbank to ~160 traits, removing any words with similar meanings. He proceeded to add 22 more words to describe “interest” and “abilities”, then created “personality cultures” to group these words. By 1948, he narrowed it down to 36 terms with 12 personality cultures. 
+Through the work of Cattell, Tupes and Christal, Fiske, Norman, Smith, McCrae and Costa^[<a href="www.thomas.co/resources/type/hr-guides/what-are-big-5-personality-traits" target="_blank">Source.</a>], and many others, the test has undergone several revisions, expansions, and improvements. However, the purpose and the ideas within the test remain.^[<a href="https://www.retorio.com/blog/big-5-history-psychometric-test" target="_blank">Source.</a>]  
 
-In 1947, Eysenck introduced his book “Dimensions of Personality”, creating his own version of “Extraversion” and coining the term “Neuroticism”.
-
-In 1949, Donald Fiske takes 22 terms from Cattell’s study, and creates give main categories: "Social Adaptability", "Emotional Control", "Conformity", "Inquiring Intellect", and "Confident Self-expression". This is the beginning of the Big Five test. 
-
-Although this test has undergone several revisions and expansions from various other researchers (i.e. Norman (1967), Smith (1967), McCrae and Costa (1987), and more), the purpose and ideas within the test remain. 
 
 ### Strengths 
 
@@ -69,27 +65,28 @@ There’s a lot of reasons why the Big Five is such a popular test and remains a
 
 1. The traits the Big Five measures are relatively stable during adulthood. 
 
-As we grow older, our traits are going to naturally develop and change. For example, as you get older, you tend to have higher conscientiousness and agreeableness and lower neuroticism, extroversion, and openness. This is mainly because people tend to have more responsibilities (i.e. family, job, etc.) as they age, and eventually learn to build traits to adapt. This is called the maturation effect. 
+As we grow older, our traits are going to naturally develop and change. For example, you tend to have higher conscientiousness and agreeableness and lower neuroticism, extroversion, and openness. This is mainly because people tend to have more responsibilities (i.e. family, job, etc.) as they age and eventually learn to build traits to adapt. This is called the maturation effect.^[<a href="https://pubmed.ncbi.nlm.nih.gov/18028073/" target="_blank">Source.</a>]
+ 
 
-However, after adolescence, people’s traits tend to stabilize, ensuring there are distinct behavior patterns to analyze. This consistency (leading to replicability) is desirable for scientists. 
+After adolescence, people’s traits tend to stabilize, ensuring there are distinct behavior patterns to analyze. This consistency (leading to replicability) is desirable for scientists. 
 
 2. Widely accepted by the scientific community 
 
-Many scientists have conducted studies to confirm the validity and reliability of the Big Five Personality Test. This includes Satow, 2021 and Kamarulzaman and Nordin, 2012). Using confirmatory factor analysis, invariance analysis, and various other empirical tests, the Big Five test is considered to be validated and reliable, and is now the most widely accepted test within this niche. 
+Many scientists have conducted studies to confirm the validity and reliability of the Big Five Personality Test. This includes Krueger and Eaton (2010), Kamarulzaman and Nordin (2012), and Satow (2021). Using confirmatory factor analysis, invariance analysis, and various other empirical tests, studies have shown that the Big Five test can account for "80% of personality variance"^[<a href="https://www.alleydog.com/glossary/definition.php?term=Lexical+Hypothesis">Source.</a>] and is most widely accepted test within this niche. 
 
 3. Very easily repeatable 
 
 Scientists value repeatability. Got a fascinating result? Make sure to do the experiment 2 more times, just in case something was off! 
 
-The Big Five test is easily repeatable, as it’s generally delivered as a 50-question Likert scale test. It can easily be printed and distributed to thousands of participants, ensuring consistency between studies. 
+The Big Five test is generally delivered as a 50-question Likert scale test. It can easily be printed and distributed in a similar manner to thousands of participants, ensuring consistency between studies. 
 
 4. Simplicity and Generalization
 
 As a result of constantly improving the Big Five personality test, the traits we’ve selected are:
 
-a) Easy to understand and specific - Traits are clearly defined and simple
-b) Mutually exclusive - Makes it easy to quantify 
-c) Generalizable - These traits are universal and can apply to any culture
+a) Easy to understand and specific - In English, these traits are clearly defined and simple.
+b) Mutually exclusive - Makes it easy to quantify. 
+c) Generalizable - These traits are universal and can generally apply to any culture.
 
 Together, these strengths make the Big Five the default when considering personality. 
 
@@ -97,13 +94,13 @@ Together, these strengths make the Big Five the default when considering persona
 
 You can apply the Big Five personality traits to predict future behavior.  
 
-A popular example is that high conscientiousness and emotional stability (low neuroticism) are correlated with strong job performance and higher wages. This information could potentially shape businesses’ hiring and recruiting practices, as they’re already begun to use the Myers–Briggs Type Indicator (MBTI) to better understand candidates and narrow down the applicant pool. 
+A popular example is that high conscientiousness and emotional stability (low neuroticism) are correlated with stronger job performance and higher wages. This information could potentially shape businesses’ hiring and recruiting practices, as they’re already begun to use the Myers–Briggs Type Indicator (MBTI) to narrow down the applicant pool. 
 
-This has the potential to be a positive addition: Bad hires can cost “up to 30% of the employee’s first-year earnings” - a significant loss for the business if “46% of newly-hired employees [are] deemed failures”. However, since the Big Five personality test is a self-assessment, lying on it becomes a trivial task. 
+This has the potential to be a positive addition: Bad hires can cost “up to 30% of the employee’s first-year earnings” - a significant loss for the business if “46% of newly-hired employees [are] deemed failures”.^[<a href="https://www.retorio.com/blog/big-5-history-psychometric-test" target="_blank">Source.</a>] However, since the Big Five personality test is a self-assessment, lying on it becomes a trivial task. 
 
-High conscientiousness is also a general indicator for superior academic performance. This is likely because conscientiousness and agreeableness were “positively related with all four learning styles (synthesis analysis, methodical study, fact retention, and elaborative processing)”. It was also concluded that the Big Five “explained 14% of the variance in [a student’s] grade point average” whereas “learning systems explained an additional 3%”, establishing a clear connection between personality traits and learning styles improving one’s academics. 
+High conscientiousness is also a general indicator for superior academic performance. This is likely because conscientiousness and agreeableness were “positively related with all four learning styles (synthesis analysis, methodical study, fact retention, and elaborative processing)”. It was also concluded that the Big Five “explained 14% of the variance in [a student’s] grade point average” whereas “learning systems explained an additional 3%”, establishing a clear connection between personality traits and learning styles improving one’s academics.^[<a href="https://www.researchgate.net/publication/251531386_The_Big_Five_personality_traits_learning_styles_and_academic_achievement" target="_blank">Source.</a>] 
 
-Certain traits can also correlate with specific learning styles. In a study, there were four types of learning styles analyzed: 
+Certain traits can also correlate with specific learning styles. In a study, the study identified four types of learning styles: 
 
 **Meaning Directed**: Focuses on self-regulated learning and critical information synthesis, developing independent thinking and establishing connections between ideas and concepts. 
 
@@ -113,13 +110,12 @@ Certain traits can also correlate with specific learning styles. In a study, the
 
 **Undirected**: Enjoys cooperative learning, directed by an external figurehead, has difficulty finding ways to approach their studying and self-regulation. 
 
-These learning styles are apart of Vermunt’s Inventory of Learning and has been validated through several studies. However, it has fallen out of favor with the public since the introduction of the VARK (visual, aural, read/write, and kinesthetic).^[The VARK model also has many critiques for various reasons.]  
+These learning styles are apart of Vermunt’s Inventory of Learning and has been validated through several studies.^[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5554702/" target="_blank">Source.</a>] However, it has fallen out of favor with the public since the introduction of the VARK (visual, aural, read/write, and kinesthetic).^[The VARK model has many disbelievers for various reasons. See more here: Hederich-Martínez, C. y Camargo Uribe, A. (2019). Critical Review of J.Vermunt’s Learning Pattern Model. Revista Colombiana de Educación, 77, 1-25. doi: https://doi.
+org/10.17227/rce.num77-9469.]  
 
-The correlations are as shown in the table below, with  a '+' representing a positive correlation, a '-' representing a negative correlation. Otherwise, a blank cell means that there is no correlation between the two variables. 
+The correlations between Big Five traits and VARK learning styles are shown in the table below. A '+' represents a positive correlation, a '-' represents a negative correlation, and a blank cell means that there is no correlation between the two variables. 
 
-```{R correlationtable, include=FALSE}
-
-
+```{R correlationtable, include=TRUE}
 
 ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
                     'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 
@@ -128,37 +124,41 @@ ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 
                     'Undirected' = c("", '$-$','$+$','', "$-$") 
                     )
 
+colnames(ctable) <- str_replace_all(colnames(ctable), "[:punct:]", " ")
+
 kable(ctable, caption = "Correlation between Big Five and Vermunt's learning styles") %>%
   kable_styling()
 
 
 ```
 
-This connection could potentially allow teachers to better help struggling students, using different tactics to best assist them. For example, neurotic and undirected students could benefit from more direction on the task, asking other students to form groups and help teach each other the concepts, or giving them additional assistance while others continue other work. This ‘other work’ could also be personalized to better suit a student’s preference. Teachers could opt for more independent assignments for conscientious students, or give more thorough instructions to students who are more agreeable.  
+This connection could potentially allow teachers to better assist struggling students, using different tactics that best suit their needs. For example, neurotic and undirected students could benefit from individual attention or asking other students to form groups and help teach each other the concepts. Teachers could opt for more independent assignments for conscientious students, or give more thorough instructions to students who are more agreeable.  
 
-There are also various patterns with Big Five traits and health related information. 
+There are also various patterns with Big Five traits and an individual's health. 
 
-First, conscientiousness is the strongest predictor for reduced morality — being a conscientious person makes you 30% less likely to die, compared to other people. This is because these people tend to make better health choices, as they’re more likely to stay fit, cooperate when given medical advice, and have better sleeping habits, while also being less likely to smoke.  Conscientiousness is also tied to having more supportive relationships, thriving at work, and having better stress management. 
+First, conscientiousness is the strongest predictor for reduced morality — being a conscientious person makes you 30% less likely to die, compared to other people. This is because these people tend to make better health choices, as they’re more likely to stay fit, cooperate when given medical advice, have better sleeping habits, and are less likely to smoke. Conscientiousness is also tied to having more supportive relationships, thriving at work, and having better stress management.^[<a href="https://www.wellandgood.com/conscientiousness-longevity/" target="_blank">Source.</a>] 
 
-People with Alzhimers typically have a massive decrease in conscientiousness and large increase in neuroticism. Decreases in extraversion, openness, and agreeableness were also spotted. Hence, these Big Five traits could assist an early diagnosis for the patient. 
+People with Alzheimer's typically see a significant decrease in conscientiousness and large increase in neuroticism. Decreases in extraversion, openness, and agreeableness were also spotted. These Big Five traits could assist an early diagnosis for the patient. 
 
-Heroin and Ecstasy users also showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness, while Ecstasy had high extraversion and openness. Both had lower agreeableness and conscientiousness. Mental disorders are also linked to neuroticism (especially high neuroticism during adolescence). 
+In addition, Heroin and Ecstasy users showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness while Ecstasy had high extraversion and openness. Both also had lower agreeableness and conscientiousness. 
+
+Mental disorders are also linked to neuroticism -- especially during adolescence. 
 
 ### Limitations of the Big Five Test
 
-**Lexical Hypothesis**
-
 Despite the Big Five’s numerous applications in society, rigorous tests for reliability and validity, and general acceptance within the scientific community, there are various criticisms of the test. 
 
-One of the biggest criticisms of the test is the basis of lexical hypothesis. Lexical hypothesis assumes that “the most important personality traits are encoded as words…. and that the analysis of [these words] may lead to a scientifically acceptable personality model”. Hence, by using language (or for the Big Five, a dictionary) as a resource, researchers can create a list of important personality traits to judge people off of. 
+**Lexical Hypothesis**
+
+One of the biggest criticisms of the Big Five test is its basis of lexical hypothesis. Lexical hypothesis assumes that “the most important personality traits are encoded as words…. and that the analysis of [these words] may lead to a scientifically acceptable personality model”.^[<a href="https://www.researchgate.net/publication/298930186_The_lexical_approach_in_personality_psychology_A_review_of_personality_descriptive_taxonomies" target="_blank">Source.</a>] Hence, by using language (or for the Big Five, a dictionary) as a resource, researchers can create a list of important personality traits to judge people off of. 
 
 People are against the lexical hypothesis for various reasons: 
 
-Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that suit what society deems as ‘good’. For example, people might say they’re ‘agreeable’ when they’re not because society favors agreeable people more). This can greatly skew the data, with traits such as Extroversion, Agreeableness, and Neuroticism becoming invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
+Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that aling with what society deems as ‘good’. For example, people might say they’re ‘agreeable’ because society prefers agreeable people more). This can greatly skew the data as Extroversion, Agreeableness, and Neuroticism become invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
 
-Others also deem personality as ‘too complex’ to be encoded into a singular word or used in everyday language. We may need far more detail to fully express what characteristics we want to capture, as language may not be an adequate vessel to describe the human condition and personality.  Traits can also be too ambiguous – they could be misunderstood or their meaning could change overtime. 
+Others also deem personality as ‘too complex’ to be encoded into a singular word or used in everyday language. We may require more detail to fully express what characteristics we want to capture, as language may not be an adequate vessel to describe the human condition and personality. Traits can also be too ambiguous – they could be misunderstood or the meaning of the word could change overtime. 
 
-The lexical hypothesis also has little scientific backing. The terms used with lexical hypotheses were developed for daily use, and could represent different meanings/perceptions rather than the definition researchers aim to use. Furthermore, tests to validate the lexical hypothesis are deemed ‘unscientific’. 
+The lexical hypothesis also has little scientific backing. The terms used with lexical hypotheses were developed for daily use, and could represent different meanings/perceptions rather than the definition researchers aim to use. Furthermore, tests to validate the lexical hypothesis are deemed ‘unscientific’.^[<a href="https://web.archive.org/web/20120507121610/http://www.psychsystems.net/Publications/1996/2.%20uncovering%20the%20nomothetic%20from%20the%20idiographic_Westen_jrnl%20of%20research%20in%20pers%201996.pdf" target="_blank">Source.</a>] 
 
 
 **(In)correct Approaches**
@@ -238,3 +238,4 @@ Of course, the test will always attempt to measure the respondent’s personalit
 ### Connections to MBTI
 
 
+rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.html')

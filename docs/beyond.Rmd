@@ -115,7 +115,7 @@ org/10.17227/rce.num77-9469.]
 
 The correlations between Big Five traits and VARK learning styles are shown in the table below. A '+' represents a positive correlation, a '-' represents a negative correlation, and a blank cell means that there is no correlation between the two variables. 
 
-```{R correlationtable}
+```{R correlationtable, include=FALSE}
 
 ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
                     'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 

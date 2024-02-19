@@ -31,7 +31,7 @@ When discussing the Big Five, there are several bits of terminology that needs t
 Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Source.</a>] However, temperament is considered to have their own model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
 
 - Negative Affectivity (Neuroticism)
-- Surgency Extraversion (Extroversion)
+- Surgency extroversion (Extroversion)
 - Effortful Control (Conscientiousness) 
 
 Notice the overlap between CBQ and Big Five - we’re only missing openness and agreeableness. However, despite the similarities, we will not be separating personality and temperament, as the Big Five aims to cover personality traits while integrating temperament into the mix. 
@@ -115,7 +115,7 @@ org/10.17227/rce.num77-9469.]
 
 The correlations between Big Five traits and VARK learning styles are shown in the table below. A '+' represents a positive correlation, a '-' represents a negative correlation, and a blank cell means that there is no correlation between the two variables. 
 
-```{R correlationtable, include=TRUE}
+```{R correlationtable}
 
 ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
                     'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 
@@ -134,13 +134,9 @@ kable(ctable, caption = "Correlation between Big Five and Vermunt's learning sty
 
 This connection could potentially allow teachers to better assist struggling students, using different tactics that best suit their needs. For example, neurotic and undirected students could benefit from individual attention or asking other students to form groups and help teach each other the concepts. Teachers could opt for more independent assignments for conscientious students, or give more thorough instructions to students who are more agreeable.  
 
-There are also various patterns with Big Five traits and an individual's health. 
+There are also various patterns with Big Five traits and an individual's health. First, conscientiousness is the strongest predictor for reduced morality — being a conscientious person makes you 30% less likely to die, compared to other people. This is because these people tend to make better health choices, as they’re more likely to stay fit, cooperate when given medical advice, have better sleeping habits, and are less likely to smoke. Conscientiousness is also tied to having more supportive relationships, thriving at work, and having better stress management.^[<a href="https://www.wellandgood.com/conscientiousness-longevity/" target="_blank">Source.</a>] 
 
-First, conscientiousness is the strongest predictor for reduced morality — being a conscientious person makes you 30% less likely to die, compared to other people. This is because these people tend to make better health choices, as they’re more likely to stay fit, cooperate when given medical advice, have better sleeping habits, and are less likely to smoke. Conscientiousness is also tied to having more supportive relationships, thriving at work, and having better stress management.^[<a href="https://www.wellandgood.com/conscientiousness-longevity/" target="_blank">Source.</a>] 
-
-People with Alzheimer's typically see a significant decrease in conscientiousness and large increase in neuroticism. Decreases in extraversion, openness, and agreeableness were also spotted. These Big Five traits could assist an early diagnosis for the patient. 
-
-In addition, Heroin and Ecstasy users showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness while Ecstasy had high extraversion and openness. Both also had lower agreeableness and conscientiousness. 
+People with Alzheimer's typically see a significant decrease in conscientiousness and large increase in neuroticism. Decreases in extroversion, openness, and agreeableness were also spotted. These Big Five traits could assist an early diagnosis for the patient. In addition, Heroin and Ecstasy users showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness while Ecstasy had high extroversion and openness. Both also had lower agreeableness and conscientiousness. 
 
 Mental disorders are also linked to neuroticism -- especially during adolescence. 
 
@@ -154,7 +150,7 @@ One of the biggest criticisms of the Big Five test is its basis of lexical hypot
 
 People are against the lexical hypothesis for various reasons: 
 
-Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that aling with what society deems as ‘good’. For example, people might say they’re ‘agreeable’ because society prefers agreeable people more). This can greatly skew the data as Extroversion, Agreeableness, and Neuroticism become invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
+Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that align with what society deems as ‘good’. For example, people might say they’re ‘agreeable’ because society prefers agreeable people more). This can greatly skew the data as Extroversion, Agreeableness, and Neuroticism become invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
 
 Others also deem personality as ‘too complex’ to be encoded into a singular word or used in everyday language. We may require more detail to fully express what characteristics we want to capture, as language may not be an adequate vessel to describe the human condition and personality. Traits can also be too ambiguous – they could be misunderstood or the meaning of the word could change overtime. 
 
@@ -168,48 +164,50 @@ There are two approaches for the Big Five:
 **Etic:** “Traits are universal, regardless of the environment, culture or context” 
 **Emic:**”Traits are culture and context-specific” 
 
-Often, Big Five studies use the Etic approach, generalizing the results to encompass the entirety of the human population, rather than specificity. 
+Often, Big Five studies use the Etic approach, generalizing the results to encompass the entirety of the human population, instead of narrowing their scope. 
 
-The Etic (or universal) approach was led by Eysenck, as he tried to emphasize how these traits were more ‘biological’ and universal to every human language, regardless of one’s culture or environment. It is used to describe a generalized personality, then expand these personality traits to other species. 
+The Etic (or universal) approach was led by Eysenck, as he emphasized how the Big Five traits are ‘biological’ and universal to every human language, and would appear regardless of one’s culture or environment.^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>]  
 
 The Emic (or local) approach believes that the cultures heavily shape personality traits. For example, with the test’s origins stemming from lexical hypothesis, the current model proposes a Western-centric view of personality traits, rather than a holistic view. 
 
 Thus, the question becomes: Do you value a generalized and universal model to encompass the entire human condition? Or, do you take a more personalized approach, envisioning how one’s environment can influence their behavior? 
 
-**Culture and Sex Differences** 
+**Culture Differences** 
 
-Korean, Mexican, Indian, Filipino and Arabic cultures have reported that there are many special traits that only exist within their culture – something that can’t be generalized and would destroy our current Etic approach.
+Various cultures, such as Korean, Mexican, Indian, Filipino and Arabic, believe that there are many traits which are very important to them and only exist within their culture. Therefore, if we were to utilize the Etic approach, there may be crucial personality traits that are left out as a result of the Big Five’s Western-centric development.
 
-This is further explored by using lexical hypothesis in Chinese, replicating the origins of the Big Five test in Western countries. By utilizing the lexical hypothesis, researchers created a completely different quiz with different traits, suited to a Chinese audience. 
+This belief has been explored in Chinese culture and
 
-In fact, let’s look at the Chinese Personality Assessment Inventory (CPAI), containing four major personality factors:
+This idea has actually been explored by Chinese researchers who replicated the origins of the Big Five test by applying the idea of lexical hypothesis to Chinese. This resulted in a completely different quiz with different traits — Chinese Personality Assessment Inventory (CPAI) — that was tailored for a Chinese audience.^[<a href="https://www.researchgate.net/publication/233846335_The_English_Version_of_the_Chinese_Personality_Assessment_Inventory" target="_blank">Source.</a>]  
 
-1. Social potency (leadership, divergent thinking, novelty, extraversion)
-2. Dependability (responsibility, optimism vs pessimism, face^[The public image you project - your ‘face’ in society.], locus of control) 
+The Chinese Personality Assessment Inventory (CPAI), containing four major personality factors:
+
+1. Social potency (leadership, divergent thinking, novelty, extroversion)
+2. Dependability (responsibility, optimism vs pessimism, face^[The public image you project - your ‘face’ in society.], locus of control)
 3. Accommodation (Family orientation, self vs society, defensiveness, graciousness, logical vs affective orientation) 
 4. Interpersonal relatedness (individual vs social, harmony, discipline, traditionalism vs modernity)
 
 There is some overlap with the Big Five.
 
-- Societal potency corresponds to extraversion and openness
+- Societal potency corresponds to extroversion and openness
 - Dependability corresponds to neuroticism and conscientiousness 
-- Accommodation corresponds to agreeableness
+- Accommodation corresponds to agreeableness^[<a href="https://www.linkedin.com/pulse/big-five-vs-chinese-four-next-thing-personality-silk-aps-assoc-cipd/" target="_blank">Source.</a>]
 
-Although there is overlap, an interesting idea becomes clear: The Chinese do not value the same things as Western audiences, due to cultural differences. For example, there are many openness-related traits, such as divergent thinking and novelty within the social potency category. However, it’s more so imbued within another category,  functioning “in a complex context than a distinct construct” compared to the Western environment. Furthermore, the CPAI also contains extroversion alongside openness. This combination of traits could be a “more interpretable construct” within the Chinese taxonomy of personality, when they tend to be far more distinct and separated within a Western audience. 
+Although there are some similarities, it's clear that the Chinese do not value the same things as Western audiences. For example, there are many openness-related traits, such as divergent thinking and novelty within the social potency category. However, openness is not a seperate category as it functions “in a complex context than a distinct construct” when compared to the Western environment.^[<a href="https://www.researchgate.net/publication/233846313_Relevance_of_Openness_as_a_Personality_Dimension_in_Chinese_Culture_Aspects_of_its_Cultural_Relevance" target="_blank">Source.</a>] Furthermore, the CPAI also associates extroversion with openness - these traits tend to be more distinct for Western audiences. 
 
-In addition, the definition of openness is quite varied and can completely change depending on one’s  culture. Openness requires breaking free of tradition and embracing new ideas. They must be motivated by aesthetic sensitivity rather than rules — an idea which can be discouraged in Asian cultures. It also begs the question: Is their opinion truly what they think, or were they just taught to think that? If they’re taught to think that, does that matter? Is that their personality? 
+Furthermore, the definition of openness can vary depending on one’s culture. Openness requires breaking free of tradition and embracing new ideas. They must be motivated by aesthetic sensitivity rather than rules — an idea which can be discouraged in Asian cultures. It also begs the question: Is their opinion truly what they think, or were they just taught to think that? If they’re taught to think that, does that matter? Is that part of their personality or just a byproduct of their society? 
 
-The issues of an Etic approach are also found in Arabic language and culture when attempting to create a more indigenous test, where differences in results were prominent enough to birth a completely new sixth trait: religiosity. 
+Issues of an Etic approach are also found in Arabic language and culture when attempting to create a more indigenous test, where differences in results were prominent enough to birth a completely new sixth trait: religiosity. EXPAND ON THIS
 
-The Big Five Personality Test results also seem to change depending on one’s sex. When collecting results in Turkey, men were “more imaginative and inquisitive” compared to women. This is likely because of the patriarchal culture within Turkey, as they have very strict gender roles; men were able to pursue what they wanted while women were shoehorned into rigid and rule-abiding lifestyles. So, men would likely cultivate openness as it was encouraged by society, while women would stray away from it. 
+**Sex Differences**
 
-This also happens on a smaller scale with Western countries through the stereotypical socialization of girls and boys when they grow up. In fact, these differences in personality traits can be seen in early childhood. 
+The Big Five Personality Test results also seem to change depending on one’s sex. When collecting results in Turkey, men were “more imaginative and inquisitive” compared to women. This is likely caused by the patriarchal culture within Turkey as they have very strict gender roles; men were able to pursue what they wanted while women were shoehorned into rigid lifestyles. So, men would likely cultivate openness traits, while women would stray away from them.^[<a href="https://dergipark.org.tr/en/download/article-file/1122830" target="_blank">Source.</a>] 
 
-In Canada, China, Finland, Germany, Poland, and Russia, men tend to be “more assertive and risk-taking than women”, hence scoring high on extrovertism and openness, whereas women were more “anxious and tender-minded”, scoring higher in scored higher in neuroticism, agreeableness, and conscientiousness” compared to men. 
+We can also see this occur on a smaller scale within Western societies by analyzing the stereotypical socialization of girls and boys. In Canada, China, Finland, Germany, Poland, and Russia, men tend to be “more assertive and risk-taking than women”, hence scoring high on extrovertism and openness, whereas women were more “anxious and tender-minded”, scoring higher in scored higher in neuroticism, agreeableness, and conscientiousness” compared to men.^[<a href="https://bpspsychub.onlinelibrary.wiley.com/doi/full/10.1111/bjop.12668" target="_blank">Source.</a>] EXPAND ON THIS - what socialization happens? when women have assertiveness, they're seen as undesirable, prim and proper, etc. 
 
-When analyzing results from 55 nations, the trend changes slightly: women scored higher in neuroticism, agreeableness, extroversion, and conscientiousness. However, men scored higher in assertiveness and openness. Socioeconomic factors also influenced gender differences, where the largest differences measured were larger in healthy, rich and gender-egalitarian cultures. Furthermore, men in developed world regions were “less neurotic, extraverted, conscientious and agreeable, compared to men in less developed world regions”. Women did not have their personality differ based on their socioeconomic status. 
+When analyzing results from 55 nations around the world, the trend changes slightly: women scored higher in neuroticism, agreeableness, extroversion, and conscientiousness. However, men scored higher in assertiveness and openness.^[<a href="https://sahajaonline.com/character-personality/personality-strengths-guide/can-we-change/" target="_blank">Source.</a>] EXPAND ON THIS - are women encouraged more in other societies aside from western ones? Socioeconomic factors also influenced gender differences, where the largest differences measured were larger in healthy, rich and gender-egalitarian cultures. Furthermore, men in developed world regions were “less neurotic, extroverted, conscientious and agreeable, compared to men in less developed world regions”. The personality of women did not significantly differ based on their socioeconomic status. 
 
-Of course, there are various reasons for these differences in personality based on sex, such as social roles and evolutionary reasons. For example, due to parental investment, men are more open to risks and tend to be more socially dominant, while women tend to be more nurturing and cautious. However, with these results, can you measure and generalize certain traits such as openness and extraversion accurately when it is actively being manipulated by cultural, societal, and evolutionary factors?  
+Of course, there are various reasons for these differences in personality based on sex, such as social roles and evolutionary reasons. For example, due to parental investment, men are more open to risks and tend to be more socially dominant, while women tend to be more nurturing and cautious. However, with these results, can you measure and generalize certain traits such as openness and extroversion accurately when it is actively being manipulated by cultural, societal, and evolutionary factors?  
 
 **Lack of Representation**
 

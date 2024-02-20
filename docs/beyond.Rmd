@@ -173,7 +173,7 @@ Thus, the question becomes: Do you value a generalized and universal model to en
 
 **Culture Differences** 
 
-Various cultures, such as Korean, Mexican, Indian, Filipino and Arabic, believe that there are many traits which are very important to them and only exist within their culture. Therefore, if we were to utilize the Etic approach, there may be crucial personality traits that are left out as a result of the Big Five’s Western-centric development.
+Various cultures, such as Korean, Mexican, Indian, Filipino and Arabic, believe that there are many traits which are very important to them that only exist within their culture. Therefore, if we were to utilize the Etic approach, there may be crucial personality traits that are left out as a result of the Big Five’s Western-centric development.
 
 This belief has been explored in Chinese culture and
 
@@ -196,7 +196,26 @@ Although there are some similarities, it's clear that the Chinese do not value t
 
 Furthermore, the definition of openness can vary depending on one’s culture. Openness requires breaking free of tradition and embracing new ideas. They must be motivated by aesthetic sensitivity rather than rules — an idea which can be discouraged in Asian cultures. It also begs the question: Is their opinion truly what they think, or were they just taught to think that? If they’re taught to think that, does that matter? Is that part of their personality or just a byproduct of their society? 
 
-Issues of an Etic approach are also found in Arabic language and culture when attempting to create a more indigenous test, where differences in results were prominent enough to birth a completely new sixth trait: religiosity. EXPAND ON THIS
+Issues of an Etic approach are also found in Arabic language and culture when attempting to create a more indigenous test, where differences in results were prominent enough to birth a completely new sixth trait: religiosity.
+
+
+Religion, for various cultures, is an incredibly important aspect of their people and greatly influences their behavior, values, and actions by creating a specific set of norms. Religion is often “assumed to be the a cause of religiosity, not a consequence”. 
+
+It is associated with agreeableness, conscientiousness, and neuroticism, and interestingly, religiosity is correctated with extroversion, but only for college men. and studies have shown that “religiosity is a larger independent factor” than simply being a part of the other 5 traits. More specifically, there are models that explain 42% of the variance in the data. 
+
+However, religion and personality exist on a two-way street, as religiosity can alter personality 
+
+Islamic students who are commiting to the teachings and consistently follow religious practices are less likely to cheat during exams and feel higher satisfaction with work, relating to conscientiousness. Interestingly, 
+
+https://www.researchgate.net/publication/271706484_Does_Spirituality_Represent_the_Sixth_Factor_of_Personality_Spiritual_Transcendence_and_the_Five-Factor_Model
+
+https://onlinelibrary.wiley.com/doi/full/10.1111/jopy.12770
+
+If religiosity was proposed as a 6th trait, there are various subtraits that it could encompass, such as: 
+Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.
+al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge) 
+
+
 
 **Sex Differences**
 
@@ -227,6 +246,9 @@ Even after categorizing respondents into different categories (e.g. sexes, count
 The Big Five Personality Test has dozens of different versions. Some contain 44 questions, some contain 25, 50, or even 60. In addition, each test will use different questions to poll respondents. In non-Western countries, people will also have translators which could twist the meaning of the question. 
 
 Of course, the test will always attempt to measure the respondent’s personality and there are standardized subtraits within each trait (i.e. the subtrait assertiveness within the trait extroversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
+
+Defintions of stuff could change 
+
 
 ### Possible Improvements to the Big Five Tests
 

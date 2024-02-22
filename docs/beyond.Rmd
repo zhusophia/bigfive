@@ -31,12 +31,12 @@ When discussing the Big Five, there are several bits of terminology that needs t
 Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Source.</a>] However, temperament is considered to have their own model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
 
 - Negative Affectivity (Neuroticism)
-- Surgency extroversion (Extroversion)
+- Surgency extraversion (extraversion)
 - Effortful Control (Conscientiousness) 
 
 Notice the overlap between CBQ and Big Five - we’re only missing openness and agreeableness. However, despite the similarities, we will not be separating personality and temperament, as the Big Five aims to cover personality traits while integrating temperament into the mix. 
 
-I'm also going to clarify the definition of extroversion. The Big Five uses Eysenck’s concept of extroversion rather than Jung’s. 
+I'm also going to clarify the definition of extraversion. The Big Five uses Eysenck’s concept of extraversion rather than Jung’s. 
 
 **Eysenck:** Extroverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy by withdrawing themselves.^[<a href="https://www.introvertpalace.com/blogs/news/the-psychology-of-introversion-eysenck-s-theory-of-arousal" target="_blank">Source.</a>]
  
@@ -45,7 +45,7 @@ I'm also going to clarify the definition of extroversion. The Big Five uses Eyse
 " target="_blank">Source.</a>]
  
 
-This clarification may be redundant -- many people have only heard of Eysenck’s version of extroversion. However, I still find value in acknowledging Jung, especially because Eysenck built his definition off of Jung’s. 
+This clarification may be redundant -- many people have only heard of Eysenck’s version of extraversion. However, I still find value in acknowledging Jung, especially because Eysenck built his definition off of Jung’s. 
 
 
 ### Big Five Personality Test - Origins  
@@ -65,7 +65,7 @@ There’s a lot of reasons why the Big Five is such a popular test and remains a
 
 1. The traits the Big Five measures are relatively stable during adulthood. 
 
-As we grow older, our traits are going to naturally develop and change. For example, you tend to have higher conscientiousness and agreeableness and lower neuroticism, extroversion, and openness. This is mainly because people tend to have more responsibilities (i.e. family, job, etc.) as they age and eventually learn to build traits to adapt. This is called the maturation effect.^[<a href="https://pubmed.ncbi.nlm.nih.gov/18028073/" target="_blank">Source.</a>]
+As we grow older, our traits are going to naturally develop and change. For example, you tend to have higher conscientiousness and agreeableness and lower neuroticism, extraversion, and openness. This is mainly because people tend to have more responsibilities (i.e. family, job, etc.) as they age and eventually learn to build traits to adapt. This is called the maturation effect.^[<a href="https://pubmed.ncbi.nlm.nih.gov/18028073/" target="_blank">Source.</a>]
  
 
 After adolescence, people’s traits tend to stabilize, ensuring there are distinct behavior patterns to analyze. This consistency (leading to replicability) is desirable for scientists. 
@@ -117,7 +117,7 @@ The correlations between Big Five traits and VARK learning styles are shown in t
 
 ```{R correlationtable}
 
-ctable = data.frame("." = c('Extroversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
+ctable = data.frame("." = c('extraversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
                     'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 
                     'Reproduction Directed' = c('$+$','$+$',"$-$", '$+$',''), 
                     'Application Directed' = c('$+$','$+$','','$+$', "$+$"),
@@ -135,7 +135,7 @@ This connection could potentially allow teachers to better assist struggling stu
 
 There are also various patterns with Big Five traits and an individual's health. First, conscientiousness is the strongest predictor for reduced morality — being a conscientious person makes you 30% less likely to die, compared to other people. This is because these people tend to make better health choices, as they’re more likely to stay fit, cooperate when given medical advice, have better sleeping habits, and are less likely to smoke. Conscientiousness is also tied to having more supportive relationships, thriving at work, and having better stress management.^[<a href="https://www.wellandgood.com/conscientiousness-longevity/" target="_blank">Source.</a>] 
 
-People with Alzheimer's typically see a significant decrease in conscientiousness and large increase in neuroticism. Decreases in extroversion, openness, and agreeableness were also spotted. These Big Five traits could assist an early diagnosis for the patient. In addition, Heroin and Ecstasy users showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness while Ecstasy had high extroversion and openness. Both also had lower agreeableness and conscientiousness. 
+People with Alzheimer's typically see a significant decrease in conscientiousness and large increase in neuroticism. Decreases in extraversion, openness, and agreeableness were also spotted. These Big Five traits could assist an early diagnosis for the patient. In addition, Heroin and Ecstasy users showed patterns when testing their Big Five traits. Heroin users had high neuroticism and openness while Ecstasy had high extraversion and openness. Both also had lower agreeableness and conscientiousness. 
 
 Mental disorders are also linked to neuroticism -- especially during adolescence. 
 
@@ -149,7 +149,7 @@ One of the biggest criticisms of the Big Five test is its basis of lexical hypot
 
 People are against the lexical hypothesis for various reasons: 
 
-Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that align with what society deems as ‘good’. For example, people might say they’re ‘agreeable’ because society prefers agreeable people more). This can greatly skew the data as Extroversion, Agreeableness, and Neuroticism become invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
+Verbal descriptors result in social bias (i.e. people consciously or unconsciously choose traits that align with what society deems as ‘good’. For example, people might say they’re ‘agreeable’ because society prefers agreeable people more). This can greatly skew the data as extraversion, Agreeableness, and Neuroticism become invalid as researchers can not ensure that people will answer honestly and objectively.^[You can see how this has affected this data set, most notably with agreeableness and openness.]
 
 Others also deem personality as ‘too complex’ to be encoded into a singular word or used in everyday language. We may require more detail to fully express what characteristics we want to capture, as language may not be an adequate vessel to describe the human condition and personality. Traits can also be too ambiguous – they could be misunderstood or the meaning of the word could change overtime. 
 
@@ -181,41 +181,34 @@ This idea has actually been explored by Chinese researchers who replicated the o
 
 The Chinese Personality Assessment Inventory (CPAI), containing four major personality factors:
 
-1. Social potency (leadership, divergent thinking, novelty, extroversion)
+1. Social potency (leadership, divergent thinking, novelty, extraversion)
 2. Dependability (responsibility, optimism vs pessimism, face^[The public image you project - your ‘face’ in society.], locus of control)
 3. Accommodation (Family orientation, self vs society, defensiveness, graciousness, logical vs affective orientation) 
 4. Interpersonal relatedness (individual vs social, harmony, discipline, traditionalism vs modernity)
 
 There is some overlap with the Big Five.
 
-- Societal potency corresponds to extroversion and openness
+- Societal potency corresponds to extraversion and openness
 - Dependability corresponds to neuroticism and conscientiousness 
 - Accommodation corresponds to agreeableness^[<a href="https://www.linkedin.com/pulse/big-five-vs-chinese-four-next-thing-personality-silk-aps-assoc-cipd/" target="_blank">Source.</a>]
 
-Although there are some similarities, it's clear that the Chinese do not value the same things as Western audiences. For example, there are many openness-related traits, such as divergent thinking and novelty within the social potency category. However, openness is not a seperate category as it functions “in a complex context than a distinct construct” when compared to the Western environment.^[<a href="https://www.researchgate.net/publication/233846313_Relevance_of_Openness_as_a_Personality_Dimension_in_Chinese_Culture_Aspects_of_its_Cultural_Relevance" target="_blank">Source.</a>] Furthermore, the CPAI also associates extroversion with openness - these traits tend to be more distinct for Western audiences. 
+Although there are some similarities, it's clear that the Chinese do not value the same things as Western audiences. For example, there are many openness-related traits, such as divergent thinking and novelty within the social potency category. However, openness is not a seperate category as it functions “in a complex context than a distinct construct” when compared to the Western environment.^[<a href="https://www.researchgate.net/publication/233846313_Relevance_of_Openness_as_a_Personality_Dimension_in_Chinese_Culture_Aspects_of_its_Cultural_Relevance" target="_blank">Source.</a>] Furthermore, the CPAI also associates extraversion with openness - these traits tend to be more distinct for Western audiences. 
 
 Furthermore, the definition of openness can vary depending on one’s culture. Openness requires breaking free of tradition and embracing new ideas. They must be motivated by aesthetic sensitivity rather than rules — an idea which can be discouraged in Asian cultures. It also begs the question: Is their opinion truly what they think, or were they just taught to think that? If they’re taught to think that, does that matter? Is that part of their personality or just a byproduct of their society? 
 
 Issues of an Etic approach are also found in Arabic language and culture when attempting to create a more indigenous test, where differences in results were prominent enough to birth a completely new sixth trait: religiosity.
 
+Religion is the (lack of) belief in a higher power. For various cultures, it’s an incredibly important aspect of their daily lives as it greatly influences their behavior, values, and beliefs as well as your sense of belonging and community.^[<a href="https://en.wikipedia.org/wiki/Religion_and_personality" target="_blank">Source.</a>] 
 
-Religion, for various cultures, is an incredibly important aspect of their people and greatly influences their behavior, values, and actions by creating a specific set of norms. Religion is often “assumed to be the a cause of religiosity, not a consequence”. 
+Higher religiosity is associated with increased agreeableness and conscientiousness and decreased neuroticism.^[<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3428642/" target="_blank">Source.</a>] It has been seen that Islamic students who are more committed to their religious teachings and consistently follow religious practices are less likely to cheat during exams and feel higher satisfaction with work, relating to conscientiousness. Higher religiosity is also positively correlated with decreased openness and increased extraversion, the link between these traits are weaker than the other 3 traits.^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>] 
 
-It is associated with agreeableness, conscientiousness, and neuroticism, and interestingly, religiosity is correctated with extroversion, but only for college men. and studies have shown that “religiosity is a larger independent factor” than simply being a part of the other 5 traits. More specifically, there are models that explain 42% of the variance in the data. 
-
-However, religion and personality exist on a two-way street, as religiosity can alter personality 
-
-Islamic students who are commiting to the teachings and consistently follow religious practices are less likely to cheat during exams and feel higher satisfaction with work, relating to conscientiousness. Interestingly, 
-
-https://www.researchgate.net/publication/271706484_Does_Spirituality_Represent_the_Sixth_Factor_of_Personality_Spiritual_Transcendence_and_the_Five-Factor_Model
-
-https://onlinelibrary.wiley.com/doi/full/10.1111/jopy.12770
+Although personality is often “assumed to be the cause of religiosity” rather than a consequence, recent studies refute this point. They believe that religion is more like a two-way street, with religiosity and personality simultaneously affecting each other.^[<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jopy.12770" target="_blank">Source.</a>] With studies showing that “religiosity is a larger independent factor” than simply being a part of the other 5 traits and “represents a broad-based motivational domain of comparable breadth”, some researchers believe that its influence should be fully acknowledged by adding religiosity as a 6th trait.^[<a href="https://www.researchgate.net/publication/271706484_Does_Spirituality_Represent_the_Sixth_Factor_of_Personality_Spiritual_Transcendence_and_the_Five-Factor_Model" target="_blank">Source.</a>]
 
 If religiosity was proposed as a 6th trait, there are various subtraits that it could encompass, such as: 
-Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.
-al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge) 
+Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.^[<a href="https://www.researchgate.net/publication/306224483_The_Five_Dimensions_of_Muslim_Religiosity" target="_blank">Source.</a>]
+al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge)^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>] 
 
-
+However, it should be noted that the relationships between personality and religion are (relatively) small and religiousness has also been correlated with personality traits outside of the Big Five. Hence, there still needs to be more research done to determine whether it is completely independent^[Recall that the 5 traits must be indepedent of eachother to be considered within the Big Five model.] from the other five traits and is an accurate and worthwhile trait to measure personality by.^[<a href="https://en.wikipedia.org/wiki/Religion_and_personality" target="_blank">Source.</a>]  
 
 **Sex Differences**
 
@@ -223,9 +216,9 @@ The Big Five Personality Test results also seem to change depending on one’s s
 
 We can also see this occur on a smaller scale within Western societies by analyzing the stereotypical socialization of girls and boys. In Canada, China, Finland, Germany, Poland, and Russia, men tend to be “more assertive and risk-taking than women”, hence scoring high on extrovertism and openness, whereas women were more “anxious and tender-minded”, scoring higher in scored higher in neuroticism, agreeableness, and conscientiousness” compared to men.^[<a href="https://bpspsychub.onlinelibrary.wiley.com/doi/full/10.1111/bjop.12668" target="_blank">Source.</a>] EXPAND ON THIS - what socialization happens? when women have assertiveness, they're seen as undesirable, prim and proper, etc. 
 
-When analyzing results from 55 nations around the world, the trend changes slightly: women scored higher in neuroticism, agreeableness, extroversion, and conscientiousness. However, men scored higher in assertiveness and openness.^[<a href="https://sahajaonline.com/character-personality/personality-strengths-guide/can-we-change/" target="_blank">Source.</a>] EXPAND ON THIS - are women encouraged more in other societies aside from western ones? Socioeconomic factors also influenced gender differences, where the largest differences measured were larger in healthy, rich and gender-egalitarian cultures. Furthermore, men in developed world regions were “less neurotic, extroverted, conscientious and agreeable, compared to men in less developed world regions”. The personality of women did not significantly differ based on their socioeconomic status. 
+When analyzing results from 55 nations around the world, the trend changes slightly: women scored higher in neuroticism, agreeableness, extraversion, and conscientiousness. However, men scored higher in assertiveness and openness.^[<a href="https://sahajaonline.com/character-personality/personality-strengths-guide/can-we-change/" target="_blank">Source.</a>] EXPAND ON THIS - are women encouraged more in other societies aside from western ones? Socioeconomic factors also influenced gender differences, where the largest differences measured were larger in healthy, rich and gender-egalitarian cultures. Furthermore, men in developed world regions were “less neurotic, extroverted, conscientious and agreeable, compared to men in less developed world regions”. The personality of women did not significantly differ based on their socioeconomic status. 
 
-Of course, there are various reasons for these differences in personality based on sex, such as social roles and evolutionary reasons. For example, due to parental investment, men are more open to risks and tend to be more socially dominant, while women tend to be more nurturing and cautious. However, with these results, can you measure and generalize certain traits such as openness and extroversion accurately when it is actively being manipulated by cultural, societal, and evolutionary factors?  
+Of course, there are various reasons for these differences in personality based on sex, such as social roles and evolutionary reasons. For example, due to parental investment, men are more open to risks and tend to be more socially dominant, while women tend to be more nurturing and cautious. However, with these results, can you measure and generalize certain traits such as openness and extraversion accurately when it is actively being manipulated by cultural, societal, and evolutionary factors?  
 
 **Lack of Representation**
 
@@ -245,7 +238,7 @@ Even after categorizing respondents into different categories (e.g. sexes, count
 
 The Big Five Personality Test has dozens of different versions. Some contain 44 questions, some contain 25, 50, or even 60. In addition, each test will use different questions to poll respondents. In non-Western countries, people will also have translators which could twist the meaning of the question. 
 
-Of course, the test will always attempt to measure the respondent’s personality and there are standardized subtraits within each trait (i.e. the subtrait assertiveness within the trait extroversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
+Of course, the test will always attempt to measure the respondent’s personality and there are standardized subtraits within each trait (i.e. the subtrait assertiveness within the trait extraversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
 
 Defintions of stuff could change 
 

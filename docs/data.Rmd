@@ -48,8 +48,6 @@ This is what the data looks like:
 
 ```{r, initialdata, include=FALSE}
 data <- read.csv("country.csv")
-#data <- sapply(data[,!(names(data) %in% c("country"))], as.numeric)
-#data["country"] <- as.character(data["country"])
 options(scipen=10000) 
 ```
 
@@ -1263,7 +1261,7 @@ est9g <- ggplot(data=est9p, aes(x=Answers)) +
    geom_bar(fill="steel blue") +
    labs(
      title = "I have excellent ideas.",
-     subtitle = "THINK GOOD!\n10B STARTUP IDEA STAT!") + 
+     subtitle = "THINK GOOD!\n$10B STARTUP IDEA STAT!") + 
    xlab("Respondent's Possible Answers") +
    ylab("Amount of Responses")+
    theme_minimal()

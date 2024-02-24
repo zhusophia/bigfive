@@ -1,7 +1,7 @@
 ---
 title: "Beyond the Dataset"
 description: |
-  Deep dive into the Big Five Personality Test and General Applications/Trends in Society
+  Deep dive into the depths of the Big Five Personality Test (and not the results that come with it).
 output: html_document
 date: "2023-08-04"
 ---
@@ -31,7 +31,7 @@ When discussing the Big Five, there are several bits of terminology that needs t
 Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Source.</a>] However, temperament is considered to have their own model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
 
 - Negative Affectivity (Neuroticism)
-- Surgency extraversion (extraversion)
+- Surgency Extraversion (Extraversion)
 - Effortful Control (Conscientiousness) 
 
 Notice the overlap between CBQ and Big Five - we’re only missing openness and agreeableness. However, despite the similarities, we will not be separating personality and temperament, as the Big Five aims to cover personality traits while integrating temperament into the mix. 
@@ -48,7 +48,7 @@ I'm also going to clarify the definition of extraversion. The Big Five uses Eyse
 This clarification may be redundant -- many people have only heard of Eysenck’s version of extraversion. However, I still find value in acknowledging Jung, especially because Eysenck built his definition off of Jung’s. 
 
 
-### Big Five Personality Test - Origins  
+### Origins  
 
 “Can you find a taxonomy to describe human personality?” 
 
@@ -117,7 +117,7 @@ The correlations between Big Five traits and VARK learning styles are shown in t
 
 ```{R correlationtable}
 
-ctable = data.frame("." = c('extraversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
+ctable = data.frame("." = c('Extraversion', 'Conscientiousness', 'Neuroticism', 'Agreeableness', 'Openness'),
                     'Meaning Directed' = c('$+$', '$+$','$-$', "", '$+$'), 
                     'Reproduction Directed' = c('$+$','$+$',"$-$", '$+$',''), 
                     'Application Directed' = c('$+$','$+$','','$+$', "$+$"),
@@ -139,7 +139,7 @@ People with Alzheimer's typically see a significant decrease in conscientiousnes
 
 Mental disorders are also linked to neuroticism -- especially during adolescence. 
 
-### Limitations of the Big Five Test
+### Limitations
 
 Despite the Big Five’s numerous applications in society, rigorous tests for reliability and validity, and general acceptance within the scientific community, there are various criticisms of the test. 
 
@@ -206,8 +206,9 @@ Higher religiosity is associated with increased agreeableness and conscientiousn
 Although personality is often “assumed to be the cause of religiosity” rather than a consequence, recent studies refute this point. They believe that religion is more like a two-way street, with religiosity and personality simultaneously affecting each other.^[<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jopy.12770" target="_blank">Source.</a>] With studies showing that “religiosity is a larger independent factor” than simply being a part of the other 5 traits and “represents a broad-based motivational domain of comparable breadth”, some researchers believe that its influence should be fully acknowledged by adding religiosity as a 6th trait.^[<a href="https://www.researchgate.net/publication/271706484_Does_Spirituality_Represent_the_Sixth_Factor_of_Personality_Spiritual_Transcendence_and_the_Five-Factor_Model" target="_blank">Source.</a>]
 
 If religiosity was proposed as a 6th trait, there are various dimensions that it could encompass, such as: 
-Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.^[<a href="https://www.researchgate.net/publication/306224483_The_Five_Dimensions_of_Muslim_Religiosity" target="_blank">Source.</a>]
-al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge)^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>] 
+
+- Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.^[<a href="https://www.researchgate.net/publication/306224483_The_Five_Dimensions_of_Muslim_Religiosity" target="_blank">Source.</a>]
+- al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge)^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>] 
 
 However, it should be noted that the relationships between personality and religion are (relatively) small and religiousness has also been correlated with personality traits outside of the Big Five. Hence, more research needs to be done to determine whether it is completely independent^[Recall that the 5 traits must be independent of eachother to be considered within the Big Five model.] from the other five traits and is an accurate way of measuring one's personality.^[<a href="https://en.wikipedia.org/wiki/Religion_and_personality" target="_blank">Source.</a>]  
 
@@ -252,23 +253,91 @@ The Big Five Personality Test has dozens of different versions. Some contain 44 
 
 Of course, the test will always attempt to measure the respondent’s personality and there are standardized dimensions within each trait (i.e. the dimension assertiveness within the trait extraversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
 
-### Possible Improvements to the Big Five Tests
+### Potential Improvements
 
-In regards to the methodology of the Big Five test, there are various improvements that made to reduce biases 
+In regards to the methodology of the Big Five test, there are various improvements that made. 
 
-Zhang, Tse, and Savalei propose to remove the Likert scale format^[Where you answer questions from 1 to 5, where 1 is strongly disagree and 5 is strongly agree] and replace it with the Expanded format. The Likert scale often falls victim to acquiescence bias — the tendency to agree with whatever a quiz question asks rather than write their own opinion — which could significantly skew test results. This has generally been removed by having an equal amount of ‘positive’ questions (e.g. I have excellent ideas.) and ‘negative’ questions (e.g. I feel little concern for others). However, just because respondents agree to an equal amount of positive and negative questions, it doesn’t mean that the data is valid. In fact, all it does is create “contradictory and uninterpretable answers”. Furthermore, interchanging negatively and positively worded questions, especially ones that contain negative particles like ‘not’ or ‘no’ or affixal morphemes like ‘un-‘, ‘non-‘, ‘dis-‘ or ‘-less’, can be confusing for inattentive respondents who briefly glance at the question before answering. 
+Zhang, Tse, and Savalei propose to remove the Likert scale format^[Where you answer questions from 1 to 5, where 1 is strongly disagree and 5 is strongly agree] and replace it with the Expanded format. The Likert scale often falls victim to acquiescence bias — the tendency to agree with whatever a quiz question asks rather than write their own opinion^[<a href="https://www.tandfonline.com/doi/pdf/10.1080/00224545.1990.9924595?casa_token=JAEG-zcvflUAAAAA:4gpi57SYhnSXksWHAPh8MW0e82PAonlDyyFXyrzNZsJjkNEDl1pr7ALmOlxIpVDv7bBHWyikORjF" target="_blank">Source.</a>]   — which could significantly skew test results. This has generally been removed by having an equal amount of ‘positive’ questions (e.g. I have excellent ideas.) and ‘negative’ questions (e.g. I feel little concern for others). However, just because respondents agree to an equal amount of positive and negative questions, it doesn’t mean that the data is valid. In fact, all it does is create “contradictory and uninterpretable answers”.^[<a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01286/full" target="_blank">Source.</a>] Furthermore, interchanging negatively and positively worded questions, especially ones that contain negative particles like ‘not’ or ‘no’ or affixal morphemes like ‘un-‘, ‘non-‘, ‘dis-‘ or ‘-less’, can be confusing for inattentive respondents who briefly glance at the question before answering. 
 
-To solve the problems of the Likert scale, they’ve introduced the Expanded format, which presents answers in the following format: 
+To solve the problems of the Likert scale, they’ve introduced the Expanded format which allows respondents to select answers in the following format: 
 
 - I am someone who feels little concern for others 
 - I am someone who feels somewhat little concern for others 
 - I am someone who feels slight concern for others 
 - I am someone who feels a lot of concern for others 
 
-The Expanded format reduces ambiguity by explicitly stating the meaning of every answer, removes acquiescence bias by removing the ‘agree’ to ‘disagree’ scale, and reduces confusion regarding negations by forcing respondents to pay attention to the subtle differences between responses. It also should be noted that the Order effect comes into play, where people are most likely to choose an option that is first or last.^[I’d actually argue differently (as seen in the data analysis section), but I have no scientific evidence behind my claim.] 
-When conducting research, it was confirmed that the Expanded format reduced acquiescence bias for the Conscientiousness and Extraversion questions, producing more accurate results. Openness questions performed mediocrely, primarily due to the fact that the Likert questions relating to Openness only have two ‘negatively’ worded questions out of 10 total questions — meaning that the acquiescence bias associated with openness are already quite low. Hence, the Expanded form and Likert version performed equally well. However, neuroticism and agreeableness questions performed worse with the Expanded version, as the order effect may have played a larger role with these two traits and made respondents’ results more inaccurate. 
+The Expanded format reduces ambiguity by explicitly stating the meaning of every answer, removes acquiescence bias by removing the ‘agree’ to ‘disagree’ scale, and reduces confusion regarding negations by forcing respondents to pay attention to the subtube differences between responses. It also should be noted that the Order effect comes into play, where people are most likely to choose an option that is first or last.^[I’d actually argue differently (as seen in the data analysis section), but I have no scientific evidence behind my claim.] 
 
-Furthermore, by using chi-square tests to compare observed and expected results, it was shown that the Expanded format was “generally not affected by Order effect”. 
+When conducting primary research, it was confirmed that the Expanded format reduced acquiescence bias for the conscientiousness and extraversion questions, producing more accurate results. Furthermore, by using chi-square tests to compare observed and expected results, it was shown that the Expanded format was “generally not affected by Order effect”.^[<a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01286/full" target="_blank">Source.</a>] 
+
+Openness questions performed mediocrely, primarily due to the fact that the openness Likert questions only have two ‘negatively’ worded questions out of 10 total questions — meaning that the acquiescence bias associated with openness are already quite low. Hence, the Expanded form and Likert version performed equally well.^[<a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01286/full" target="_blank">Source.</a>] 
+
+However, neuroticism and agreeableness questions performed worse with the Expanded version, as the order effect may have played a larger role with these two traits and made respondents’ results more inaccurate. Agreeableness also tends to be the “second most unreliable and problematic scale”^[Neuroticism ranks first for most unreliable.] as it has low retest reliability and low convergent validity.^[<a href="https://www.sciencedirect.com/science/article/abs/pii/S0092656606000195?casa_token=QBDlLm0SGz0AAAAA:QOrzJ-QZsSjrginRahrK7JCqKLTF3Z9QgqbCOrhR2cwPZ0LZaA9hokIqdseXGfdmUCkJL-jNTA" target="_blank">Source.</a>]  This highlights that agreeableness is not well-defined within the test and could contain other external factors. 
+
+DeBell, Brader, Wilson, and Jackman also conducted a study to improve the Big Five TIPI (Ten Item Personality Inventory) assessment, which contains 10 questions to measure the respondent’s Big Five score. TIPI has many advantages — it’s short and both widely accepted and widely used by researchers.^[<a href="https://psycnet.apa.org/record/2021-62605-001" target="_blank">Source.</a>]  
+
+```{r tipioriginal, out.width="150%", fig.cap="Original TIPI test", fig.align="center"}
+knitr::include_graphics("C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/TIPIOriginal.PNG")
+cat("<style>.caption{text-align:center;}</style>")
+
+```
+
+However, there were 3 key issues with the current TIPI that this study aimed to improve. 
+
+1. Response labels 
+
+The TIPI response system requires respondents to input numbers (which correspond to words), rather than use the words themselves. This seems awfully convoluted when respondents can just use words to answer in the first place. 
+
+2. Agree-Disagree format 
+
+This results in acquiescence bias, as mentioned previously. 
+
+3. All on one page 
+
+Since respondents see all the questions at once, they may choose to rush through the quiz to get their result instead of carefully thinking about the questions. This results in respondents satisficing instead of optimizing, as respondents’ answers may be skewed.^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">Source.</a>]   
+
+To combat these issues, the researchers decided to change the TIPI into the following format: 
+
+```{r tipirevised, out.width="75%", fig.cap="Revised TIPI test", fig.align="center"}
+knitr::include_graphics("C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/TIPIRevised.PNG")
+
+
+```
+
+They removed the numeric response labels and replaced them with verbal ones, removed the Agree-Disagree format to reduce acquiescence bias, and had questions pop up one at a time to encourage respondents to think more about their answer. 
+
+The original and revised TIPI tests were given to 1253 respondents and compared based on completion time, question non-response, paired item reliability, and construct validity. Completion time was identical, with both tests taking an average of 87 seconds each. The original had 12 questions left unanswered (1.7%) while the reversed had 2 questions left unanswered (0.3%).^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">Source.</a>]   
+
+The paired item reliability — the higher the reliability, the higher the probability that you are accurately measuring a personality trait — was measured during Person’s r. 
+
+```{R pairitem}
+
+pitem = data.frame("Trait" = c('Extraversion', 'Neuroticism', 'Conscientiousness', 'Agreeableness', 'Openness'),
+                    'Original' = c('-.23', '-0.36', '-.31','$-.22$','-.42'), 
+                    'Revised' = c('$-.28$','$-0.43$', '$-.46$','-.13','$-.50$'))
+
+kable(pitem, caption = "Paired Item Reliability using Pearson's R") %>%
+  kable_styling()
+
+```
+
+Out of the five traits, only agreeableness was better measured by the original test, showing that the revised version often had more accurate results.^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">Source.</a>]  
+
+The study also tested the construct validity — how well a test measures the concept that is not directly measurable, as well as the appropriateness of inferences made using test results^[<a href="https://en.wikipedia.org/wiki/Construct_validity" target="_blank">Source.</a>]
+ — for both the original and revised TIPI test. 
+
+```{R inferencetable}
+
+itable = data.frame("Expectation" = c('Conscientiousness associated with recycling', 'Conscientiousness associated with health', 'Conscientiousness associated with voter turnout, voter registration, and political knowledge', 'Conscientiousness associated with political conservatism', 'Openness associated with political liberalism', 'Openness negatively associated with racism', 'Neuroticism associated with worse health'),
+                    'Result' = c('Detected only by revised TIPI.', 'Revised effect size 2x larger.', 'None detected by the original TIPI. All detected by revised TIPI.','Detected only by revised TIPI.','Found in both TIPIs.', 'Detected only by revised TIPI.', 'Revised effect size 2x larger.')) 
+                    
+kable(itable, caption = "Construct Validity of TIPI Tests") %>%
+  kable_styling()
+
+```
+
+Overall, the revised test was an improvement over the original test for nearly every trait by increasing response rates, reliability, and validity. Hence, by implementing these “costless improvements”, the TIPI test could produce significantly more accurate Big Five test results!^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">Source.</a>]   
+
 
 ### Spin-off Tests
 

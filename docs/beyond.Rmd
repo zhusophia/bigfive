@@ -245,7 +245,7 @@ During the process of surveying non-WEIRD populations, it should also be noted t
 
 It was also noted that less educated populations had lower interest in taking the survey, as their incentives and expectations for the survey may be completely different than a respondent in a WEIRD country who is taking the Big Five test for fun.^[<a href="https://www.science.org/doi/10.1126/sciadv.aaw5226" target="_blank">Source.</a>] This could lead to skewed data. 
 
-Despite categorizing respondents(e.g. sex, countries), there still seems to be varying answers rather than a strong, general trend. Assuming that we continue to use an Etic approach, the reliability of the test can be called into question, as there are inconclusive results from many studies. 
+Despite categorizing respondents (e.g. sex, countries), there still seems to be varying answers rather than a strong, general trend. Assuming that we continue to use an Etic approach, the reliability of the test can be called into question, as there are inconclusive results from many studies. 
 
 **Variability of Tests**
 
@@ -278,7 +278,6 @@ DeBell, Brader, Wilson, and Jackman also conducted a study to improve the Big Fi
 
 ```{r tipioriginal, out.width="150%", fig.cap="Original TIPI test", fig.align="center"}
 knitr::include_graphics("C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/TIPIOriginal.PNG")
-cat("<style>.caption{text-align:center;}</style>")
 
 ```
 
@@ -340,6 +339,59 @@ Overall, the revised test was an improvement over the original test for nearly e
 
 
 ### Spin-off Tests
+
+There are several spin-off tests that were created due to the oversights or limitations of the current Big Five model. 
+
+The Big Four 
+
+In 1994, Cloninger, Svrakic, and Przybeck set out to create a psychobiological model of “temperament and character”, focusing on four traits that are moderately stable throughout one’s lifetime. If you recall, temperament and personality are slightly different, but the Big Five aims to incorporate temperament when considering personality. 
+
+There are four confirmed traits of temperament: 
+Novelty seeking
+Harm avoidance 
+Reward dependence 
+Persistence 
+
+These traits are all heritable, manifest early in life, and develop from perceptual memory and habits. 
+
+https://www.researchgate.net/publication/14947976_Cloninger_CR_Svrakic_DM_Przybeck_TR_A_psychobiological_model_of_temperament_and_character_Arch_Gen_Psychiatry_50_975-990
+
+
+It should be noted that extraversion is “genetically heterogeneous”, where changes in various genes such as ZNF180 can affect extravertism.  However, Eysenck makes the assumption that genetic and environmental infleunce behaviour in the same way — 
+
+Concluded that “Eynsenck’s model was unaccapble” 
+
+Four big trait,
+Cloninger and Svraki
+  Harm Avoidance  -  Novelty Seeking  -  Reward Dependence  -  Persistence
+Biopsychoological model where the big for traits are moderately stable throughout life 
+
+(Alternative) Big Five
+Impulsive sensation seeking, aggression-hostility, activity, sociability, neuroticism-anxiety
+Does not include an equivalent to openness to experience 
+
+https://en.wikipedia.org/wiki/Alternative_five_model_of_personality#:~:text=The%20alternative%20five%20model%20of,%2C%20and%20activity%20(Act).
+https://psycnet.apa.org/record/2002-17260-016
+
+
+https://psycnet.apa.org/record/2005-01874-005
+
+Big Six Traits (HEXACO)
+Big five + honest-humility 
+Attempts to provide a broader view of personality by expanding traits to include religiosity 
+
+https://en.wikipedia.org/wiki/HEXACO_model_of_personality_structure
+
+
+Psychopathology Five 
+
+Aggressiveness, psychoticism, disconstraint, negative emotionality/ neuroticism, introversion/low positive emotionality
+Used for personality spychpathology 
+
+https://www.sciencedirect.com/science/article/abs/pii/S0191886920301914
+https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review
+
+
 
 ### Connections to MBTI
 

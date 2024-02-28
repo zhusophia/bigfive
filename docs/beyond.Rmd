@@ -342,55 +342,46 @@ Overall, the revised test was an improvement over the original test for nearly e
 
 There are several spin-off tests that were created due to the oversights or limitations of the current Big Five model. 
 
-The Big Four 
+### (Alternative) Big Five 
 
-In 1994, Cloninger, Svrakic, and Przybeck set out to create a psychobiological model of “temperament and character”, focusing on four traits that are moderately stable throughout one’s lifetime. If you recall, temperament and personality are slightly different, but the Big Five aims to incorporate temperament when considering personality. 
+The alternative five model of personality (ZKPQ) was created by Zukerman containing the following five basic dimensions: 
 
-There are four confirmed traits of temperament: 
-Novelty seeking
-Harm avoidance 
-Reward dependence 
-Persistence 
+1. Impulsive-sensation seeking 
 
-These traits are all heritable, manifest early in life, and develop from perceptual memory and habits. 
+Measures the tendency to act without thinking and one’s liking for novelty, unpredictability, and excitement. Negatively correlates with the Big Five’s conscientiousness trait. 
 
-https://www.researchgate.net/publication/14947976_Cloninger_CR_Svrakic_DM_Przybeck_TR_A_psychobiological_model_of_temperament_and_character_Arch_Gen_Psychiatry_50_975-990
+2. Neuroticism–anxiety
 
+Measures general anxiety, fear, and emotionality. Positively correlates with the Big Five’s neuroticism trait. 
 
-It should be noted that extraversion is “genetically heterogeneous”, where changes in various genes such as ZNF180 can affect extravertism.  However, Eysenck makes the assumption that genetic and environmental infleunce behaviour in the same way — 
+3. Aggression–hostility 
 
-Concluded that “Eynsenck’s model was unaccapble” 
+Measures anger and lack of inhibitory control. Negatively correlates with the Big Five’s agreeableness trait. 
 
-Four big trait,
-Cloninger and Svraki
-  Harm Avoidance  -  Novelty Seeking  -  Reward Dependence  -  Persistence
-Biopsychoological model where the big for traits are moderately stable throughout life 
+4. Sociability 
 
-(Alternative) Big Five
-Impulsive sensation seeking, aggression-hostility, activity, sociability, neuroticism-anxiety
-Does not include an equivalent to openness to experience 
+Measure social participation and affiliation. Associated with interacting with people and a dislike of isolation. Positively correlates with the Big Five’s extraversion trait. 
 
-https://en.wikipedia.org/wiki/Alternative_five_model_of_personality#:~:text=The%20alternative%20five%20model%20of,%2C%20and%20activity%20(Act).
-https://psycnet.apa.org/record/2002-17260-016
+5. Activity 
 
+Measures persistence, energetic behavior, and a need to avoid feelings of restlessness. Although it does not have a Big Five trait it’s associated with, studies have suggested that activity and extraversion are  positively correlated. 
 
-https://psycnet.apa.org/record/2005-01874-005
+The main differentiators between the ZKPQ and the Big Five is that there’s no ‘Openness’ trait and Zuckerman bases his model on traits with a “strong biological-evolutionary basis”. 
 
-Big Six Traits (HEXACO)
-Big five + honest-humility 
-Attempts to provide a broader view of personality by expanding traits to include religiosity 
+Zuckerman’s model starts out with scales used in psychobiological research, focusing on traits that had comparable behavior in other species. This means including aggression instead of agreeableness and impulsivity vs conscientiousness, as they’re commonly seen. However, openness can not be identified in non-human species, which is why it is not present in this model.  
 
-https://en.wikipedia.org/wiki/HEXACO_model_of_personality_structure
+Hence, by starting with Eysenck’s Big Three (extraversion, neuroticism, psychoticism) and integrating measures of temperament (emotionality, activity, sociability, and impulsivity) from Strelau’s Temperament Inventory. In the end, he also added sensation-seeking as a trait, since it has been proved to have high heritability and many psycho physiological and biochemical bases. Measures of cultural interests and intellectual styles were omitted to ensure trait translation between species 
+
+Due to the goal of species universality, the ZKPQ also exhibits cultural universality for various cultures such as China, Germany, Italy, Spain, Switzerland, Belgium, Canada, France and Switzerland and the U.S. — with some variation in congruence for China and Italy. This means that ZKPQ is incredibly generalizable across humanity — something the Big Five lacks. 
 
 
-Psychopathology Five 
+### HEXACO
 
-Aggressiveness, psychoticism, disconstraint, negative emotionality/ neuroticism, introversion/low positive emotionality
-Used for personality spychpathology 
+Instead of removing a trait, the HEXACO expands the Big Five model by replacing neuroticism with emotionality – with faucets of fearfulness, dependence, and sentimentality — and including another trait called ‘honesty-humility’ (HH). The faucets for honesty-humility include sincerity, fairness, greed avoidance and modesty.  
 
-https://www.sciencedirect.com/science/article/abs/pii/S0191886920301914
-https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review
+HH emerged after conducting lexical studies (for lexical hypothesis) in various different languages, such as Dutch, French, Korean, Croatian, German, and more. Furthermore, there were also slight changes in faucets. Quick temper, in the Big Five, would be a sign of high neuroticism. In HEXACO, that would be a sign of low agreeableness. Despite major similarities between these two tests, HEXACO’s lexical studies help increase the accuracy of each trait by better defining the scope of each trait and faucet. 
 
+Compared to the Big Five, HEXACO is shown to have more predictive power when determining psychopathic traits, egoism, risk taking, materialism, and unethical business decisions. These results seem a lot more applicable in a business context compared to the Big Five — could this be the future of hiring systems? 
 
 
 ### Connections to MBTI

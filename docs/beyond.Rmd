@@ -364,25 +364,26 @@ Measure social participation and affiliation. Associated with interacting with p
 
 5. Activity 
 
-Measures persistence, energetic behavior, and a need to avoid feelings of restlessness. Although it does not have a Big Five trait it’s associated with, studies have suggested that activity and extraversion are  positively correlated. 
+Measures persistence, energetic behavior, and a need to avoid feelings of restlessness. Although it does not have a Big Five trait it’s associated with, studies have suggested that activity and extraversion are  positively correlated.^[<a href="https://en.wikipedia.org/wiki/Alternative_five_model_of_personality" target="_blank">Source.</a>]   
 
 The main differentiators between the ZKPQ and the Big Five is that there’s no ‘Openness’ trait and Zuckerman bases his model on traits with a “strong biological-evolutionary basis”. 
 
-Zuckerman’s model starts out with scales used in psychobiological research, focusing on traits that had comparable behavior in other species. This means including aggression instead of agreeableness and impulsivity vs conscientiousness, as they’re commonly seen. However, openness can not be identified in non-human species, which is why it is not present in this model.  
+Zuckerman’s model starts out with scales used in psychobiological research, focusing on traits that had comparable behavior in other species. This means including aggression instead of agreeableness and impulsivity vs conscientiousness, as they’re commonly seen. However, openness can not be identified in non-human species, which is why it is not present in this model.^[<a href="https://web.archive.org/web/20160304023017/http://grupsderecerca.uab.cat/zkpq/sites/grupsderecerca.uab.cat.zkpq/files/zkpq7.pdf" target="_blank">Source.</a>]   
 
-Hence, by starting with Eysenck’s Big Three (extraversion, neuroticism, psychoticism) and integrating measures of temperament (emotionality, activity, sociability, and impulsivity) from Strelau’s Temperament Inventory. In the end, he also added sensation-seeking as a trait, since it has been proved to have high heritability and many psycho physiological and biochemical bases. Measures of cultural interests and intellectual styles were omitted to ensure trait translation between species 
+Hence, by starting with Eysenck’s Big Three (extraversion, neuroticism, psychoticism) and integrating measures of temperament (emotionality, activity, sociability, and impulsivity) from Strelau’s Temperament Inventory. In the end, he also added sensation-seeking as a trait, since it has been proved to have high heritability and many psycho physiological and biochemical bases. Measures of cultural interests and intellectual styles were omitted to ensure trait translation between species.^[<a href="https://www.sciencedirect.com/science/article/abs/pii/S0191886901001866?via%3Dihub" target="_blank">Source.</a>]
 
-Due to the goal of species universality, the ZKPQ also exhibits cultural universality for various cultures such as China, Germany, Italy, Spain, Switzerland, Belgium, Canada, France and Switzerland and the U.S. — with some variation in congruence for China and Italy. This means that ZKPQ is incredibly generalizable across humanity — something the Big Five lacks. 
+Due to the goal of species universality, the ZKPQ also exhibits cultural universality for various cultures such as China, Germany, Italy, Spain,^[<a href="https://www.tandfonline.com/doi/full/10.1080/00223891.2012.657024" target="_blank">Source.</a>] Switzerland, Belgium, Canada, France and Switzerland and the U.S.^[<a href="https://www.tandfonline.com/doi/pdf/10.1080/00223890701468618" target="_blank">Source.</a>] — with some variation in congruence for China and Italy. This means that ZKPQ is incredibly generalizable across humanity — something the Big Five lacks. 
 
 
 ### HEXACO
 
-Instead of removing a trait, the HEXACO expands the Big Five model by replacing neuroticism with emotionality – with faucets of fearfulness, dependence, and sentimentality — and including another trait called ‘honesty-humility’ (HH). The faucets for honesty-humility include sincerity, fairness, greed avoidance and modesty.  
+Instead of removing a trait, the HEXACO expands the Big Five model by replacing neuroticism with emotionality – with faucets of fearfulness, dependence, and sentimentality — and including another trait called ‘honesty-humility’ (HH). The faucets for honesty-humility include sincerity, fairness, greed avoidance and modesty.^[<a href="https://en.wikipedia.org/wiki/HEXACO_model_of_personality_structure" target="_blank">Source.</a>]  
 
 HH emerged after conducting lexical studies (for lexical hypothesis) in various different languages, such as Dutch, French, Korean, Croatian, German, and more. Furthermore, there were also slight changes in faucets. Quick temper, in the Big Five, would be a sign of high neuroticism. In HEXACO, that would be a sign of low agreeableness. Despite major similarities between these two tests, HEXACO’s lexical studies help increase the accuracy of each trait by better defining the scope of each trait and faucet. 
 
-Compared to the Big Five, HEXACO is shown to have more predictive power when determining psychopathic traits, egoism, risk taking, materialism, and unethical business decisions. These results seem a lot more applicable in a business context compared to the Big Five — could this be the future of hiring systems? 
+Compared to the Big Five, HEXACO is shown to have more predictive power when determining psychopathic traits, egoism, risk taking, materialism, and unethical business decisions. These results seem a lot more applicable in a business context compared to the Big Five — could this be the future of hiring systems?^[<a href="sciencedirect.com/science/article/abs/pii/S0191886920301914" target="_blank">Source.</a>]   
 
+Personally, I find that each model presents a new aspect or has additions that could be considered when evaluating one’s personality. We must be willing to innovate, destroy, and improve previous knowledge to ensure the most accurate data, to contribute and grow our understanding of personality. 
 
 ### Connections to MBTI
 

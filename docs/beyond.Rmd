@@ -205,7 +205,7 @@ Higher religiosity is associated with increased agreeableness and conscientiousn
 
 Although personality is often “assumed to be the cause of religiosity” rather than a consequence, recent studies refute this point. They believe that religion is more like a two-way street, with religiosity and personality simultaneously affecting each other.^[<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jopy.12770" target="_blank">Source.</a>] With studies showing that “religiosity is a larger independent factor” than simply being a part of the other 5 traits and “represents a broad-based motivational domain of comparable breadth”, some researchers believe that its influence should be fully acknowledged by adding religiosity as a 6th trait.^[<a href="https://www.researchgate.net/publication/271706484_Does_Spirituality_Represent_the_Sixth_Factor_of_Personality_Spiritual_Transcendence_and_the_Five-Factor_Model" target="_blank">Source.</a>]
 
-If religiosity was proposed as a 6th trait, there are various dimensions that it could encompass, such as: 
+If religiosity was proposed as a 6th trait, there are various faucets that it could encompass, such as: 
 
 - Basic religiosity, central duties, religious experience, religious  knowledge,  and  orthopraxis.^[<a href="https://www.researchgate.net/publication/306224483_The_Five_Dimensions_of_Muslim_Religiosity" target="_blank">Source.</a>]
 - al-rushd (diligence, balance), hijab (caring for one's good  name,  abstaining  from  committing sins, emotional stability),  musyawarah (agreeableness, productivity, modesty, equality), Spirituality (prayers, honesty, knowledge)^[<a href="https://www.researchgate.net/publication/335834113_Big_Five_Traits_A_Critical_Review" target="_blank">Source.</a>] 
@@ -251,7 +251,7 @@ Despite categorizing respondents (e.g. sex, countries), there still seems to be 
 
 The Big Five Personality Test has dozens of different versions. Some contain 44 questions, some contain 25, 50, or even 60. In addition, each test will use different questions to poll respondents. In non-Western countries, people will also have translators which could twist the meaning of the question (as seen above). 
 
-Of course, the test will always attempt to measure the respondent’s personality and there are standardized dimensions within each trait (i.e. the dimension assertiveness within the trait extraversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
+Of course, the test will always attempt to measure the respondent’s personality and there are standardized faucets within each trait (i.e. the faucet assertiveness within the trait extraversion). However, it’s possible that person 1 taking test version A with 44 questions could receive a different result than if they took test version B with 50 different questions with a translator. 
 
 ### Potential Improvements
 
@@ -344,7 +344,7 @@ There are several spin-off tests that were created due to the oversights or limi
 
 ### (Alternative) Big Five 
 
-The alternative five model of personality (ZKPQ) was created by Zukerman containing the following five basic dimensions: 
+The alternative five model of personality (ZKPQ) was created by Zukerman containing the following five basic traits: 
 
 1. Impulsive-sensation seeking 
 
@@ -386,6 +386,75 @@ Compared to the Big Five, HEXACO is shown to have more predictive power when det
 Personally, I find that each model presents a new aspect or has additions that could be considered when evaluating one’s personality. We must be willing to innovate, destroy, and improve previous knowledge to ensure the most accurate data, to contribute and grow our understanding of personality. 
 
 ### Connections to MBTI
+
+The Myers-Briggs Type Indicator (MBTI) is a test based on Jung’s theory in his work *Psychological Types*. drawing from the work of Nietzsche and psychologist Wiliam James  It emphasizes “naturally occurring differences” as it says that we all have preferences in how our brain works which influence our actions, behaviors, interests, personality, etc. 
+
+The term MBTI has been popularized by the site16Personalities, where it offers respondents a free personality test to calculate their MBTI. This is NOT the MBTI I am referring to. 16Personalities is a surface level personality test that does not use Jungian concepts and simply “uses the acronym format introduced by Myers-Briggs due to its simplicity and convenience” and “redefined several Jungian traits.” 16Personalities is far more similar (although not synonymous) to the Big Five than Jung. 
+
+There are 4 principle psychological functions, presented as two pairs: 
+
+- Intuition / Sensing 
+- Thinking / Feeling
+
+Intuition / Sensing are irrational and focus on how we perceive the world and gather information. Thinking / Feeling are rational functions that focus on how we judge and process information. Intuition is the gut decision, sensing tells us that a thing exists, thinking tells us what the thing is, and feeling tells us how much this thing is worth to us. 
+
+These four functions can be split into attitude-types, where you’re either E (Extroverted) or I (Introverted).^[These do not follow Eysenck's definition.] It can generally be described that extroverted functions focus outwards, directing their interest towards the external environment and act in relation to outward factors. Introverted functions are focused inwards, where the person and their thoughts are the motivating factors on how the function acts. 
+
+Using the psychological functions and attitudes, you can create the 8 basic types of Jung Typology: 
+
+Ne 
+- Creates possibilities for many situations in their mind, connecting seemingly unconnected topics to construct new conceptual ideas, focus on divergent thinking 
+- Maintains flexibility, enjoys freedom to explore new things, such as new knowledge and  opportunities for change and progress, all based on what has the most potential 
+- Find novel objects with intensity, often dropping them quickly and cold-bloodedly after the potential has been realized or is ‘unentertaining’ 
+Examples: John Lennon, Robert Downey Jr., Iron Man (from the MCU)
+
+Ni
+- Focus on realizing ideals (how people live up to their potential) and convergent thinking
+- Interpretive approach to live, filtering signs, symbols, and metaphors to have their own personal significance to create their own vision of the world 
+- Driven to find meaning and truth, making decisions off future implications 
+Examples: Elon Musk, Jordan Peterson, Beth Harmon (from Queen’s Gambit)
+
+Se
+- Perceives the world in a realistic and objective way through external phenomena, enjoys experiencing concrete experiences causing physical sensations 
+- Tend to focus on *action*, where they’ll do something, observe results, and immediately make a physical readjustment and try again 
+- Very adaptable, making use of their past experiences and sensations, enjoys living in the moment 
+
+Example: Freddie Mercury, Madonna, Hinata Shoyo (from Haikyuu!!!)
+
+Si
+- Has a consistent, methodical, and detailed approach to life
+- Seeks stability, security and familiarity, making decisions off personal priorities, passions, and commitments 
+- Typically calm and has good self-control
+Examples: Beyonce, Sigmund Freud, Captain America (from the MCU)
+
+
+Te
+
+- Places importance of information, such as facts
+- Creates and adopts universally objective standards (to place onto themselves, which are collectively agreed upon) 
+- Keeps a structural approach, keeping a framework of order to make planes and establish routines 
+
+Examples: Malcolm X, Michelle Obama, Mike Wazowski (from Monsters, Inc.)
+
+Ti
+- Develop their own complex internal frameworks, constantly comparing new information to their systems 
+- Logical and analytical, values intelligence, knowledge, and mastery, and taking calculated and well-thought out actions. 
+
+
+Fe
+- Feelings and judgements are created relative to objective conditions and general values 
+- Maintains universally applied group values and uses them to set priorities, make decisions, and anticipate other’s behavior 
+- Harmoniously live with external environment, typically seen as warm and inviting  
+- “Would other people agree with this?”
+
+Examples: Zendaya, Mariah Carrey, Cedric Diggory (from Harry Potter)
+
+Fi
+- Focuses on their own individuality and their needs and desires to navigate life 
+- Solid idea of personal integrity and their ideas, emotions, beliefs, and feelings 
+- “Do I like this?” “Is this authentic to myself?”
+
+Examples: Mitski, Brad Pitt, Remy (from Ratatouille) 
 
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.html')

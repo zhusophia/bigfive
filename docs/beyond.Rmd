@@ -38,10 +38,10 @@ Notice the overlap between CBQ and Big Five - we’re only missing openness and 
 
 I'm also going to clarify the definition of extraversion. The Big Five uses Eysenck’s concept of extraversion rather than Jung’s. 
 
-**Eysenck:** Extroverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy by withdrawing themselves.^[<a href="https://www.introvertpalace.com/blogs/news/the-psychology-of-introversion-eysenck-s-theory-of-arousal" target="_blank">Source.</a>]
+**Eysenck:** Extraverts gain and recharge their mental energy from external stimuli, such as social interaction. Introverts prefer to shield themselves from external stimuli and recharge their mental energy by withdrawing themselves.^[<a href="https://www.introvertpalace.com/blogs/news/the-psychology-of-introversion-eysenck-s-theory-of-arousal" target="_blank">Source.</a>]
  
 
-**Jung:** Extroverts seek action and sensory input from the external world, using their experiences to influence their thoughts, beliefs, and actions. Introverts immerse themselves in their internal environment, through reflection, dreaming, and keeping their 'head in the clouds' to influence their actions.^[<a href="https://fractalenlightenment.com/31622/life/jungs-theory-of-introvert-and-extrovert-personalities
+**Jung:** Extraverts seek action and sensory input from the external world, using their experiences to influence their thoughts, beliefs, and actions. Introverts immerse themselves in their internal environment, through reflection, dreaming, and keeping their 'head in the clouds' to influence their actions.^[<a href="https://fractalenlightenment.com/31622/life/jungs-theory-of-introvert-and-extravert-personalities
 " target="_blank">Source.</a>]
  
 
@@ -216,12 +216,12 @@ However, it should be noted that the relationships between personality and relig
 
 The Big Five Personality Test results also seem to change depending on one’s sex. When collecting results in Turkey, men were “more imaginative and inquisitive” compared to women. This is likely because of the patriarchal culture within Turkey, as they have very strict gender roles; men were able to pursue what they wanted while women were shoehorned into rigid and rule-abiding lifestyles. So, how each sex behaved would be heavily influenced by societal norms.^[<a href="https://dergipark.org.tr/en/download/article-file/1122830" target="_blank">Source.</a>] 
 
-We can also see this happen (on a smaller scale) within Western countries when analyzing the stereotypical socialization of girls and boys. In Canada, China, Finland, Germany, Poland, and Russia, men tend to be “more assertive and risk-taking than women”, hence scoring high on extrovertism and openness. This is likely caused by men and boys believing that boldness and dominance is the core of being masculine and are socialized “to be independent and autonomous”.^[<a href="https://ct.counseling.org/2022/06/the-effects-of-gender-socialization-on-boys-and-men/" target="_blank">Source.</a>] Risk-taking is also seen as highly-valued in our current society. We’re constantly trying to push the boundaries of every industry, whether it’s tech, cuisine, or sports — without taking risks and constant innovation, how could you stand out in society and prove your worth? 
+We can also see this happen (on a smaller scale) within Western countries when analyzing the stereotypical socialization of girls and boys. In Canada, China, Finland, Germany, Poland, and Russia, men tend to be “more assertive and risk-taking than women”, hence scoring high on extravertism and openness. This is likely caused by men and boys believing that boldness and dominance is the core of being masculine and are socialized “to be independent and autonomous”.^[<a href="https://ct.counseling.org/2022/06/the-effects-of-gender-socialization-on-boys-and-men/" target="_blank">Source.</a>] Risk-taking is also seen as highly-valued in our current society. We’re constantly trying to push the boundaries of every industry, whether it’s tech, cuisine, or sports — without taking risks and constant innovation, how could you stand out in society and prove your worth? 
 
 Women, on the other hand, were more “anxious and tender-minded” while also having higher neuroticism, agreeableness, and openness to *feelings* scores.^[<a href="https://archive.org/details/sim_journal-of-personality-and-social-psychology_2001-08_81_2/page/322" target="_blank">Source.</a>] Girls are socialized to be more passive than guys, are expected to be nicer and well behaved and not talk back to people, and are encouraged to share their feelings with their friends (where being more expressive and aware of emotions can be seen as a sign of overreaction or neuroticism).^[<a href="https://genderequalitylaw.org/examples-of-gender-stereotypes" target="_blank">Source.</a>] All these stereotypes and expectations — even if they were not intended to influence youth — are often encouraged by parents and play a role in how children identify which traits are ‘good’ and ‘bad’, thereby affecting how they act and what they believe. 
 
 
-Expanding this beyond the Western world and analyzing results from 55 different nations, the trend changes slightly: women scored higher in neuroticism, agreeableness, extroversion, and conscientiousness. However, men scored higher in assertiveness and openness. Neuroticism was the most significant difference — women scored significantly higher in 49 out of the 55 nations.^[<a href="https://pubmed.ncbi.nlm.nih.gov/18179326/" target="_blank">Source.</a>] 
+Expanding this beyond the Western world and analyzing results from 55 different nations, the trend changes slightly: women scored higher in neuroticism, agreeableness, extraversion, and conscientiousness. However, men scored higher in assertiveness and openness. Neuroticism was the most significant difference — women scored significantly higher in 49 out of the 55 nations.^[<a href="https://pubmed.ncbi.nlm.nih.gov/18179326/" target="_blank">Source.</a>] 
 
 Socioeconomic factors also influenced gender differences. First, there were larger differences between men and women in healthy, rich, and gender-egalitarian cultures. This is likely because there are higher levels of human development (with better access to education, basic needs, etc.), allowing an individual's personality to flourish with less constraints. 
 
@@ -398,33 +398,38 @@ There are 4 principle psychological functions, presented as two pairs:
 
 Intuition / Sensing are irrational and focus on how we perceive the world and gather information. Thinking / Feeling are rational functions that focus on how we judge and process information. Intuition is the gut decision, sensing tells us that a thing exists, thinking tells us what the thing is, and feeling tells us how much this thing is worth to us. 
 
-These four functions can be split into attitude-types, where you’re either E (Extroverted) or I (Introverted).^[These do not follow Eysenck's definition.] It can generally be described that extroverted functions focus outwards, directing their interest towards the external environment and act in relation to outward factors. Introverted functions are focused inwards, where the person and their thoughts are the motivating factors on how the function acts. 
+These four functions can be split into attitude-types, where you’re either E (Extraverted) or I (Introverted).^[These do not follow Eysenck's definition.] It can generally be described that extraverted functions focus outwards, directing their interest towards the external environment and act in relation to outward factors. Introverted functions are focused inwards, where the person and their thoughts are the motivating factors on how the function acts. 
 
 Using the psychological functions and attitudes, you can create the 8 basic types of Jung Typology: 
 
 Ne 
+
 - Creates possibilities for many situations in their mind, connecting seemingly unconnected topics to construct new conceptual ideas, focus on divergent thinking 
 - Maintains flexibility, enjoys freedom to explore new things, such as new knowledge and  opportunities for change and progress, all based on what has the most potential 
 - Find novel objects with intensity, often dropping them quickly and cold-bloodedly after the potential has been realized or is ‘unentertaining’ 
 Examples: John Lennon, Robert Downey Jr., Iron Man (from the MCU)
 
 Ni
-- Focus on realizing ideals (how people live up to their potential) and convergent thinking
+
+- Focus on realizing ideals (how people live up to their potential) and convergent thinking (where they seem to intuitively figured something out, and the rest of the mind needs to catch up to understand why something seems 'right')
 - Interpretive approach to live, filtering signs, symbols, and metaphors to have their own personal significance to create their own vision of the world 
 - Driven to find meaning and truth, making decisions off future implications 
 Examples: Elon Musk, Jordan Peterson, Beth Harmon (from Queen’s Gambit)
 
 Se
+
 - Perceives the world in a realistic and objective way through external phenomena, enjoys experiencing concrete experiences causing physical sensations 
-- Tend to focus on *action*, where they’ll do something, observe results, and immediately make a physical readjustment and try again 
+- Tend to focus on *external action*, where they’ll do something, observe results, and immediately make a physical readjustment to try again 
 - Very adaptable, making use of their past experiences and sensations, enjoys living in the moment 
 
 Example: Freddie Mercury, Madonna, Hinata Shoyo (from Haikyuu!!!)
 
 Si
+
 - Has a consistent, methodical, and detailed approach to life
-- Seeks stability, security and familiarity, making decisions off personal priorities, passions, and commitments 
-- Typically calm and has good self-control
+- Seeks stability, security and familiarity, making decisions off personal priorities, passions, and commitments. Typically calm and has good self-control. 
+- When experiencing things, they focus on their internal *impression* and their inner thoughts, observing more than acting. 
+
 Examples: Beyonce, Sigmund Freud, Captain America (from the MCU)
 
 
@@ -432,16 +437,20 @@ Te
 
 - Places importance of information, such as facts
 - Creates and adopts universally objective standards (to place onto themselves, which are collectively agreed upon) 
-- Keeps a structural approach, keeping a framework of order to make planes and establish routines 
+- Keeps a structural approach, keeping a framework of order to make planes and establish routines, doing things effectively is important 
+- They see the world as a collection of problems and actively work to solve these problems and capitalizing on opportunies to get what they want. 
 
 Examples: Malcolm X, Michelle Obama, Mike Wazowski (from Monsters, Inc.)
 
 Ti
-- Develop their own complex internal frameworks, constantly comparing new information to their systems 
+
+- Develop their own complex frameworks, constantly comparing new information to their internal systems
 - Logical and analytical, values intelligence, knowledge, and mastery, and taking calculated and well-thought out actions. 
 
+Examples: Einstein, Bruce Lee, Senku Ishigami (from Dr. Stone)
 
 Fe
+
 - Feelings and judgements are created relative to objective conditions and general values 
 - Maintains universally applied group values and uses them to set priorities, make decisions, and anticipate other’s behavior 
 - Harmoniously live with external environment, typically seen as warm and inviting  
@@ -450,11 +459,44 @@ Fe
 Examples: Zendaya, Mariah Carrey, Cedric Diggory (from Harry Potter)
 
 Fi
+
 - Focuses on their own individuality and their needs and desires to navigate life 
 - Solid idea of personal integrity and their ideas, emotions, beliefs, and feelings 
 - “Do I like this?” “Is this authentic to myself?”
 
 Examples: Mitski, Brad Pitt, Remy (from Ratatouille) 
+
+Due to the relative popularity of both tests, it’s no surprise that people have acknowledged and researched the potential connections between the Big Five and Jung’s psychological types. However, I find it fascinating that this was a research topic in 1989 by McCrae and Costa — I didn’t realize there was enough interest to generate an entire paper on it! 
+
+In the study Reinterpreting the Myers-Briggs Type Indicator From the Perspective of the Five-Factor Model of Personality, McCrae and Costa analyzed data from 267 men and 201 women to show that intuition, sensing, perceiving, and thinking converged with the Big Five traits. 
+
+- Extraversion correlates positively with extraversion and negatively with introversion 
+
+With extroverts focusing on the external world and introverts focusing on their internal world (their own thoughts), it’s no wonder that extroverted care more to associate with others and gain energy from external sources — that’s how they instinctively process the world. Of course, this comparison is not perfectly accurate as Eysenck relates to people while Jung’s talks about every external experience. However, it’s clear that there is a slight correlation between both definitions. 
+
+- Conscientiousness correlated positively with judging (Thinking/Feeling) and negatively with perceiving (Intuition/Sensing) 
+
+Judging functions are said to take the information that the perceiving functions give them and process it. The processing of information typically results in actionable results, developing the the thought stating I *should* or *should not* do something. This aligns with conscientiousness as there are thoughts that result in tangible action and improvement, while perceiving functions tend to simply *obtain* the information and don’t necessarily *do* anything with it. 
+
+- Agreeableness correlates positively with feeling and negatively with thinking
+
+Feelers tend to care about people, placing importance on others and themselves. With a strong emphasis on empathy and understanding, it’s no wonder they tend to be more agreeable. Thinkers, on the other hand, tend to focus on accuracy and logic above all else. This means that they are happy to disagree with others and stay detached if it allows them to be closer to the objective truth.
+
+- Openness correlated positively with intuition and negatively with sensing 
+
+This is best shown through the dichotomy of Ne and Si. Ne focuses heavily on new possibilities and exploring different connections between topics. This requires them to be open to new experiences and sensations, observing as much as they can to obtain the novelty they desire. Si, on the other hand, tends to be more cautious and traditional, staying calm and evaluating the pros and cons of an action before continuing. This hesitance results in lower openness, as they become more wary of the world. 
+
+- Neuroticism does not correlate to any functions or attitudes. 
+
+I’m not quite sure why this is the case. I’d expect that intuitives and feelers would be more prone to neuroticism. Intuitives are constantly thinking about the possibilities of the future, which can lead to overthinking and greater anxieties. As for feelers, it could be a combination of empathy and emotionality, while also thinkers generally being more logical than feelers. However, I think neuroticism can be controlled to some extent — whether that’s through therapy, coaching, or other methods — and one is not destined to be sadder due to your natural cognitive tendencies. I believe that neuroticism factors the environment and your childhood experiences rather than genetics (even though people can be predisposed to mental illnesses). 
+
+### Beyond ‘Beyond the Dataset’
+
+Beyond this research project, I think it could be incredibly worthwhile to explore the correlations between various psychological personality tests to create a comprehensive view of personality. Some other tests include Enneagram, Attitudinal Psyche, and Socionics. Of course, the validity of these tests can be questioned, especially as these tests are not embedded within the scientific psychology community and have not been rigorously examined. Even then, I still think it’s worth seeing the connections between everything. 
+
+I think our sample size from the Kaggle dataset was quite large — which I’m incredibly happy about. However, I’d be curious to these results match up with other online sites that track data for the Big Five. Are the trends that I found within the Open Psychometrics just limited to this site or is it applicable to all internet psychology enthusiasts! Are there discrepancies between what are the most common types? Furthermore, doing additional research into the hypothesized population of each result. Is SCOAI the most common result because of sampling bias, or does it actually represent a large chunk of the population? Theoretical values of the Big Five are quite limited and I’d love to see a more rigorous study completed, giving me a more credible baseline to compare my experimental results to. 
+
+Lastly, I wish I could’ve added more ‘applicable’ conclusions within this project. A lot of it was comparing traits against intangible scales, such as the Big Five against other tests, the Big Five against theoretical values, the Big Five against different countries. Or, it was analyzing the Big Five test itself, rather than the results. I’d be interested in doing more research into how the Big Five affects learning styles or how to better yourself once you know your Big Five traits. How could you become less neurotic? The positive and negative effects of extrovertism and introvertism. I’d like to tackle the problem of ‘How can Big Five change your life’ — your Big Five result doesn’t matter, it’s what you do *with* your knowledge of your Big Five traits. 
 
 
 rmarkdown::render('C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.Rmd', output_file = 'C:/Users/sophi/OneDrive/Documents/Personal/bigfive/docs/beyond.html')

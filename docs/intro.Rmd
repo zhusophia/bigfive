@@ -32,8 +32,15 @@ If you’re interested in a specific part, you may skip ahead:
 
 **Further Analysis** 
 
-7. Limitations of Big Five 
-8. Connection of Big Five and Daily Life
+7. [Defintions](beyond.html#definitions)
+8. [Origins](beyond.html#origins) 
+9. [Strengths](beyond.html#strengths)
+10. [Limitations](beyond.html#limitations)
+11. [Applications in Society](beyond.html#applications)
+12. [Potential Improvements](beyond.html#improvements)
+13. [Spin-off Models](beyond.html#spinoff)
+14. [Connections to (Jungian) MBTI](beyond.html#mbti)
+15. [Beyond 'Beyond the Dataset'](beyond.html#future)
 
 ### Personal Objectives <a name="Objectives"></a>
 
@@ -47,13 +54,13 @@ After looking at the raw data, a few questions stood out to me:
 
 Questions 1 through 3 are pretty data-based as the answers lie somewhere within the raw data, allowing me to hone my skills of cleaning, manipulating, and visualizing data. Question 4, on the other hand, is far more speculation alongside slight research, where I draw from my experiences and Google's knowledge to form an answer. 
 
-Question 5 also allows me to explore the Big Five personality model based on my own interests. I want to see the underlying psychological principals and insights the Big Five provides, and how I can apply it to my daily life. Hence, I'll be spending some  time analyzing the system and understanding the concept as a whole. Together, these objectives make this project an enjoyable challenge to tackle. 
+Question 5 also allows me to explore the Big Five personality model based on my own interests. I want to see the underlying psychological principals and insights the Big Five provides, and how I can apply it to my daily life. Hence, I'll be spending some  time analyzing the system and understanding the concept as a whole. 
 
-But, let's take a detour from answering the above questions and establish the following: 
+Together, these objectives make this project an enjoyable challenge to tackle. But, let's take a detour from answering the above questions and establish the following: 
 
 ### What is the Big Five (SLOAN) <a name="SLOAN"></a>
 
-The Big Five is a personality model that categories people with 5 major personality traits: 
+The Big Five is a personality model that categories people with 5 major personality traits:^[<a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">Wikipedia, *Big Five personality traits*.</a>] 
 
 * *Extroversion* - Sociable / Reserved 
   * How outgoing are you? 
@@ -66,21 +73,15 @@ The Big Five is a personality model that categories people with 5 major personal
 * *Openness* - Inquisitive / Non-inquisitive (to new experiences)
   * Do you prefer familiarity? Is aesthetic important to you? 
 
-These five major traits can be broken down further. For example, extroversion contains 6 'faucets' like gregariousness, assertiveness, and excitement-seeking, and these faucets help you better understand what this test analyzes in regards to 'extrovertedness'. However, faucets are  beyond the scope of this investigation. More information can be found<a href="https://www.mindintertwined.com/blog/big-five-personality-traits-extroversion" target="_blank"> here.</a>
+These five major traits can be broken down further. For example, extroversion contains 6 'faucets' like gregariousness, assertiveness, and excitement-seeking, and they help you better understand what this test analyzes in regards to 'extrovertedness'. However, faucets are  beyond the scope of this investigation. More information can be found<a href="https://www.mindintertwined.com/blog/big-five-personality-traits-extroversion" target="_blank"> here.</a>
 
 To get your results, you determine which 'letter' you are for each category (e.g. If you're *more* social than reserved, then you'd say that you're an 'S'),^[Note that you're only looking for which side you identify with more. You're never ONLY going to be social or ONLY reserved. Human behaviour exists on a spectrum.] then combine your letters from all the categories together. For example, a possible result is RLOEN, standing for reserved, limbic, organized, egocentric and non-inquisitive. This can be seen by looking at the first letter of each trait. 
 
 However, if you really can't decide what you are, another possibility is replacing letters with an 'X'. For example, this can be seen in the potential combination of SXUAN. The 'X' in the neuroticism (2nd) slot means that you're in between calm and limbic, as you exhibit both traits equally and there is no 'conclusive' answer. However, it is extremely likely for people to identify with one side *slightly* more than the other, so having 'X' (denoting that you're perfectly in between) should not be a common occurrence.^[You'll actually see a surprising number of respondents have an 'X' in their results in this data set. However, I really do believe that people always lean more to one trait more than another, and you'll only receive an 'X' if you take a self-administered quiz -- after all, we're trying to compute humans and that will never result in a completely holistic judgement.]   
 
-I'm also using SLOAN formatting (i.e. Letters will be in the order of extroversion, neuroticism, conscientiousness, agreeableness, and openness) and will use the above wording (i.e. Agreeableness, Neuroticism) to describe the Big Five traits throughout the investigation. If you decide to do your own research, you'll likely see others using the CANOE or OCEAN formatting/use different words to describe the traits. 
+I'm also using SLOAN formatting (i.e. Letters will be in the order of extroversion, neuroticism, conscientiousness, agreeableness, and openness) and will use the above wording (i.e. Agreeableness, Neuroticism) to describe the Big Five traits throughout the investigation. If you decide to do your own research, you'll likely see others using the CANOE or OCEAN formatting or use different words to describe the traits.^[<a href="https://similarminds.com/sloan.html" target="_blank">https://similarminds.com/sloan.html</a>] 
 
 Interested in what your results are? The Open Psychometrics Big Five quiz can be <a href="https://openpsychometrics.org/tests/IPIP-BFFM/" target="_blank">taken here.</a>
-  
-**Citations**
-
-* <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">https://en.wikipedia.org/wiki/Big_Five_personality_traits</a>
-* <a href="https://similarminds.com/sloan.html" target="_blank">https://similarminds.com/sloan.html</a>
-
 
 ### Discussing Data <a name="ddata"></a>
 This quiz is self-administered, with 1,015,342 respondents answering 50 questions over ~2 years. Since we have 50 questions, this means that there were 10 questions correlated with each personality trait. 
@@ -97,7 +98,7 @@ You can find all the questions <a href="https://ipip.ori.org/newBigFive5broadKey
 
 Every respondent received the questions in the same questions, in the same order. However, the questions were displayed in a specific order, with questions following the pattern of Extroversion Q1, Agreeableness Q1, Conscientiousness Q1, Neuroticism Q1, Openness Q1, then moving onto Extroversion Q2, Agreeableness Q2, etc. Each rotation will be called a 'round', with 10 rounds in total.
 
-### Congrats! You've received a run-down of all the admin/context stuff!
+### Congrats! That's all the context you need :)
 
 Next: [Explore the Data](data.html)
 

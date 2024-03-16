@@ -1,5 +1,5 @@
 ---
-title: "Datalicious Depths of Delectable Data"
+title: "Data Analysis of Big Five Results"
 output: 
   html_document: 
     includes: 
@@ -57,10 +57,10 @@ paged_table(head(data))
 
 I've selected the first 6 columns of the data set... and it's not too bad! It's a little intimidating to think that there are over 1 million more rows, but we've gotta start somewhere >:)
 
-We start by calculating the scores for the 'Extroversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for EXTroversion) questions. However, it should be noted that answering a '4' or '5' on an EXT question doesn't always mean that a user is more extroverted. For example, answering 5 for "I don't talk a lot" vs. "I am the life of the party" would significantly affect your results. 
+We start by calculating the scores for the 'Extraversion' personality trait. We can do this by summing up the scores of the 10 EXT (standing for Extraversion) questions. However, it should be noted that answering a '4' or '5' on an EXT question doesn't always mean that a user is more extraverted. For example, answering 5 for "I don't talk a lot" vs. "I am the life of the party" would significantly affect your results. 
 
 So, we'll need to make sure to add and subtract scores as necessary, depending on how the questions are keyed. I've arbitrarily decided to 
-'positively key' questions symbolising extroversion (meaning that I'd add points to their total score if they showed signs of extroversion), and 'negatively key' questions symbolising introversion (subtracting points from their total score). See the table below to better understand this keying: 
+'positively key' questions symbolising extraversion (meaning that I'd add points to their total score if they showed signs of extraversion), and 'negatively key' questions symbolising introversion (subtracting points from their total score). See the table below to better understand this keying: 
 
 
 ```{r, exttablekey}
@@ -120,7 +120,7 @@ dfext <- data.frame(extlettercount = c(500346, 468068, 45144),
  pext <- ggplot(data=dfext, aes(x=extlettermap, y=extlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "Responders are More Introverted Than Extroverted",
+     title = "Responders are More Introverted Than Extraverted",
      subtitle = "Introverts, give me a cheer! Wait... why is it silent? Where did the introverts go?") + 
    xlab("Possible Results") +
    ylab("Amount of Responses")+
@@ -240,7 +240,7 @@ dfopn <- data.frame(opnlettercount = c(902605, 85372, 25581),
  plotopn <- ggplot(data=dfopn, aes(x=opnlettermap, y=opnlettercount)) +
    geom_bar(stat="identity", fill="steel blue") +
    labs(
-     title = "The Majourity Considers 
+     title = "The Majority Considers 
 Themselves as Inquisitive",
      subtitle = "BREAKING: People like learning,\nschools are just ineffective...\nallegedly") + 
    xlab("Possible Letters") +
@@ -329,7 +329,7 @@ avgscore <- slice_sample(avgscore, n=75) %>%
 avgscore <- data.table::as.data.table(avgscore, .keep.rownames = "word")
 avgscore <- as.data.frame(t(avgscore))
 
-colnames(avgscore) <- c("Extroversion", "Neuroticism", "Conscientiousness", "Agreeableness", "Openness")
+colnames(avgscore) <- c("Extraversion", "Neuroticism", "Conscientiousness", "Agreeableness", "Openness")
 
 kable(avgscore, caption = "Average Score for Each Personliaty Trait") %>% 
   kable_styling()
@@ -339,16 +339,16 @@ kable(avgscore, caption = "Average Score for Each Personliaty Trait") %>%
 
 ### Let’s try to analyze why these results happened.
 
-**Extrovertism**
+**Extravertism**
 
-Extrovertism is the most balanced trait, as there seems to be a nice mix of S(ocial) and R(eserved) – representative of the larger population. I’d assume this is because questions in this trait were very straightforward (e.g. “I start conversations”), and users likely display/are conscious of these behaviors in their everyday life. Hence, users will have a  more ‘objective’ viewpoint, leading to more accurate results. 
+Extravertism is the most balanced trait, as there seems to be a nice mix of S(ocial) and R(eserved) – representative of the larger population. I’d assume this is because questions in this trait were very straightforward (e.g. “I start conversations”), and users likely display/are conscious of these behaviors in their everyday life. Hence, users will have a  more ‘objective’ viewpoint, leading to more accurate results. 
 
-There are also about ~40k more introverts compared to extroverts. Maybe the Sociables aren’t as likely to spend 20 minutes on an online test, compared to the Reserved? 
+There are also about ~40k more introverts compared to extraverts. Maybe the Sociables aren’t as likely to spend 20 minutes on an online test, compared to the Reserved? 
 
 
 **Neuroticism**
 
-Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extrovertism section, the questions tend to be straightforward and (I think) there’s less self-bias within the trait, as I believe that many people are conscious of their experience with their emotions emotions, and whether or not they control them.  
+Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extravertism section, the questions tend to be straightforward and (I think) there’s less self-bias within the trait, as I believe that many people are conscious of their experience with their emotions emotions, and whether or not they control them.  
 
 There are ~60000 more limbic people compared to calm. I’m not really surprised - people are more stressed^[<a href="https://www.wbur.org/hereandnow/2022/07/13/stress-survey-gallup" target="_blank">Source.</a>] and more sad^[<a href="https://www.voanews.com/a/why-people-worldwide-are-unhappier-more-stressed-than-ever-/6658784.html" target="_blank">Source.</a>] than we’ve ever been. Furthermore, emotional regulation is a result of introspection and reflection. As our society slowly moves towards constant stimulation and overindulgence, it’s no wonder we struggle to achieve emotional stability. 
 
@@ -411,7 +411,7 @@ Looking at these tables, there’s a large discrepancy between theoretical and e
 
 I believe that most of it can be explained by the previous analysis: Wrong results might occur because of biases and societal norms (cementing the last two letters to be A and I and increasing the likelihood of an O vs. an U), in addition to the natural disposition of respondents. 
 
-Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are. My best guess is that SCOAI seems like one of the most 'socially-successful’ results, since extroverted, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive in this society. They tend to have larger social circles, better interpersonal relationships and private lives, and the ability to study and work hard to achieve their goals. 
+Honestly, I’m not too sure why 15% of people are SCOAI, maybe people are being influenced to answer what they WANT to be like, rather than what they actually are. My best guess is that SCOAI seems like one of the most 'socially-successful’ results, since extraverted, stable, organized, agreeable, and inquisitive are all attributes that allow people to thrive in this society. They tend to have larger social circles, better interpersonal relationships and private lives, and the ability to study and work hard to achieve their goals. 
 
 So, my best guess is that many respondents are not actually SCOAIs, and they're not answering these questions objectively.^[If you have more ideas, I’d love to hear them! Reach out :)]
 
@@ -534,7 +534,7 @@ knitr::kables(list(
 
 From the table above, it's pretty clear that countries have very similar trends. However, there are slight differences: 
 
-- The Philippines tends to be more introverted than extroverted. 
+- The Philippines tends to be more introverted than extraverted. 
 - The Philippines tends to be more limbic than calm. 
 - The Philippines is the only location to have an 'X' appear in their results.
 - The Philippines contains the only 'N', instead of 'I'.
@@ -623,8 +623,8 @@ pext <- ggplot() +
           color="white", size = 0.2) + 
   coord_cartesian(ylim = c(-50, 90)) + 
   labs(
-    title="Extroversion Scores of the World",
-    fill="Extroversion
+    title="Extraversion Scores of the World",
+    fill="Extraversion
 Averages", 
   )+ theme_minimal() + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
@@ -634,7 +634,7 @@ ggplotly(pext)
 
 ```
 
-Higher scores are correlated with extroversion, lower scores are correlated with introversion. 
+Higher scores are correlated with extraversion, lower scores are correlated with introversion. 
 
 ```{r, extworldtable}
 
@@ -648,8 +648,8 @@ botext <- extworld %>%
 
   
 knitr::kables(list(
-  kable(caption = "Most Extroverted", botext) %>% kable_styling(),
-  kable(caption = "Least Extroverted", topext) %>% kable_styling()
+  kable(caption = "Most Extraverted", botext) %>% kable_styling(),
+  kable(caption = "Least Extraverted", topext) %>% kable_styling()
   )
 ) %>% kable_styling()
 
@@ -657,13 +657,13 @@ knitr::kables(list(
 
 There doesn't seem to be an overarching trend in the world, but there are several generalizations. 
 
-- North America is slightly more introverted than extroverted. 
-- South America is more introverted than extroverted.
-- South and East Asia is slightly more extroverted than introverted.
-- Africa has a diverse smattering of extroversion/introversion scores. 
-- Europe is more introverted than extroverted. 
+- North America is slightly more introverted than extraverted. 
+- South America is more introverted than extraverted.
+- South and East Asia is slightly more extraverted than introverted.
+- Africa has a diverse smattering of extraversion/introversion scores. 
+- Europe is more introverted than extraverted. 
 
-It's quite interesting that Americans are stereotyped to be more extroverted and loud, while Asians are more introverted and quiet. Doesn't seem to apply to this data set!
+It's quite interesting that Americans are stereotyped to be more extraverted and loud, while Asians are more introverted and quiet. Doesn't seem to apply to this data set!
 
 
 ```{r, est world map, layout="l-body-outset"}
@@ -1107,7 +1107,7 @@ rqopnp
 
 For your reference: 
 
-- EXT = Extroversion (S/R)
+- EXT = Extraversion (S/R)
 - EST = Neuroticism (L/C)
 - CSN = Organization (O/U)
 - AGR = Agreeableness (A/E)
@@ -1305,7 +1305,7 @@ Examples include:
 
 I'm lying to you. These graphs don't have normal distributions. I'm just calling it normal distribution because the answer 3 (the middle) is the most common -- similar to a normal distribution graph. Quite frankly, I think this pattern means that people are either confused or they don't really have a large opinion on it, so they're almost forced to choose 3. These questions also seem to be the most 'observable/objective' of the bunch.
 
-Personally, I try to make a habit of not selecting 3 on these tests (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's typically associated with the extrovertism questions. 
+Personally, I try to make a habit of not selecting 3 on these tests (I'm not sure if others are the same), but it's still interesting to see. I feel like these things are not things to be 'proud' of or dislike about yourself, nor would you mention it unless prompted, which is likely why it's typically associated with the extravertism questions. 
 
 Examples Include: 
 

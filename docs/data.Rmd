@@ -350,7 +350,7 @@ There are also about ~40k more introverts compared to extraverts. Maybe the Soci
 
 Once again, a solid distribution of results between C(alm) and L(imbic), mirroring what I’d expect the general population to be like. Similar to the extravertism section, the questions tend to be straightforward and (I think) there’s less self-bias within the trait, as I believe that many people are conscious of their experience with their emotions emotions, and whether or not they control them.  
 
-There are ~60000 more limbic people compared to calm. I’m not really surprised - people are more stressed^[<a href="https://www.wbur.org/hereandnow/2022/07/13/stress-survey-gallup" target="_blank">wbur, *It's not just you: A new survey shows the world is more stressed out than ever*</a>] and more sad^[<a href="https://www.voanews.com/a/why-people-worldwide-are-unhappier-more-stressed-than-ever-/6658784.html" target="_blank">VOA, *Why People Worldwide Are Unhappier, More Stressed Than Ever*.</a>] than we’ve ever been. Furthermore, emotional regulation is a result of introspection and reflection. As our society slowly moves towards constant stimulation and overindulgence, it’s no wonder we struggle to achieve emotional stability. 
+There are ~60000 more limbic people compared to calm. I’m not really surprised - people are more stressed^[<a href="https://www.wbur.org/hereandnow/2022/07/13/stress-survey-gallup" target="_blank">wbur, *It's not just you: A new survey shows the world is more stressed out than ever*.</a>] and more sad^[<a href="https://www.voanews.com/a/why-people-worldwide-are-unhappier-more-stressed-than-ever-/6658784.html" target="_blank">VOA, *Why People Worldwide Are Unhappier, More Stressed Than Ever*.</a>] than we’ve ever been. Furthermore, emotional regulation is a result of introspection and reflection. As our society slowly moves towards constant stimulation and overindulgence, it’s no wonder we struggle to achieve emotional stability. 
 
 **Conscientiousness, Agreeableness, and Openness**
 
@@ -801,8 +801,8 @@ knitr::kables(list(
 For conscientiousness, Africa is lit up like a Christmas tree! North America is also pretty light. On the other hand, South America is quite dark. 
 
 
-I find it interesting that Asia, which is known for their disciplined schedules and focus, seems to be quite average. Furthermore, Sub-Saharan Africa seems to be incredibly conscientious - yet, there's a direct link between low conscientiousness and poverty.^[<a href="https://www.econlib.org/archives/2009/03/econlog_book_cl_10.html" target="_blank">Caplan, *For a New Liberty, Chapter 8*.</a>,
-<a href="https://issafrica.org/iss-today/africa-is-losing-the-battle-against-extreme-poverty" target="_blank">report of poverty in Sub-Saharan Africa</a>] Is this just another instance of self-bias? 
+I find it interesting that Asia, which is known for their disciplined schedules and focus, seems to be quite average. Furthermore, Sub-Saharan Africa seems to be incredibly conscientious - yet, there's a direct link between low conscientiousness and poverty.^[<a href="https://www.econlib.org/archives/2009/03/econlog_book_cl_10.html" target="_blank">Caplan, *For a New Liberty, Chapter 8*</a>,
+<a href="https://issafrica.org/iss-today/africa-is-losing-the-battle-against-extreme-poverty" target="_blank">Aikins, *Africa is losing the battle against extreme poverty*.</a>] Is this just another instance of self-bias? 
 
 
 ```{r, agr world map, layout="l-body-outset"}

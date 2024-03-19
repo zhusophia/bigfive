@@ -18,7 +18,7 @@ library(stringr)
 
 Want to jump to a specific section? 
 
-- [Defintions](#definitions)
+- [Definitions](#definitions)
 - [Origins](#origins) 
 - [Strengths](#strengths)
 - [Limitations](#limitations)
@@ -39,7 +39,7 @@ When discussing the Big Five, several bits of terminology need to be understood:
 
 **Temperament**: “Physical, mental, and emotional traits people are born with.”^[<a href="https://hrdqstore.com/blogs/hrdq-blog/difference-behavior-personality-temperament" target="_blank">Glaser, *The Difference Between Behavior, Personality, and Temperament*.</a>]
 
-Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Wikipedia, *Temperament*.</a>] However, temperament is considered to have a seperate model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
+Many consider temperament as a subset of personality.^[<a href="https://en.wikipedia.org/wiki/Temperament" target="_blank">Wikipedia, *Temperament*.</a>] However, temperament is considered to have a separate model called the CBQ (Children’s Behavior Questionnaire) with the following three traits: 
 
 - Negative Affectivity (Neuroticism)
 - Surgency Extraversion (Extraversion)
@@ -64,7 +64,7 @@ This clarification may be redundant -- many people have only heard of Eysenck’
 
 That’s the idea that started the Big Five Personality Test.^[<a href="https://www.discovermagazine.com/mind/understanding-the-big-five-personality-traits" target="_blank">Allen, *Understanding the “Big Five” Personality Traits*.</a>] After all, humans were greedy for more, desperate to understand human personality, and longed to map it out qualitatively.  
 
-Since the 1880s, scientists have been interested in personality. But, it only became official in 1936 when Gordon Allport and Henry Odbert conducted the first personalty study. They gathered 18000 personality-describing words from the Webster’s Dictionary, then narrowed it down to 4504 adjectives to describe non-physical characteristics. This created the first ‘personality wordbank’ -- a 'comphrehensive' way to describe personality.
+Since the 1880s, scientists have been interested in personality. But, it only became official in 1936 when Gordon Allport and Henry Odbert conducted the first personality study. They gathered 18000 personality-describing words from the Webster’s Dictionary, then narrowed it down to 4504 adjectives to describe non-physical characteristics. This created the first ‘personality word bank’ -- a 'comprehensive' way to describe personality.
 
 Through the work of Cattell, Tupes and Christal, Fiske, Norman, Smith, McCrae, and Costa^[<a href="www.thomas.co/resources/type/hr-guides/what-are-big-5-personality-traits" target="_blank">Darby, *What Are The Big 5 Personality Traits?*.</a>], and many others, the test has undergone several revisions, expansions, and improvements. However, the purpose and the ideas within the test remains the same.^[<a href="https://www.retorio.com/blog/big-5-history-psychometric-test" target="_blank">T., *History of the Big 5: Why This Online Psychometric Test Packs a Punch*.</a>]  
 
@@ -253,7 +253,7 @@ This results in acquiescence bias, as mentioned previously.
 
 3. All on one page 
 
-Since respondents see all the questions at once, they may choose to rush through the quiz to get their results instead of carefully thinking about the questions. This results in respondents satisficing instead of optimizing their responses for accuracy, potentially leaing to skewed answers.^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">DeBell et al., *Improving the Measurement of the “Big Five” Personality Traits in a Brief Survey Instrument*. </a>]   
+Since respondents see all the questions at once, they may choose to rush through the quiz to get their results instead of carefully thinking about the questions. This results in respondents satisficing instead of optimizing their responses for accuracy, potentially leading to skewed answers.^[<a href="https://electionstudies.org/wp-content/uploads/2018/03/2013APSA_DeBell_Brader_Wilson_Jackman.pdf" target="_blank">DeBell et al., *Improving the Measurement of the “Big Five” Personality Traits in a Brief Survey Instrument*. </a>]   
 
 To combat these issues, the researchers decided to change the TIPI into the following format: 
 
@@ -392,7 +392,7 @@ These changes emerged after conducting lexical studies (for lexical hypothesis) 
 
 Compared to the Big Five, HEXACO is shown to have more predictive power when determining psychopathic traits, egoism, risk-taking, materialism, and unethical business decisions. These results seem a lot more applicable in a corporate context compared to the Big Five — could this be the future of hiring systems?^[<a href="sciencedirect.com/science/article/abs/pii/S0191886920301914" target="_blank">Feher and Vernon, *Looking beyond the Big Five: A selective review of alternatives to the Big Five model of personality*.</a>]   
 
-Personally, I find that each spin-off model presents a new aspect or has additions that could be considered when evaluating one’s personality. To contribute and grow our understanding of personality, we must be willing to innovate, destroy, and improve previous knowledge to emphasize the most accurate and applicable data. Hence, taking these models into consideration and expanding the Big Five to shore up weakenesses is something I'd be interested in seeing -- how much better can it get? 
+Personally, I find that each spin-off model presents a new aspect or has additions that could be considered when evaluating one’s personality. To contribute and grow our understanding of personality, we must be willing to innovate, destroy, and improve previous knowledge to emphasize the most accurate and applicable data. Hence, taking these models into consideration and expanding the Big Five to shore up weaknesses is something I'd be interested in seeing -- how much better can it get? 
 
 ### Connections to MBTI <a name="mbti"></a>
 
